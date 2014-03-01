@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="css/category.css" rel="stylesheet" type="text/css" />
+<!-- {if $cat_style} -->
+<link href="{$cat_style}" rel="stylesheet" type="text/css" />
+<!-- {/if} -->
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,global.js,compare.js'}
+<script language="javascript" type="text/javascript">
+	function newCall(id){
+		 Ajax.call('category.php?action=new', 'id=' + id, function(str){
+			$(".product_list_area").html(str);	
+		 
+		 }, 'POST', 'JSON');
+	 }
+</script>
+</head>
+<body>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<!--
+<div class="block box">
+ <div id="ur_here">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+ </div>
+</div>
+-->
+<!--当前位置 end-->
+<div class="content">
+    <div class="product_list_area">
+        <!--{foreach from=$goods_list item=goods_list_array}-->
+            <div class="goods_item">
+                <div class="img">
+                        <a href="{$goods_list_array.url}"><img src="{$goods_list_array.goods_img}" width="132px" height="242px"></a>
+                </div>
+                <div class="title">
+                    {$goods_list_array.name}
+                </div>
+                <div class="price">
+                    {$goods_list_array.shop_price}
+                </div>
+            </div>
+         <!--{/foreach}-->
+    </div>
+    <div class="page_area">
+    	<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->	
+    </div>
+</div>
+<!--友情链接 end-->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

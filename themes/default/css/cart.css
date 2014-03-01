@@ -1,0 +1,422 @@
+input{
+
+	font-size:12px;
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+.inputBg2{
+
+	width:200px;
+
+}
+
+.cartBox{
+
+	width:78%;
+
+	background-color:#ffffff;
+
+	float:right;
+
+	min-height: 400px;
+	margin-top: 50px;
+
+}
+.cartBox .bag_null{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:20px;
+	text-align:center;
+	padding-top:50px;
+}
+.cartBox .bag_null a{
+	color:#999999;
+	text-decoration:none;
+}
+
+.guocheng{
+
+		height:24px; 
+
+		line-height:24px; 
+
+		text-align:right; 
+
+		font-size:12px;
+
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+.boxArea{
+
+
+
+		text-align:center; 
+
+		font-size:11px;
+
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+
+		padding-top:20px;
+
+		padding-bottom:20px;
+
+
+
+}
+
+.guocheng .select{
+
+	font-weight:bold;
+
+
+
+}
+
+.guocheng span{
+
+	float:left; 
+
+	padding-left:30px;
+
+}
+.span_r{
+margin-left:30px;
+
+
+}
+
+.button2{
+
+	display:block;
+
+	width:160px;
+
+	height:30px;
+
+	line-height:30px;
+
+	background-color:#999999;
+
+	color:#ffffff;
+
+	cursor:pointer;
+
+}
+
+.button3{
+
+	display:block;
+	
+
+	width:120px;
+
+	height:28px;
+
+	line-height:30px;
+
+	background-color:#999999;
+
+	color:#ffffff;
+
+	cursor:pointer;
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	
+	border: medium none;
+	
+    border-radius: 5px 5px 5px 5px;
+
+}
+
+.button4{
+
+	display:block;
+
+	padding:5px 10px;
+
+	line-height:30px;
+
+	background-color:#999999;
+
+	color:#ffffff;
+
+	cursor:pointer;
+
+
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	
+	border: medium none;
+	
+    border-radius: 5px 5px 5px 5px;
+
+
+
+}
+
+h5{
+
+	background-color:#ffffff;
+
+	color: #000000;
+
+    font-size: 19px;
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+
+
+h5 span{
+
+	background:none;
+
+    padding-left: 25px;
+
+	font-weight:normal;
+
+}
+
+.blank2pxLine{
+
+	width: 730px;
+
+	height: 13px;
+
+	border-bottom:2px solid #bbbbbb;
+
+	clear: both;
+
+    line-height: 2px;
+
+}
+
+.infoArea{
+
+	width:610px;
+
+	padding-left:120px;
+
+	background-color:#ffffff;
+
+	text-align:left;
+
+	padding-bottom:30px;
+
+}
+
+.infoArea2{
+
+	width:610px;
+
+	padding-left:20px;
+
+	background-color:#ffffff;
+
+	text-align:left;
+
+	padding-bottom:30px;
+
+}
+
+
+
+.infoModel{
+
+	width:600px;
+
+	margin-left:0px;
+
+	padding-top:50px;
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+.infoModel2{
+
+	width:600px;
+
+	margin-left:0px;
+
+	padding-top:20px;
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+.infoModel .title,.infoModel2 .title{
+
+	font-size:15px;
+
+	color:#444;
+
+	font-weight:bold;
+
+}
+
+.infoModel .info,.infoModel2 .info{
+
+	width:650px;
+
+	color:#444;	
+
+	text-align:left;
+
+	padding-top:5px;
+
+	padding-bottom:5px;
+
+	margin-left:0px;
+
+	margin-top:20px;
+
+	float:left;
+
+	
+
+}
+
+.infoModel .info .addressBox,.infoModel2 .info .addressBox{
+
+	
+
+	background-color:#eeeeee;
+
+	float:left;
+
+	margin-left:5px;
+
+	margin-top:5px;
+
+	padding: 13px;
+
+
+
+
+
+}
+
+.infoModel .info .title,.infoModel2 .info .title{
+
+	font-size:17px;
+
+	display:block;
+
+	font-weight:normal;
+
+}
+
+
+.infoModel .info .con,.infoModel2 .info .con{
+
+	font-size:13px;
+
+	display:block;
+
+}
+
+.infoModel .info .caozuo,.infoModel2 .info .caozuo{
+
+	font-size:12px;
+
+	display:block;
+
+	
+
+}
+
+.infoModel .info .caozuo ul li,.infoModel2 .info .caozuo ul li{
+
+	float:left;
+
+	margin-left:5px;
+
+}
+
+.infoModel .subButton{
+
+	width:230px;
+
+	background-color:#bbbbbb;
+
+	color:#fff;	
+
+	text-align:center;
+
+	cursor:pointer;
+
+	padding-top:5px;
+
+	padding-bottom:5px;
+
+	margin-left:0px;
+
+	margin-top:20px;
+
+	float:left;
+
+}
+
+.subButton a{
+
+	color:#fff;
+
+	text-decoration:none;
+
+}
+
+.addAddr{
+
+	 padding-left:20px;
+
+	 font-family:Verdana, Arial, Helvetica, sans-serif;
+
+	 font-size:14px;
+
+}
+
+.addAddr input,select,option{
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+	font-size:12px;
+
+}
+
+.addAddr input{
+
+	width:200px;
+
+	height:25px;
+
+	border:1px solid #000;
+
+}
+/*done*/
+.done_cartBox{
+
+	width:78%;
+
+	background-color:#ffffff;
+
+	float:right;
+
+	min-height: 400px;
+
+}
+.done_title{
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+	padding-top:50px;
+
+}
+
+
+

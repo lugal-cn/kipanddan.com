@@ -1,0 +1,49 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{insert_scripts files='transport.js,utils.js'}
+
+<div id="ECS_ORDERTOTAL">
+				<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#ffffff">
+					<tr>
+						<td width="50%">
+						</td>
+						<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">
+							Sub-total:
+						</td>
+						<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">
+							{$total.goods_price_formated}
+						</td>
+					</tr>
+					<tr>
+						<td width="50%"></td>
+						<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">Shipping</td>
+                        {if $total.shipping_fee > 0}
+							<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">{$total.shipping_fee_formated}</td>
+                        {else}
+                        	<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">$0.00 AUD</td>
+                        {/if}
+					</tr>
+					<tr>
+						<td width="50%"></td>
+						<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">Discounts</td>
+                        {if $total.discount gt 0} 
+							<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">-{$total.discount_formated}</td>
+                        {else}
+                        	<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">-$0.00 AUD</td>
+                        {/if}
+					</tr>
+					<tr>
+						<td width="50%"></td>
+						<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">Total</td>
+						<td width="25%" style="border-bottom:2px solid #ddd;font-size:13px" align="center" bgcolor="#ffffff">{$total.amount_formated}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="center" bgcolor="#ffffff" style="border-bottom:2px solid #ddd;">
+							<input name="submit" type="submit" class="button3" value="Submit" />
+						</td>
+					</tr>
+				</table>
+
+
+</div>

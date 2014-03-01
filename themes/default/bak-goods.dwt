@@ -1,0 +1,678 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="Keywords" content="{$keywords}" />
+
+<meta name="Description" content="{$description}" />
+
+<!-- TemplateBeginEditable name="doctitle" -->
+
+<title>{$page_title}</title>
+
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+
+<link rel="shortcut icon" href="favicon.ico" />
+
+
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+
+<link href="css/goods.css" rel="stylesheet" type="text/css" />
+
+<link href="css/shadowbox.css" rel="stylesheet" type="text/css" />
+
+{* 包含脚本文件 *}
+
+{insert_scripts files='common.js'}
+
+{insert_scripts files='jquery-1.10.2.min.js'}
+
+{insert_scripts files='shadowbox.js'}
+
+{insert_scripts files='goods_page.js'}
+
+{insert_scripts files='transport.js'}
+
+	<script language="javascript">
+
+		Shadowbox.init({
+
+				overlayColor: "#000",
+
+				overlayOpacity:"0.8",
+
+				enableKeys:false
+
+		});
+
+		function openSB(path,width,height){
+
+				var Shadowbox = window.parent.Shadowbox;
+
+					Shadowbox.gallery[Shadowbox.current].content = path;
+
+					Shadowbox.gallery[Shadowbox.current].width = width;
+
+					Shadowbox.gallery[Shadowbox.current].height = height;
+
+					Shadowbox.gallery[Shadowbox.current].player = 'iframe';
+
+					Shadowbox.change(Shadowbox.current);
+
+		}
+
+		
+
+		function openoption(){
+			var sw =$("#size_dec").attr('title');
+			
+			if(sw == 'close'){
+			
+				$(".dec").hide();
+				$("#size_dec").addClass("size_dec_boder");
+				$(".basket_wish").hide();
+				$(".size_list").show();
+				
+				$("#size_dec").attr('title','open');
+			}else{
+			
+				$(".dec").show();
+				$("#size_dec").removeClass("size_dec_boder");
+				$(".basket_wish").show();
+				$(".size_list").hide();
+				
+				$("#size_dec").attr('title','close');
+			}
+			
+
+			
+
+		/*
+
+			var string ='';
+
+			var selected_size = $("#size_option").attr('value');
+
+			
+
+				    
+
+					string +='<div id="opensize_box">';
+
+						string +='<ul>';
+
+							string +='<li id="size_26">Select your size: </li>';
+
+							string +='{foreach from=$specification item=spec key=spec_key}';
+
+								string +='{if $spec.name eq size}';
+
+									string +='{foreach from=$spec.values item=value key=k}';
+
+								
+
+									if(selected_size == {$value.id}){
+
+										string +='<li id="size_{$value.id}"><a href="#" onclick="click_size({$value.id})" style="background-color:#aaaaaa">{$value.label}</a></li>';
+
+									}else{
+
+										string +='<li id="size_{$value.id}"><a href="#" onclick="click_size({$value.id})">{$value.label}</a></li>';
+
+									}
+
+									string +='{/foreach}';
+
+								string +='{/if}';
+
+								string +='{/foreach}';
+
+						string +='</ul><br>';
+
+						string +='<ul>';
+
+						string +='<li><img src="/an_website/data/afficheimg/website size chart.jpg" width="410px"></li>';
+
+						string +='</ul>';
+
+					string +='</div>';
+
+					
+
+					Shadowbox.open({
+
+						content:    string,
+
+						player:     "html",
+
+						height:     500,
+
+						width:      502
+
+					});
+
+				*/
+
+		}
+
+		function opendes(){
+
+			var color = $("#color_title").attr("title");
+
+			var color_id = $("#color_option").attr('value');
+
+			if(color == ''){
+
+				alert('please select a color');
+
+			}else{
+
+				Shadowbox.open({
+
+						content:    'goods.php?act=ajax_product_info&id={$id}&color_id='+color_id,
+
+						player:     "iframe",
+
+						height:     500,
+
+						width:      600
+
+					});
+
+			}
+
+		}
+
+		//当点击尺寸的时候，将尺寸的样式修改
+
+		function click_size(id,size){
+
+			var attr_id =id; 
+
+			var select_size =size; 
+
+			if(attr_id == ''){
+
+				alert("Please Choose size");
+
+			}else{
+
+				//将当前的样式改变
+
+				$(".size").text('Size:'+select_size);
+
+				$("#size_option").attr('value',attr_id);
+
+				$(".dec").show();
+
+				$("#size_dec").removeClass("size_dec_boder");
+
+				$(".basket_wish").show();
+
+				$(".size_list").hide();
+
+			}
+
+		}
+
+		function click_color(id){
+
+			var attr_id =id; 
+			
+			if(attr_id == ''){
+
+				alert("Please Choose color");
+
+			}else{
+
+				$("#color_option").attr('value',id);
+
+			}
+
+		}
+
+		$(document).ready(function(){
+
+			// 点击布料的时候，该布料就会改变样式
+					
+
+			$(".color_area").click(function(e) {
+
+				$(this).css("border-color", "#fff");
+
+				$(this).siblings().css("border-color", "#ffffff");
+
+				$(this).css({opacity:1});
+				
+				$(this).siblings().css({opacity:0.5});
+				
+			
+
+				//ajax 
+
+				var Color_Id = $(this).attr('id');
+
+				var id = {$id};
+
+				
+
+				var data={
+
+					goods_id       :id,
+
+					color_id :Color_Id
+
+				}
+
+				$.post("goods.php?act=return_change_color",data,function(msg){
+
+				 	var jsonobj=eval('('+msg+')');					
+
+					$(".goods_img_area").html(jsonobj.result);
+
+					
+
+					//将id为color_title的title属性改为colorid
+
+					$("#color_title").attr("title",Color_Id);
+
+					$("#color_r").text(jsonobj.color_name);
+
+				})
+
+			});
+
+                        
+                        $(".color_card img").each(function(){
+				$(this).load(function(){
+					$(this).css("left",-($(this).width()-98)/2+"px");
+				});
+			});
+		});
+
+		/**
+
+		 * 点选可选属性或改变数量时修改商品价格的函数
+
+		 */
+
+		function changePrice()
+
+		{
+
+		  var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+
+		  var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+
+
+
+		  Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'GET', 'JSON');
+
+		}
+
+
+
+		/**
+
+		 * 接收返回的信息
+
+		 */
+
+		function changePriceResponse(res)
+
+		{
+
+		  if (res.err_msg.length > 0)
+
+		  {
+
+			alert(res.err_msg);
+
+		  }
+
+		  else
+
+		  {
+
+			document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+
+
+
+			if (document.getElementById('ECS_GOODS_AMOUNT'))
+
+			  document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+
+		  }
+
+		}
+
+		<!-- {/literal} -->
+
+			
+								function popSizeChart(m){
+											
+								var a = window.open('goods.php?act=open_chart','newwindow','height=900,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no');
+										 a.focus();
+														  
+												  
+								}
+
+
+	</script>
+
+</head>
+
+<body>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+	<div class="content">
+
+   		
+
+            <div class="goods_detail_area">
+
+            	<div class="goods_detail">
+
+					<form action="javascript:addToCart({$goods.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+
+					
+
+					<input type="hidden" name="goods_id" value="{$goods.goods_id}"  />
+
+					
+
+                	<div class="title">{$goods.goods_name}</div>
+
+                    <div class="price">${$goods.shop_price} AUD</div>
+
+					<!--超过6个出现滚动条-->
+
+					
+
+					<div class="suits" style="overflow-y: scroll; height:240px;width:400px">
+
+						<div class="color" id="color_title" title="{$frist_color_view}">
+
+							{foreach from = $specification key=k_id item =item}
+
+									{if $item.name eq "color"}
+
+										{foreach from = $item.values key=k item=color1}
+
+											{if $k eq 0}
+
+												 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;">
+
+													  {foreach from =$pictures key=k item =color2}
+
+															{if $color1.label eq $color2.img_desc}
+
+																	<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}"></div>
+
+															{/if}
+
+													   {/foreach}
+
+													   <div class="color_sign">{$color1.label}</div>
+
+												  </div>
+
+											{else}
+
+											<!--当是多个颜色的时候，每三个让他换行-->
+
+												{if $k mod 3 == 2}
+
+													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;">
+
+														  {foreach from =$pictures key=k item =color2}
+
+																{if $color1.label eq $color2.img_desc}
+
+																		<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}"></div>
+
+																{/if}
+
+														   {/foreach}
+
+														   <div class="color_sign">{$color1.label}</div>
+
+													 </div>
+
+													 <div style="clear:both"></div>
+
+												{else}
+
+													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;">
+
+														  {foreach from =$pictures key=k item =color2}
+
+																{if $color1.label eq $color2.img_desc}
+
+																		<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}"></div>
+
+																{/if}
+
+														   {/foreach}
+
+														   <div class="color_sign">{$color1.label}</div>
+
+													 </div>
+
+												{/if}
+
+											{/if}
+
+										{/foreach}
+
+									{/if}
+
+						   {/foreach}
+
+						   <div style="clear:both"></div>
+
+						   <!-- {* 开始循环所有可选属性 *} -->
+
+						  <!-- {foreach from=$specification item=spec key=spec_key} -->
+
+						  <li class="padd loop" style="display:none">
+
+						  <strong>{$spec.name}:</strong><br />
+
+							<!-- {* 判断属性是复选还是单选 *} -->
+
+										<!-- {if $spec.attr_type eq 1} -->
+
+										<!--单选的情况-->
+
+											 <!-- {if $cfg.goodsattr_style eq 1} -->
+
+													<!-- {foreach from=$spec.values item=value key=key} -->
+
+													<label for="spec_value_{$value.id}">
+
+													<input type="radio" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" {if $key eq 0}checked{/if} onclick="changePrice()" />
+
+													{$value.label}
+
+													</label><br />
+
+													<!-- {/foreach} -->
+
+													<input type="hidden" name="spec_list" value="{$key}" />
+
+											<!-- {else} -->
+
+													<select name="spec_{$spec_key}" onchange="changePrice()">
+
+													  <!-- {foreach from=$spec.values item=value key=key} -->
+
+													  <option label="{$value.label}" value="{$value.id}">
+
+														{$value.label}
+
+													  </option>
+
+													  <!-- {/foreach} -->
+
+													</select>
+
+													<input type="hidden" name="spec_list" value="{$key}" />
+
+											<!-- {/if} -->
+
+										<!-- {else} -->
+
+											  <!--复选的情况-->
+
+											  <!-- {foreach from=$spec.values item=value key=key} -->
+
+											  <label for="spec_value_{$value.id}">
+
+											  <input type="checkbox" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" onclick="changePrice()" />
+
+											  {$value.label}</label><br />
+
+											  <!-- {/foreach} -->
+
+											  <input type="hidden" name="spec_list" value="{$key}" />
+
+										<!-- {/if} -->
+
+						  </li>
+
+						  <!-- {/foreach} -->
+
+						  <!-- {* 结束循环可选属性 *} -->
+
+						
+
+						</div>
+
+					</div>
+
+				
+
+                    <div class="type">
+
+						{$goods.goods_sn}-<span id="color_r">OGH</span>
+
+						
+
+					</div>
+
+                    <div class="size_dec" id="size_dec" title="close">
+
+                    	<span class="size" onclick="openoption()">Select Size</span>
+
+                        <span class="dec" id="dec" onclick="opendes()">Description</span>
+
+                    </div>
+
+					
+
+                    <div class="basket_wish" id="basket_wish">
+
+                        <span class="basket" onclick="addToCart({$goods.goods_id})">Add to basket</span>
+
+                        <span class="wish" onclick="collect({$goods.goods_id})">Add to wish list</span>
+
+                    </div>
+
+					<div class="size_list" style="display:none;">
+
+						<table>
+
+							<tbody>
+
+								<tr>
+
+								{foreach from=$specification item=spec key=spec_key}
+
+									{if $spec.name eq size}
+
+										{foreach from=$spec.values item=value key=k}
+												<td onclick="click_size({$value.id},{$value.label})">{$value.label}</td>
+										{/foreach}
+
+									{/if}
+
+								{/foreach}
+
+								</tr>
+
+								<tr>
+
+									<td colspan="3" bgcolor="#DDDDDD">
+
+										<a href="javascript:popSizeChart();">Size Guide</a>
+
+									</td>
+                                    <td colspan="3"  bgcolor="#DDDDDD">
+
+										
+
+									</td>
+
+								</tr>
+
+							</tbody>
+
+						</table>
+
+                    </div>
+
+					
+
+					<input name="number" type="hidden" id="number" value="1" size="4" onblur="changePrice()" style="border:1px solid #ccc; "/>
+
+					<input name="size" type="hidden" id="size_option" value="">
+
+					<input name="color" type="hidden" id="color_option" value="{$frist_select_color}">
+
+					</form>
+
+                </div>
+
+            
+
+            </div>
+
+            <div class="goods_img_area"> 
+
+                   {$frist_goods_view}
+
+            </div>
+
+            <div class="goods_relate">
+
+				<div class="wear_it_with"> WEAR IT WITH</div>
+
+            	{foreach from=$related_goods item=item}
+
+                	<a href="{$item.url}"  target="_blank"><img src="{$item.goods_img}"></a>
+
+                {/foreach}
+
+               
+
+            </div>
+
+       
+
+	</div>
+
+<div class="blank"></div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+</body>
+
+
+
+</html>

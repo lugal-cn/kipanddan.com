@@ -1,0 +1,61 @@
+<!--<div id="append_parent"></div>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{if $user_info}
+
+<font style="position:relative; top:10px;">
+
+{$lang.hello}，<font class="f4_b">{$user_info.username}</font>, {$lang.welcome_return}！
+
+<a href="user.php">{$lang.user_center}</a>|
+
+ <a href="user.php?act=logout">{$lang.user_logout}</a>
+
+</font>
+
+{else}
+
+ {$lang.welcome}&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <a href="user.php"><img src="images/bnt_log.gif" /></a>
+
+ <a href="user.php?act=register"><img src="images/bnt_reg.gif" /></a>
+
+{/if}
+
+-->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--
+<ul class="top_r">
+		
+    <li class="main"><a href="category.php?id=3">SPRING/SUMMER</a></li>
+
+    <li><a href="category.php?id=9">Dresses</a></li>
+
+    <li><a href="category.php?id=11">Tops</a></li>
+
+    <li><a href="category.php?id=10">Skirts</a></li>
+
+    <li><a href="category.php?id=12">Jackets</a></li>
+
+    <li class="new"><a href="search.php?intro=new&category=3">NEW</a></li>
+
+    <li class="main"><a href="category.php?id=4">AUTUMN/WINTER</a></li>
+
+    <li><a href="category.php?id=5">Dresses</a></li>
+
+    <li><a href="category.php?id=7">Skirts</a></li>
+
+    <li><a href="category.php?id=6">Tops</a></li>
+
+    <li><a href="category.php?id=8">Pants</a></li>
+
+    <li class="new"><a href="search.php?intro=new&category=4">NEW</a></li>
+  
+</ul>
+-->
+{$category_list}

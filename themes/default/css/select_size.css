@@ -1,0 +1,48 @@
+.size_list{
+    
+    color: #000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+.size_list table tr td {
+    cursor: pointer;
+    height: 24px;
+    text-align: center;
+    width: 40px;
+	background-color:#eeeeee;
+}
+.size_list table tr td:hover{
+	background-color:#999999;
+
+}
+.button_area{
+	height: 30px;
+    margin-top: 20px;
+    width: 340px;
+}
+.button_1{
+	background-color: #555555;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    color: #EEEEEE;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-family:Geneva, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 25px;
+    margin-left: 50px;
+    padding: 3px 8px;
+    text-align: center;
+}
+.notice_info{
+	margin-top:20px;
+	color:red;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	text-align:center;
+
+}
+.table_title{
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}

@@ -1,0 +1,87 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+
+<div class="header_all">
+
+    <div class="block clearfix header">
+
+        <div class="f_l">
+
+            <a href="../index.php" name="top">
+
+                <img src="../images/logo.png" />
+
+            </a>
+
+        </div>
+        
+        <div class="f_r log">
+				
+               <div class="userInfo">
+
+                    <ul>
+
+                         {if $smarty.session.user_id gt 0}
+
+                            
+
+                            <li><a href="user.php">My Account</a></li>
+
+                            <li><a href="user.php?act=logout">Logout</a></li>
+
+                            <li><a href="user.php?act=collection_list">Wish list</a></li>
+
+							<li>
+
+							<!-- #BeginLibraryItem "/library/cart.lbi" -->
+
+							
+
+							<div class="title-div">{insert name='cart_info'}</div>
+
+							
+
+							 <!-- #EndLibraryItem -->
+
+							</li>
+
+                        {else}
+
+                            <li><a href="user.php">Login/Register</a></li>
+
+                            <li><a href="user.php">Wish list</a></li>
+
+							<li>
+
+							<!-- #BeginLibraryItem "/library/cart.lbi" -->
+
+							<div class="title-div">{insert name='cart_info'}</div>
+
+							 <!-- #EndLibraryItem -->
+
+							</li>
+
+							
+
+                        {/if}
+
+                    </ul>
+
+               
+
+               </div>
+
+        </div>
+
+         <div class="nav_left">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}</div>
+
+    </div>
+
+</div>
+
+
+
+<!--顶部的文件-->

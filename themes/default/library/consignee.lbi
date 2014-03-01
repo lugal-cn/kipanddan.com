@@ -1,0 +1,371 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{insert_scripts files='utils.js,transport.js,jquery-1.7.1.min.js'}
+<script>
+					function check_shipping(){
+						var consignee_1 = $("#consignee_1").val();
+						var consignee_2 = $("#consignee_2").val();
+						var address     = $("#address").val();
+						var city        = $("#city").val();
+						var state       = $("#state").val();
+						var zipcode     = $("#zipcode").val();
+						var selCountries = $("#selCountries").val();
+						var email        = $("#email").val();
+						var tel          = $("#tel").val();
+						
+						if(consignee_1 =='' || consignee_2 == ''|| address == '' || city == '' || state == '' || zipcode == ''||  email == '' || tel == '' || selCountries == 0){
+							alert('Please ensure all fields are filled in.');
+						}else{
+							$("#theForm_shipping").submit();
+							
+						}	
+					}
+					function check_billing(){
+						var consignee_1 = $("#b_consignee_1").val();
+						var consignee_2 = $("#b_consignee_2").val();
+						var address     = $("#b_address").val();
+						var city        = $("#b_city").val();
+						var state       = $("#b_state").val();
+						var zipcode     = $("#b_zipcode").val();
+						var selCountries = $("#b_selCountries").val();
+						var email        = $("#b_email").val();
+						var tel          = $("#b_tel").val();
+						
+						if(consignee_1 =='' || consignee_2 == ''|| address == '' || city == '' || state == '' || zipcode == ''||  email == '' || tel == '' || selCountries == 0){
+							alert('Please ensure all fields are filled in.');
+						}else{
+							$("#theForm_billing").submit();
+							
+						}	
+					}
+</script>
+<div class="cartBox">
+
+		<div class="guocheng">
+			<span>1.Shopping basket  >></span>
+			<span  class="select">2.Add/Edit your details  >></span>
+			<span>3.Payment  >></span>
+			<span>4.Confirmation</span>
+		</div>
+
+			{*if $smarty.session.direct_shopping neq 1*}
+				<h5>
+					<span>Address</span>
+				</h5>
+                
+				<div class="blank2pxLine"></div>
+				<div class="infoArea2">
+					<div class="infoModel2">
+                    
+                            <div class="info">
+                                <span class="title">Shipping Address:</span>
+                                {if $consignee_list_num lt 0}
+                                
+                    			{else}
+                               			{if $smarty.session.user_id gt 0}
+                                        <!-- {foreach from=$consignee_list item=consignee key=sn} -->
+                                                    <div class="addressBox">
+                                                        <span class="con">
+                                                           {$consignee.firstname|escape} {$consignee.surname|escape}<br>
+                                                            {$consignee.address|escape}<br>
+                                                            {$consignee.city|escape}<br>
+                                                            {$consignee.state|escape}<br>
+                                                                <!-- {foreach from=$country_list item=country} -->
+                                                                    {if $consignee.country eq $country.region_id}
+                                                                        {$country.region_name}<br>
+                                                                    {/if}
+                                                                <!-- {/foreach} -->
+                                                            Phone: {$consignee.tel|escape}<br>
+                                                            Post code:{$consignee.zipcode|escape}
+                                                        </span>
+                                                        <span class="caozuo">
+                                                            <span><a href="javascript:edit_address('shipping','{$consignee.address_id}');">edit</a></span>
+                                                            <span><a href="user.php?act=drop_consignee&id={$consignee.address_id}">del</a></span>
+                                                            {if $defalut_address.address_id == $consignee.address_id}
+                                                                <span>default</span>
+                                                            {else}
+                                                                <span><a href="javascript:make_defalut('shipping','{$consignee.address_id}');">make default</a></span>
+                                                            {/if}
+                                                           
+                                                        </span>
+                                                    </div>
+                                        <!-- {/foreach} -->
+                                        {else}
+                                        	{if $consignee_list.0.country ==''}
+                                            
+                                            {else}
+                                            	<!-- {foreach from=$consignee_list item=consignee key=sn} -->
+                                                            <div class="addressBox">
+                                                                <span class="con">
+                                                                   {$consignee.firstname|escape} {$consignee.surname|escape}<br>
+                                                                    {$consignee.address|escape}<br>
+                                                                    {$consignee.city|escape}<br>
+                                                            		{$consignee.state|escape}<br>
+                                                                        <!-- {foreach from=$country_list item=country} -->
+                                                                            {if $consignee.country eq $country.region_id}
+                                                                                {$country.region_name}<br>
+                                                                            {/if}
+                                                                        <!-- {/foreach} -->
+                                                                    Phone: {$consignee.tel|escape}<br>
+                                                                    Post code:{$consignee.zipcode|escape}
+                                                                </span>
+                                                                <span class="caozuo">
+                                                                    <span><a href="javascript:edit_address('shipping','{$consignee.address_id}');">edit</a></span>
+                                                                </span>
+                                                            </div>
+                                                <!-- {/foreach} -->
+                                            {/if}
+                                        {/if}
+                                 {/if}
+                            </div>
+                        
+                        <div style="clear:both"></div>
+                        {if $consignee_list_num lt 3}
+                        <form action="flow.php" method="post" name="theForm" id="theForm_shipping">
+                        <div class="boxArea addAddr" id="addAddr_shipping">
+                                <table width="70%" border="0" cellpadding="5" cellspacing="1" bgcolor="#ffffff">
+                                    <tbody>
+                                        <tr>
+                                            <td>First name</td>
+                                            <td>
+                                                <input id="consignee_1" type="text" name="firstname">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Surname</td>
+                                            <td>
+                                                <input id="consignee_2" type="text" name="surname">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>
+                                                <input id="address" type="text" name="address">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Town/City</td>
+                                            <td>
+                                                <input id="city" type="text" name="city">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>State</td>
+                                            <td>
+                                                <input id="state" type="text" name="state">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Post code</td>
+                                            <td>
+                                                <input id="zipcode" type="text" name="zipcode">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Country</td>
+                                            <td>
+                                                <select id="selCountries" name="country">
+                                                        <option value="0" selected>Select Country</option>
+                                                        {foreach from=$country_list item=country}
+                                                        <option value="{$country.region_id}">{$country.region_name}</option>
+                                                        {/foreach}
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>
+                                                <input id="email" type="text" name="email">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>
+                                                <input id="tel" type="text" name="tel">
+                                            </td>
+                                        </tr>
+                                        	<tr>
+                                            	<td>
+                                            		<input type="checkbox" style="width:40px" name="same_above">
+                                           		 </td>
+                                                 <td>
+                                               		 This is also my billing address
+                                           		</td>
+                                            </tr>
+                                        
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="button" value="submit" onclick="check_shipping()">
+                                            </td>
+                                        </tr>
+                                        <input type="hidden" value="consignee" name="step">
+                                        <input type="hidden" value="checkout" name="act">
+                                        <input type="hidden" value="shipping" name="address_classes">
+                                        <input type="hidden" value="" name="address_id">
+                                  </tbody>
+                           </table>          
+                        </div>
+                       </form>
+                        {/if}
+                        <div class="blank2pxLine"></div>
+                       
+                     
+						<div class="info">
+							<span class="title">Billing Address:</span>
+						<!--当从没有注册到刚刚住的时候这个变量时不存在的-->
+							{if $consignee_list_billing_num lt 0}
+                            
+                            {else}
+                                    {if $smarty.session.user_id gt 0}
+                                        <!-- {foreach from=$consignee_list_billing item=consignee key=sn} -->
+                                            
+                                                <div class="addressBox">
+                                                    <span class="con">
+                                                        {$consignee.firstname|escape} {$consignee.surname|escape}<br>
+                                                        {$consignee.address|escape}<br>
+                                                        {$consignee.city|escape}<br>
+                                                        {$consignee.state|escape}<br>
+                                                            <!-- {foreach from=$country_list item=country} -->
+                                                                {if $consignee.country eq $country.region_id}
+                                                                    {$country.region_name}<br>
+                                                                {/if}
+                                                            <!-- {/foreach} -->
+                                                        Phone: {$consignee.tel|escape}<br>
+                                                        Post code:{$consignee.zipcode|escape}
+                                                    </span>
+                                                    <span class="caozuo">
+                                                        <span><a href="javascript:edit_address('billing','{$consignee.address_id}');">edit</a></span>
+                                                        <span><a href="user.php?act=drop_consignee_billing&id={$consignee.address_id}">del</a></span>
+                                                        {if $defalut_address.address_billing_id != $consignee.address_id}
+                                                            <span><a href="javascript:make_defalut('billing','{$consignee.address_id}');">make default</a></span>
+                                                        {else}
+                                                            <span>default</span>
+                                                        {/if}
+                                                      
+                                                    </span>
+                                                </div>
+                                           
+                                        <!-- {/foreach} -->
+                                    {else}
+                                                {if $consignee_list_billing.0.country ==''}
+                                                
+                                                {else}
+                                                	 <!-- {foreach from=$consignee_list_billing item=consignee key=sn} -->
+                                                            <div class="addressBox">
+                                                                <span class="con">
+                                                                    {$consignee.firstname|escape} {$consignee.surname|escape}<br>
+                                                                    {$consignee.address|escape}<br>
+                                                                    {$consignee.city|escape}<br>
+                                                            		{$consignee.state|escape}<br>
+                                                                        <!-- {foreach from=$country_list item=country} -->
+                                                                            {if $consignee.country eq $country.region_id}
+                                                                                {$country.region_name}<br>
+                                                                            {/if}
+                                                                        <!-- {/foreach} -->
+                                                                    Phone: {$consignee.tel|escape}<br>
+                                                                    Post code:{$consignee.zipcode|escape}
+                                                                </span>
+                                                                <span class="caozuo">
+                                                                    <span><a href="javascript:edit_address('billing','{$consignee.address_id}');">edit</a></span>
+                                                                </span>
+                                                            </div>
+                                                       
+                                                    <!-- {/foreach} -->
+                                                
+                                                {/if}
+                                    {/if}
+                            {/if}
+						</div>
+                        <div style="clear:both"></div>
+                        {if $consignee_list_billing_num lt 3}
+                          <form action="flow.php" method="post" name="theForm" id="theForm_billing">
+                        <div class="boxArea addAddr" id="addAddr_billing">
+                                <table width="70%" border="0" cellpadding="5" cellspacing="1" bgcolor="#ffffff">
+                                    <tbody>
+                                        <tr>
+                                            <td>First name</td>
+                                            <td>
+                                                <input id="b_consignee_1" type="text" name="b_firstname">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Surname</td>
+                                            <td>
+                                                <input id="b_consignee_2" type="text" name="b_surname">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>
+                                                <input id="b_address" type="text" name="b_address">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Town/City</td>
+                                            <td>
+                                                <input id="b_city" type="text" name="b_city">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>State</td>
+                                            <td>
+                                                <input id="b_state" type="text" name="b_state">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Post code</td>
+                                            <td>
+                                                <input id="b_zipcode" type="text" name="b_zipcode">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Country</td>
+                                            <td>
+                                                <select id="b_selCountries" name="b_country">
+                                                        <option value="0" selected>Select Country</option>
+                                                        {foreach from=$country_list item=country}
+                                                        <option value="{$country.region_id}">{$country.region_name}</option>
+                                                        {/foreach}
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>
+                                                <input id="b_email" type="text" name="b_email">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>
+                                                <input id="b_tel" type="text" name="b_tel">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="button" value="submit"  onclick="check_billing()">
+                                            </td>
+                                        </tr>
+                                        <input type="hidden" value="consignee" name="step">
+                                        <input type="hidden" value="checkout" name="act">
+                                        <input type="hidden" value="billing" name="address_classes">
+                                        <input type="hidden" value="" name="address_id">
+                                  </tbody>
+                           </table>          
+                        </div>
+                    </form>
+                   {/if}
+					</div>
+				</div>
+			{*/if*}
+</div>
+
+<div style="clear:both;"></div>
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,200 @@
+head	1.12;
+access;
+symbols;
+locks
+	kipandd1:1.12; strict;
+comment	@# @;
+
+
+1.12
+date	2013.01.07.04.26.50;	author kipandd1;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2013.01.07.04.26.50;	author kipandd1;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2012.06.06.09.12.44;	author kipandd1;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2012.06.06.09.12.27;	author kipandd1;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2012.06.06.09.12.08;	author kipandd1;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2012.06.06.09.11.47;	author kipandd1;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2012.06.06.09.11.26;	author kipandd1;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2012.06.05.11.45.31;	author kipandd1;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2012.06.03.06.41.38;	author kipandd1;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2012.06.03.06.41.38;	author kipandd1;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2009.11.02.13.37.01;	author kipandd1;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2009.06.10.00.44.43;	author kipandd1;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.12
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@kip:x:7262:7262::/home/kipandd1/mail/kipanddan.com/kip:/usr/local/cpanel/bin/noshell
+kristen:x:7262:7262::/home/kipandd1/mail/kipanddan.com/kristen:/usr/local/cpanel/bin/noshell
+admin:x:7262:7262::/home/kipandd1/mail/kipanddan.com/admin:/usr/local/cpanel/bin/noshell
+sanlitun:x:7262:7262::/home/kipandd1/mail/kipanddan.com/sanlitun:/usr/local/cpanel/bin/noshell
+dan:x:7262:7262::/home/kipandd1/mail/kipanddan.com/dan:/usr/local/cpanel/bin/noshell
+aru:x:7262:7262::/home/kipandd1/mail/kipanddan.com/aru:/usr/local/cpanel/bin/noshell
+feifei:x:7262:7262::/home/kipandd1/mail/kipanddan.com/feifei:/usr/local/cpanel/bin/noshell
+hongxia:x:7262:7262::/home/kipandd1/mail/kipanddan.com/hongxia:/usr/local/cpanel/bin/noshell
+miaomiao:x:7262:7262::/home/kipandd1/mail/kipanddan.com/miaomiao:/usr/local/cpanel/bin/noshell
+mingming:x:7262:7262::/home/kipandd1/mail/kipanddan.com/mingming:/usr/local/cpanel/bin/noshell
+beigao:x:7262:7262::/home4/kipandd1/mail/kipanddan.com/beigao:/bin/noshell
+@
+
+
+1.11
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d11 1
+@
+
+
+1.10
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d1 10
+a10 10
+kip:x:1021:1021::/home/kipandd1/mail/kipanddan.com/kip:/usr/local/cpanel/bin/noshell
+kristen:x:1021:1021::/home/kipandd1/mail/kipanddan.com/kristen:/usr/local/cpanel/bin/noshell
+admin:x:1021:1021::/home/kipandd1/mail/kipanddan.com/admin:/usr/local/cpanel/bin/noshell
+sanlitun:x:1021:1021::/home/kipandd1/mail/kipanddan.com/sanlitun:/usr/local/cpanel/bin/noshell
+dan:x:1021:1021::/home/kipandd1/mail/kipanddan.com/dan:/usr/local/cpanel/bin/noshell
+aru:x:1021:1021::/home/kipandd1/mail/kipanddan.com/aru:/usr/local/cpanel/bin/noshell
+feifei:x:1021:1021::/home/kipandd1/mail/kipanddan.com/feifei:/usr/local/cpanel/bin/noshell
+hongxia:x:1021:1021::/home/kipandd1/mail/kipanddan.com/hongxia:/usr/local/cpanel/bin/noshell
+miaomiao:x:1021:1021::/home/kipandd1/mail/kipanddan.com/miaomiao:/usr/local/cpanel/bin/noshell
+mingming:x:1021:1021::/home/kipandd1/mail/kipanddan.com/mingming:/usr/local/cpanel/bin/noshell
+@
+
+
+1.9
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d10 1
+@
+
+
+1.8
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d9 1
+@
+
+
+1.7
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d8 1
+@
+
+
+1.6
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d7 1
+@
+
+
+1.5
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d6 1
+@
+
+
+1.4
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d5 1
+@
+
+
+1.3
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d4 1
+@
+
+
+1.2
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d3 1
+@
+
+
+1.1
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d2 1
+@

@@ -1,0 +1,232 @@
+head	1.14;
+access;
+symbols;
+locks
+	kipandd1:1.14; strict;
+comment	@# @;
+
+
+1.14
+date	2013.01.07.04.26.50;	author kipandd1;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2013.01.07.04.26.50;	author kipandd1;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2012.06.06.09.12.44;	author kipandd1;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2012.06.06.09.12.27;	author kipandd1;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2012.06.06.09.12.08;	author kipandd1;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2012.06.06.09.11.47;	author kipandd1;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2012.06.06.09.11.26;	author kipandd1;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2012.06.06.09.11.26;	author kipandd1;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2012.06.05.11.45.31;	author kipandd1;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2012.06.05.11.45.31;	author kipandd1;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2012.06.03.06.41.38;	author kipandd1;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2012.06.03.06.41.38;	author kipandd1;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2009.11.02.13.37.01;	author kipandd1;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2009.06.10.00.44.43;	author kipandd1;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.14
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@kip:$1$39W9Ddor$Zw8Fhfc1GIHqZn3AkXwYU.:14405::::::
+kristen:$1$yv0midOQ$6TE4h8XWo57ZVAC0imzVN1:14550::::::
+admin:$1$joxDS_wM$FBsa700xdVbb2ZcWcmrzs0:14972::::::
+sanlitun:$1$ur_pb8yh$5qxzQyd/RZ7fYmylqq9b9.:15494::::::
+dan:$1$Fk82BAwb$OMQ6PL4NnihMgUuqlxwOr1:15496::::::
+aru:$1$sqI_fRgR$KlsA7WHGY6ya7JZMF7nmG/:15497::::::
+feifei:$1$wwx2PKs4$y9tEUsY.o40ro4g95bcLp.:15497::::::
+hongxia:$1$c_8P7yhh$vv8/gKwFKXg8EXYJ/ddgW.:15497::::::
+miaomiao:$1$I_psA5fV$Mx99YUWK.AU8vRQ7rtGo/1:15497::::::
+mingming:$1$laqQRPtN$pWunnyLvyziSMRhq4wk/h/:15497::::::
+beigao:$1$fzlUhAON$2FVZyRF3ATSdhPX63Feuc0:15712::::::
+@
+
+
+1.13
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d11 1
+@
+
+
+1.12
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d1 4
+a4 4
+kip:$1$ICecEKAq$oFOwIEZY9RdtldNOe704s1:14405::::::
+kristen:$1$joUeRFgp$r.8NiBsbKLxD8Z8J2rNdj1:14550::::::
+admin:$1$slqpeWvT$5lB/1yemuDggvrPm6uHqz1:14972::::::
+sanlitun:$1$87ZJuKMS$fSXEpcR3gh8V.aDH2FUNS0:15494::::::
+@
+
+
+1.11
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d10 1
+@
+
+
+1.10
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d9 1
+@
+
+
+1.9
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d8 1
+@
+
+
+1.8
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d7 1
+@
+
+
+1.7
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d6 1
+@
+
+
+1.6
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d2 1
+a2 1
+kristen:$1$rJGiwDfV$7YvAfzo9oeHLtYdIh.CYg.:14550::::::
+@
+
+
+1.5
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d5 1
+@
+
+
+1.4
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d1 1
+a1 1
+kip:$1$wu6qW4Ad$BpVMhAqCHyEksKAgPfr34/:14405::::::
+d3 1
+a3 1
+admin:$1$F6TNDkHf$i7gPo559PzG0EfHg2Bre4.:14972::::::
+@
+
+
+1.3
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d4 1
+@
+
+
+1.2
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d1 3
+a3 2
+kip:$1$oZiucKaU$1KQWUXJElTPB6SwDJ3fJf0:14405::::::
+kristen:$1$hm3DouMo$3sZJ3wVbDCFZHv1gMcwFk.:14550::::::
+@
+
+
+1.1
+log
+@"Modified by /usr/local/cpanel/cpanel "
+@
+text
+@d2 1
+@
