@@ -187,13 +187,13 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 
 				if($tmp_arr[1] == '' && $tmp_arr[0] == $color_id){
 
-					$res['result'] .= '<img src="'.$value["img_original"].'">';
+					$res['result'] .= '<br/><img src="'.$value["img_original"].'">';
 
 				}
 
 				if($tmp_arr[1] != '' && $tmp_arr[0] == $color_id){
 
-					$res['result'] .= '<img src="'.$value["img_original"].'">';	
+					$res['result'] .= '<br/><img src="'.$value["img_original"].'">';	
 
 				}
 

@@ -323,14 +323,17 @@
     </script>
 <div class="usBox" style="font-family:Verdana;font-size:12px">
   <div class="usBox_2 clearfix" style="padding:43px 153px 60px 20px;">
+  	<!--
   	<br />
     	<b>Forgotten your password?</b><br><br>
         
         Simply send an email to:　kip@kipanddan.com　and we'll forward your password to you.
     <br />
-    <!--<form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
+    -->
+
+    <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
         <br />
-        <table width="70%" border="0" align="center">
+        <table width="100%" border="0" align="center">
           <tr>
             <td colspan="2" align="center"><strong><?php echo $this->_var['lang']['username_and_email']; ?></strong></td>
           </tr>
@@ -352,7 +355,7 @@
         </table>
         <br />
       </form>
-      -->
+
   </div>
 </div>
 <?php endif; ?>

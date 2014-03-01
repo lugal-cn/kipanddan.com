@@ -29,13 +29,7 @@
 
 {insert_scripts files='common.js'}
 
-{insert_scripts files='jquery-1.10.2.min.js'}
-
-<script>
-try{
-   jQuery.noConflict();
- } catch(e){};
- </script>
+{insert_scripts files='jquery-1.10.2.min.js,json2.js'}
  
 {insert_scripts files='shadowbox.js'}
 

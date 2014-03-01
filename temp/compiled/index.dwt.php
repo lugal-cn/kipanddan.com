@@ -20,7 +20,7 @@
 
 <link rel="alternate" type="application/rss+xml" title="RSS|<?php echo $this->_var['page_title']; ?>" href="<?php echo $this->_var['feed_url']; ?>" />
 
-<?php echo $this->smarty_insert_scripts(array('files'=>'common.js,index.js,jquery-1.10.2.min.js,jquery.bxslider.min.js')); ?>
+<?php echo $this->smarty_insert_scripts(array('files'=>'common.js,index.js,jquery-1.10.2.min.js,jquery.bxslider.min.js,json2.js')); ?>
 <script language="javascript">
 	$(document).ready(function(){
 	  $('.slider4').bxSlider({
@@ -41,10 +41,10 @@
 
 <div class='content'>
         <div class="slider4">
-            <?php $_from = $this->_var['lunhuan']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'lunhuan_0_22110200_1393577796');if (count($_from)):
-    foreach ($_from AS $this->_var['lunhuan_0_22110200_1393577796']):
+            <?php $_from = $this->_var['lunhuan']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'lunhuan_0_08137200_1393687335');if (count($_from)):
+    foreach ($_from AS $this->_var['lunhuan_0_08137200_1393687335']):
 ?>
-                    <div class="slide"><a href="<?php echo $this->_var['lunhuan_0_22110200_1393577796']['ad_link']; ?>" target="_blank"><img src="/an_website/data/afficheimg/<?php echo $this->_var['lunhuan_0_22110200_1393577796']['ad_code']; ?>"></a></div>
+                    <div class="slide"><a href="<?php echo $this->_var['lunhuan_0_08137200_1393687335']['ad_link']; ?>" target="_blank"><img src="/an_website/data/afficheimg/<?php echo $this->_var['lunhuan_0_08137200_1393687335']['ad_code']; ?>"></a></div>
              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
         </div>
 </div>
