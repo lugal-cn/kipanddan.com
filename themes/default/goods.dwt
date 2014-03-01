@@ -418,7 +418,7 @@ try{
 
 															{if $color1.label eq $color2.img_desc}
 
-																	<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}"></div>
+																	<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" style="width: 100%; height: 100%;"></div>
 
 															{/if}
 
@@ -440,7 +440,7 @@ try{
 
 																{if $color1.label eq $color2.img_desc}
 
-																		<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}"></div>
+																		<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" style="width: 100%; height: 100%;"></div>
 
 																{/if}
 
@@ -460,7 +460,7 @@ try{
 
 																{if $color1.label eq $color2.img_desc}
 
-																		<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}"></div>
+																		<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" style="width: 100%; height: 100%;"></div>
 
 																{/if}
 
