@@ -671,13 +671,13 @@ $smarty->assign('class_articles_2', index_get_class_articles(2,6)); // 分类调
 
 					if($tmp_arr[1] == '' && $tmp_arr[0] == $color){
 
-						$view_frist .= '<img src="'.$value["img_url"].'">';
+						$view_frist .= '<br/><img src="'.$value["img_url"].'">';
 
 					}
 
 					if($tmp_arr[1] != '' && $tmp_arr[0] == $color){
 
-						$view_frist .= '<img src="'.$value["img_url"].'">';	
+						$view_frist .= '<br/><img src="'.$value["img_url"].'">';	
 
 					}
 
