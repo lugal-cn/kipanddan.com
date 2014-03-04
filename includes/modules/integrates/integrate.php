@@ -205,7 +205,9 @@ class integrate
      *
      * @return int
      */
-    function add_user($email, $password, $gender = -1, $bday = 0, $reg_date=0, $md5password='')
+    // Fix username random by lugal.
+//     function add_user($email, $password, $gender = -1, $bday = 0, $reg_date=0, $md5password='')
+    function add_user($username, $email, $password, $gender = -1, $bday = 0, $reg_date=0, $md5password='')
     {
         /* 将用户添加到整合方 */
 		/*
@@ -231,6 +233,9 @@ class integrate
 		$suijiming .= rand(0,10000); 
 		
 		$post_username = 'name'.$suijiming;
+		
+		// Fix username by Random.
+		$post_username = $username;
 
         if ($md5password)
         {

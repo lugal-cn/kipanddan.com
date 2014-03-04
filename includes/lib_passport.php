@@ -29,7 +29,9 @@ if (!defined('IN_ECS'))
  *
  * @return  bool         $bool
  */
-function register($email, $password, $other = array())
+// Restore Ecshop default function.
+// function register($email, $password, $other = array())
+function register($username, $email, $password, $other = array())
 {
     /* 检查注册是否关闭 */
     if (!empty($GLOBALS['_CFG']['shop_reg_closed']))
@@ -37,7 +39,6 @@ function register($email, $password, $other = array())
         $GLOBALS['err']->add($GLOBALS['_LANG']['shop_register_closed']);
     }
     /* 检查username */
-   /*
     if (empty($username))
     {
         $GLOBALS['err']->add($GLOBALS['_LANG']['username_empty']);
@@ -49,7 +50,7 @@ function register($email, $password, $other = array())
             $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['username_invalid'], htmlspecialchars($username)));
         }
     }
-	*/
+
     /* 检查email */
     if (empty($email))
     {
@@ -69,14 +70,15 @@ function register($email, $password, $other = array())
     }
 
     /* 检查是否和管理员重名 */
-    /*
 	if (admin_registered($username))
     {
         $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['username_exist'], $username));
         return false;
     }
-	*/
-    if (!$GLOBALS['user']->add_user($email, $password))
+
+    // Fix add new user without username.
+//     if (!$GLOBALS['user']->add_user($username, $email, $password))
+    if (!$GLOBALS['user']->add_user($username, $email, $password))
     {
 		/*
         if ($GLOBALS['user']->error == ERR_INVALID_USERNAME)

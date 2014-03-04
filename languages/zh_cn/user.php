@@ -1012,7 +1012,8 @@ $_LANG['passport_js']['no_select_question'] = '- 您没有完成密码提示问�
 
 $_LANG['passport_js']['passwd_balnk'] = '- 密码中不能包含空格';
 
-
+/* 自定义 */
+$_LANG['register_user_name_description'] = '注册新账号填写用户名，登录不适用。';
 
 
 

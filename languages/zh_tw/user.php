@@ -506,6 +506,9 @@ $_LANG['passport_js']['msg_blank'] = '不能為空';
 $_LANG['passport_js']['no_select_question'] = '- 您還完成密碼提示問題的操作';
 $_LANG['passport_js']['passwd_balnk'] = '- 密碼中不能包含空格';
 
+/* 自定义 */
+$_LANG['register_user_name_description'] = '註冊新帳號時填寫，登錄不使用。';
+
 
 /* user_clips.dwt js 語言文件 */
 $_LANG['clips_js']['msg_title_empty'] = '留言標題為空';

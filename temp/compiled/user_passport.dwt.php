@@ -19,7 +19,8 @@
 
 	function submitForm(tracker){
 
-		var user = document.getElementById('usernaminpu').value;
+		// Fix username with email register.
+		var email = document.getElementById('emailinpu').value;
 
 		var pwd = document.getElementById('passworinpu').value;
 
@@ -27,11 +28,11 @@
 
 		
 
-			if (user == '') {
+			if (email == '') {
 
 				alert('Please enter your email address to register or login.');
 
-			}else if(!emailPattern.test(user)){
+			}else if(!emailPattern.test(email)){
 
 				alert('Please enter a valid email address to register or login.');
 
@@ -46,24 +47,23 @@
 					//checkemail(user,pwd);	
 
 					//alert("register");
+					
+					var username = document.getElementById('usernameinput').value;
+					if (username == '') {
+						alert('Please enter your user name to register.');
+						return true;
+					}
 
 					$("#act").attr("value","act_register");
 
-					if(window.confirm("Do you want to register "+ user +"?"))
-
-					  {
-
-					  	document.getElementById('loginForm').submit();
-
-
-					  }
-
-					  else
-
-					  {
+					if(window.confirm("Do you want to register "+ username +"?"))
+					{
+				  		document.getElementById('loginForm').submit();
+					}
+					else
+					{
 						window.close;
-						
-					  }
+					}
 
 				}else if(tracker == 'signin'){
 
@@ -98,7 +98,7 @@
         	<form id="loginForm" method="post" name="loginForm" action="user.php" method="post">
             		<div id="usernam">
 						<div>Email</div>
-                    	<input type="text" id="usernaminpu" name="username">
+                    	<input class="input" type="text" id="emailinpu" name="email">
                     </div>
                     <div id="passwor">
 						<div class="textdiv">Password</div><div class="textdiv" id="forgot"><a href="user.php?act=get_password" target="_blank">(Forgot your password?)</a></div>
@@ -108,6 +108,16 @@
                        
                     </div>
                     <div id="subajaxinfo">Please enter your email and password to register or login.</div>
+                    
+                    
+                    <br/>
+                    <div id="usernam">
+						<div><?php echo $this->_var['lang']['label_username']; ?></div>
+                    	<input class="input" type="text" id="usernameinput" name="username" onblur="is_registered(this.value);" />
+                    	<p id="username_notice" class="notice-info"><?php echo $this->_var['lang']['register_user_name_description']; ?></p>
+                    </div>
+                    <br/>
+
                     <div id="submi">
                     	<div id="submicreate">
                         	<!-- <input type="button" id="subcreate" name="subcreate">-->

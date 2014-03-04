@@ -315,120 +315,77 @@ elseif ($action == 'act_register')
 
         include_once(ROOT_PATH . 'includes/lib_passport.php');
 
-
-
-        $email = isset($_POST['username']) ? trim($_POST['username']) : '';
+        // Fix email with user name.
+        $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+        $username = isset($_POST['username']) ? trim($_POST['username']) : '';
 
         $password = isset($_POST['password']) ? trim($_POST['password']) : '';
 
        // $email    = isset($_POST['email']) ? trim($_POST['email']) : '';
 
-       
-
-	  
-
 	    $other['msn'] = isset($_POST['extend_field1']) ? $_POST['extend_field1'] : '';
-
         $other['qq'] = isset($_POST['extend_field2']) ? $_POST['extend_field2'] : '';
-
         $other['office_phone'] = isset($_POST['extend_field3']) ? $_POST['extend_field3'] : '';
-
         $other['home_phone'] = isset($_POST['extend_field4']) ? $_POST['extend_field4'] : '';
-
         $other['mobile_phone'] = isset($_POST['extend_field5']) ? $_POST['extend_field5'] : '';
-
         $sel_question = empty($_POST['sel_question']) ? '' : compile_str($_POST['sel_question']);
-
         $passwd_answer = isset($_POST['passwd_answer']) ? compile_str(trim($_POST['passwd_answer'])) : '';
-
-
-
-
 
         $back_act = isset($_POST['back_act']) ? trim($_POST['back_act']) : '';
 
-
-
         /*
-
 		if(empty($_POST['agreement']))
-
         {
-
             show_message($_LANG['passport_js']['agreement']);
-
         }
-
-		
 
         if (strlen($username) < 3)
-
         {
-
             show_message($_LANG['passport_js']['username_shorter']);
-
         }
-
-		
 
         if (strlen($password) < 6)
-
         {
-
             show_message($_LANG['passport_js']['password_shorter']);
-
         }
 
-
-
         if (strpos($password, ' ') > 0)
-
         {
-
             show_message($_LANG['passwd_balnk']);
-
         }
 */
 
 
         /* 验证码检查 */
-
         if ((intval($_CFG['captcha']) & CAPTCHA_REGISTER) && gd_version() > 0)
-
         {
-
             if (empty($_POST['captcha']))
-
             {
-
                 show_message($_LANG['invalid_captcha'], $_LANG['sign_up'], 'user.php?act=register', 'error');
-
             }
-
-
 
             /* 检查验证码 */
-
             include_once('includes/cls_captcha.php');
 
-
-
             $validator = new captcha();
-
+            
             if (!$validator->check_word($_POST['captcha']))
-
             {
-
                 show_message($_LANG['invalid_captcha'], $_LANG['sign_up'], 'user.php?act=register', 'error');
-
             }
 
+        }
+        
+        /* 检查用户是否重复 */
+        if ($user->check_user($username)) {
+        	$err_info = sprintf($GLOBALS['_LANG']['username_exist'], $username);
+        	show_message($err_info, $_LANG['sign_up'], 'user.php', 'error');
+//         	return false;
         }
 
 		//lib_passport.php
 
-        if (register($email, $password, $other) !== false)
-
+        if (register($username, $email, $password, $other) !== false)
         {
 
             /*把新注册用户的扩展信息插入数据库*/
@@ -737,14 +694,11 @@ elseif ($action == 'act_login')
 {
 
     $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+    // Fix username with email conflict.
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
-
     $back_act = isset($_POST['back_act']) ? trim($_POST['back_act']) : '';
-
-
-
-
 
     $captcha = intval($_CFG['captcha']);
 
@@ -786,58 +740,35 @@ elseif ($action == 'act_login')
 
 	
 
-	if(is_email($username))
-
+    // Fix username with email conflict.
+// 	if(is_email($username))
+    if(is_email($email))
 	{
-
-		$sql ="select user_name from ".$ecs->table('users')." where email='".$username."'";
-
+		$sql ="select user_name from ".$ecs->table('users')." where email='".$email."'";
 		$username_e = $db->getOne($sql);
-
 		if($username_e != ''){
-
-		 	$username=$username_e;
-
+		 	$username = $username_e;
 		}else{
-
 			$username='';
-
 		}
-
 	}
 
-
-
     if ($user->login($username, $password,isset($_POST['remember'])))
-
     {
-
-		
-
         update_user_info();
-
         recalculate_price();
-
-
-
         $ucdata = isset($user->ucdata)? $user->ucdata : '';
-
 		//跳转的页面
 		//header("Location:user.php");
-      show_message($_LANG['login_success'] . $ucdata , array('Continue', 'Go to My Account'), array('index.php','user.php'), 'info',false);
-
+      	show_message($_LANG['login_success'] . $ucdata , array('Continue', 'Go to My Account'), array('index.php','user.php'), 'info',false);
     }
-
     else
-
     {
-
         $_SESSION['login_fail'] ++ ;
 
 		//跳转的页面
-		header("Location:user.php");
-        //show_message($_LANG['login_failure'], $_LANG['relogin_lnk'], 'user.php', 'error');
-
+// 		header("Location:user.php");
+        show_message($_LANG['login_failure'], $_LANG['relogin_lnk'], 'user.php', 'error');
     }
 
 }
@@ -1507,24 +1438,14 @@ elseif ($action == 'send_pwd_email')
 
     include_once(ROOT_PATH . 'includes/lib_passport.php');
 
-
-
     /* 初始化会员用户名和邮件地址 */
-
     $user_name = !empty($_POST['user_name']) ? trim($_POST['user_name']) : '';
-
     $email     = !empty($_POST['email'])     ? trim($_POST['email'])     : '';
 
-
-
     //用户名和邮件地址是否匹配
-
     $user_info = $user->get_user_info($user_name);
 
-
-
     if ($user_info && $user_info['email'] == $email)
-
     {
 
         //生成code
@@ -1635,7 +1556,9 @@ elseif ($action == 'act_edit_password')
 
             $user->logout();
 
-            show_message($_LANG['edit_password_success'], $_LANG['relogin_lnk'], 'user.php?act=login', 'info');
+            // Fix goto new login page after edit password, skip default login page.
+//             show_message($_LANG['edit_password_success'], $_LANG['relogin_lnk'], 'user.php?act=login', 'info');
+            show_message($_LANG['edit_password_success'], $_LANG['relogin_lnk'], 'user.php', 'info');
 
         }
 

@@ -24,7 +24,7 @@
 
 	width:450px;
 
-	height:300px;
+	height: auto;
 
 	background-color:#ffffff;
 
@@ -84,6 +84,7 @@
 
 }
 
+.loginfrom #usernam .input,
 .loginfrom #usernam #usernaminpu{
 
 	height:25px;
@@ -133,7 +134,6 @@
 }
 
 
-
 .loginfrom #passwor #passworinpu{
 
 	height:25px;
@@ -148,6 +148,7 @@
 
 }
 
+.notice-info,
 #subajaxinfo{
 
 	height:15px;
