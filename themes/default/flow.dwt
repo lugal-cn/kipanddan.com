@@ -1014,9 +1014,22 @@
 
         {literal}
         function checkLoginForm(frm) {
+			
           if (Utils.isEmpty(frm.elements['email'].value)) {
             alert(email_not_null);
             return false;
+          }
+          else {
+			var emailPattern=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+          	var email = frm.elements['email'].value;
+
+          	// Fix username if email invalid.
+  			if(!emailPattern.test(email)) {
+  				document.getElementById("usernameinpu").value = email;
+  			}
+
+//   			alert("Email = " + email + " | User name = " + document.getElementById("usernameinpu").value);
+
           }
 
           if (Utils.isEmpty(frm.elements['password'].value)) {
@@ -1112,8 +1125,13 @@
 										
 									</tr>
 									<tr>
-										<td bgcolor="#ffffff"><div align="left">Email</div></td>
-										<td bgcolor="#ffffff"><input name="email" type="text" class="inputBg2" id="email" onblur="checkEmail(this.value);" /></td>
+										<td bgcolor="#ffffff">
+											<div align="left">{$lang.label_username} / {$lang.label_email}</div>
+										</td>
+										<td bgcolor="#ffffff">
+											<input name="email" type="text" class="inputBg2" id="email" onblur="checkEmail(this.value);" />
+											<input type="hidden" id="usernameinpu" name="username" />
+										</td>
 									</tr>
 									<tr>
 										<td bgcolor="#ffffff"><div align="left">Password</div></td>
@@ -1160,8 +1178,9 @@
 										</td>
 										<td bgcolor="#ffffff">
 											<div align="center">
-												<input type="button" id="registerButton" name="Submit" class="button3 buttonCss" value="Create account" />
-												<input name="act" id="actInput" type="hidden" value="signin" />
+												<a class="button3 buttonCss" href="user.php?act=register&back_act=flow.php&amp;step=consignee">Create account</a>
+<!-- 												<input type="button" id="registerButton" name="Submit" class="button3 buttonCss" value="Create account" /> -->
+<!-- 												<input name="act" id="actInput" type="hidden" value="signin" /> -->
 											</div>
 										</td>
 										
