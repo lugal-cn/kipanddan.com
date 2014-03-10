@@ -93,10 +93,10 @@ class paypal_ec
 
     }
 
-    function __construct()
-    {
-        $this->paypal_ec();
-    }
+//     function __construct()
+//     {
+//         $this->paypal_ec();
+//     }
 
 
 
