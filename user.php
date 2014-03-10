@@ -56,8 +56,8 @@ if (empty($_SESSION['user_id']))
             {
                 $back_act = 'user.php?' . strip_tags($_SERVER['QUERY_STRING']);
             }
-           // $action = 'login';
-		   $action ='log_reg';
+           $action = 'login';
+// 		   $action ='log_reg';
         }
         else
         {
@@ -118,34 +118,42 @@ if ($action == 'default')
 }
 
 /* 显示会员注册界面 */
-/*
+
 if ($action == 'register')
 {
     if ((!isset($back_act)||empty($back_act)) && isset($GLOBALS['_SERVER']['HTTP_REFERER']))
     {
         $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], 'user.php') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
     }
-*/
+    
+//     print('Get info: <pre>' . print_r($_GET, TRUE) . '</pre>');
+    if ($_GET['back_act']) {
+    	$back_act = $_GET['back_act'];
+    	if (isset($_GET['step'])) {
+    		$back_act .= '?step=' . $_GET['step'];
+    	}
+    }
+
     /* 取出注册扩展字段 */
-/*    $sql = 'SELECT * FROM ' . $ecs->table('reg_fields') . ' WHERE type < 2 AND display = 1 ORDER BY dis_order, id';
+    $sql = 'SELECT * FROM ' . $ecs->table('reg_fields') . ' WHERE type < 2 AND display = 1 ORDER BY dis_order, id';
     $extend_info_list = $db->getAll($sql);
     $smarty->assign('extend_info_list', $extend_info_list);
-*/
+
     /* 验证码相关设置 */
-/*    if ((intval($_CFG['captcha']) & CAPTCHA_REGISTER) && gd_version() > 0)
+    if ((intval($_CFG['captcha']) & CAPTCHA_REGISTER) && gd_version() > 0)
     {
         $smarty->assign('enabled_captcha', 1);
         $smarty->assign('rand',            mt_rand());
     }
-*/
+
     /* 密码提示问题 */
- //   $smarty->assign('passwd_questions', $_LANG['passwd_questions']);
+   $smarty->assign('passwd_questions', $_LANG['passwd_questions']);
 
     /* 增加是否关闭注册 */
- //   $smarty->assign('shop_reg_closed', $_CFG['shop_reg_closed']);
-//    $smarty->assign('back_act', $back_act);
- //   $smarty->display('user_passport.dwt');
-//}
+   $smarty->assign('shop_reg_closed', $_CFG['shop_reg_closed']);
+   $smarty->assign('back_act', $back_act);
+   $smarty->display('user_passport.dwt');
+}
 
 /* 注册会员的处理 */
 elseif ($action == 'act_register')
@@ -252,8 +260,9 @@ elseif ($action == 'act_register')
                 send_regiter_hash($_SESSION['user_id']);
             }
             $ucdata = empty($user->ucdata)? "" : $user->ucdata;
-           // show_message(sprintf($_LANG['register_success'], $username . $ucdata), array($_LANG['back_up_page'], $_LANG['profile_lnk']), array($back_act, 'user.php'), 'info');
-			show_message('Registration successful!', array('Continue','Go to My Account'), array('index.php','user.php'), 'info',false);
+            
+			show_message(sprintf($_LANG['register_success'], $username . $ucdata), array($_LANG['back_up_page'], $_LANG['profile_lnk']), array($back_act, 'user.php'), 'info');
+// 			show_message('Registration successful!', array('Continue','Go to My Account'), array('index.php','user.php'), 'info',false);
         }
         else
         {
@@ -344,6 +353,13 @@ elseif($action == 'log_reg')
 /* 用户登录界面 */
 elseif ($action == 'login')
 {
+	if ($_GET['back_act']) {
+		$back_act = $_GET['back_act'];
+		if (isset($_GET['step'])) {
+			$back_act .= '?step=' . $_GET['step'];
+		}
+	}
+
     if (empty($back_act))
     {
         if (empty($back_act) && isset($GLOBALS['_SERVER']['HTTP_REFERER']))
@@ -372,9 +388,7 @@ elseif ($action == 'login')
 /* 处理会员的登录 */
 elseif ($action == 'act_login')
 {
-    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
-    // Fix username with email conflict.
-    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+	$username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
     $back_act = isset($_POST['back_act']) ? trim($_POST['back_act']) : '';
     $captcha = intval($_CFG['captcha']);
@@ -399,16 +413,20 @@ elseif ($action == 'act_login')
 	
     // Fix username with email conflict.
 // 	if(is_email($username))
-    if(is_email($email))
-	{
-		$sql ="select user_name from ".$ecs->table('users')." where email='".$email."'";
-		$username_e = $db->getOne($sql);
-		if($username_e != ''){
-		 	$username = $username_e;
-		}else{
-			$username='';
-		}
-	}
+    if (empty($username)) {
+    	// Fix username with email conflict.
+    	$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    	
+    	$sql ="select user_name from ".$ecs->table('users')." where email='".$email."'";
+    	$username_e = $db->getOne($sql);
+    	if($username_e != ''){
+    		$username = $username_e;
+    	}else{
+    		$username='';
+    	}
+    	
+    }
+
     if ($user->login($username, $password,isset($_POST['remember'])))
     {
         update_user_info();
@@ -416,7 +434,8 @@ elseif ($action == 'act_login')
         $ucdata = isset($user->ucdata)? $user->ucdata : '';
 		//跳转的页面
 		//header("Location:user.php");
-      	show_message($_LANG['login_success'] . $ucdata , array('Continue', 'Go to My Account'), array('index.php','user.php'), 'info',false);
+        show_message(sprintf($_LANG['register_success'], $username . $ucdata), array($_LANG['back_up_page'], $_LANG['profile_lnk']), array($back_act, 'user.php'), 'info');
+//       	show_message($_LANG['login_success'] . $ucdata , array('Continue', 'Go to My Account'), array('index.php','user.php'), 'info',false);
     }
     else
     {
