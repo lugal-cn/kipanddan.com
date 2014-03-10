@@ -70,20 +70,20 @@
 
 }
 
-.loginfrom #usernam{
-
-	width:430px;
-
-	height:60px;
-
-	FONT-FAMILY:helvetica,arial,sans-serif;
-
-	font-size:13px;
-
-	color:#7B7B7B;
-
+.loginfrom #username {
+	display: none;
 }
 
+.loginfrom #username,
+.loginfrom #usernam{
+	width:430px;
+	height:60px;
+	FONT-FAMILY:helvetica,arial,sans-serif;
+	font-size:13px;
+	color:#7B7B7B;
+}
+
+.loginfrom #username .input,
 .loginfrom #usernam .input,
 .loginfrom #usernam #usernaminpu{
 
