@@ -8,53 +8,38 @@
 <title>{$page_title}</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
 <link rel="shortcut icon" href="favicon.ico" />
-
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
 <link href="css/login_reg.css" rel="stylesheet" type="text/css" />
 {* 包含脚本文件 *}
 {insert_scripts files='common.js,user.js,transport.js,jquery-1.10.2.min.js'}
 <script>
 	/*自己添加的js提交的表格*/
-
 	function submitForm(tracker){
-
 		// Fix username with email register.
 		var email = document.getElementById('emailinpu').value;
-
 		var pwd = document.getElementById('passworinpu').value;
-
 		var emailPattern=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
 		
-
 			if (email == '') {
-
 				alert('Please enter your email address to register or login.');
-
 			}else if(!emailPattern.test(email)){
-
 				alert('Please enter a valid email address to register or login.');
-
 			}else if(pwd == ''){
-
 				alert('Please enter your password to register or login.');
-
 			}else{
-
 				if(tracker == 'register'){
-
 					//checkemail(user,pwd);	
-
 					//alert("register");
 					
 					var username = document.getElementById('usernameinput').value;
 					if (username == '') {
 						alert('Please enter your user name to register.');
+						
+						document.getElementById("username").style.display="block";
+						
 						return true;
 					}
-
 					$("#act").attr("value","act_register");
-
 					if(window.confirm("Do you want to register "+ username +"?"))
 					{
 				  		document.getElementById('loginForm').submit();
@@ -63,33 +48,21 @@
 					{
 						window.close;
 					}
-
 				}else if(tracker == 'signin'){
-
 					$("#act").attr("value","act_login");
-
 					//alert("signin");
-
 					//loginemail(user,pwd);
-
 					document.getElementById('loginForm').submit();
-
 				} 
-
 			}
-
 	}
-
 
 </script>
 <body>
 <!-- #BeginLibraryItem "/library/page_header2.lbi" --><!-- #EndLibraryItem -->
-
 <div class="blank height91px"></div>
-
 <!--新版的注册登录start-->
 <!-- {if $action eq 'log_reg'} -->
-
 <div class="usBox clearfix main">
 	<div class="loginfrom">
     	<div id="title">LOGIN OR REGISTER</div>
@@ -109,14 +82,15 @@
                     <div id="subajaxinfo">Please enter your email and password to register or login.</div>
                     
                     <!-- Add user name for register. -->
-                    <br/>
-                    <div id="usernam">
+                    <div id="username">
+                    	<br/>
 						<div>{$lang.label_username}</div>
                     	<input class="input" type="text" id="usernameinput" name="username" onblur="is_registered(this.value);" />
                     	<p id="username_notice" class="notice-info">{$lang.register_user_name_description}</p>
+                    	<br/>
                     </div>
                     <br/>
-
+                    <br/>
                     <div id="submi">
                     	<div id="submicreate">
                         	<!-- <input type="button" id="subcreate" name="subcreate">-->
@@ -133,10 +107,8 @@
 		<div id="logintext">We promise to keep your email address confidential.</div>
     </div>  
 </div>	
-
 <!-- {/if} -->
 <!--新版的注册登录end-->
-
 
 <!--#登录界面 start-->
 <!-- {if $action eq 'login'} -->
@@ -197,7 +169,6 @@
 	</div>
 <!--{/if}-->
 <!--#登录界面 end-->
-
 <!--*会员注册界面 start-->
     <!--{if $action eq 'register'}-->
     <!-- {if $shop_reg_closed eq 1} -->
@@ -317,7 +288,6 @@
 <!--{/if}-->
 <!--{/if}-->
 <!--#会员注册界面 end-->
-
 <!--*找回密码界面 -->
     <!--{if $action eq 'get_password'} -->
     {insert_scripts files='utils.js'}
@@ -335,7 +305,6 @@
         Simply send an email to:　kip@kipanddan.com　and we'll forward your password to you.
     <br />
     -->
-
     <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
         <br />
         <table width="100%" border="0" align="center">
@@ -360,11 +329,9 @@
         </table>
         <br />
       </form>
-
   </div>
 </div>
 <!--{/if}-->
-
 <!--*通过问题找回密码的确认找回账号界面 -->
     <!--{if $action eq 'qpassword_name'} -->
 <div class="usBox">
@@ -392,7 +359,6 @@
   </div>
 </div>
 <!--{/if}-->
-
 <!--*根据输入账号显示密码问题界面 -->
     <!--{if $action eq 'get_passwd_question'} -->
 <div class="usBox">
@@ -431,7 +397,6 @@
   </div>
 </div>
 <!--{/if}-->
-
 <!-- {if $action eq 'reset_password'} -->
     <script type="text/javascript">
     {foreach from=$lang.password_js item=item key=key}
