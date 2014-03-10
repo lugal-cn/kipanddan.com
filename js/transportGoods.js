@@ -14,7 +14,7 @@ var Transport =
   *
   * @static
   */
-  filename : "transport.js",
+  filename : "transportGoods.js",
 
   /* *
   * 存储是否进入调试模式的开关，打印调试消息的方式，换行符，调试用的容器的ID。
@@ -349,7 +349,7 @@ var Transport =
     {
       try
       {
-        legalParams = "JSON=" + params.toJSONString();
+        legalParams = "JSON=" + objToJSONString(params);
       }
       catch (ex)
       {
@@ -405,7 +405,7 @@ var Transport =
         result = this.preFilter(xhr.responseText);
         try
         {
-          result = result.parseJSON();
+          result = parseObjectToJSON(result);
         }
         catch (ex)
         {
@@ -493,7 +493,7 @@ Ajax.call = Transport.run;
 */
 
 // Augment the basic prototypes if they have not already been augmented.
-
+/*
 if ( ! Object.prototype.toJSONString) {
     Array.prototype.toJSONString = function () {
         var a = ['['], // The array holding the text fragments.
@@ -734,6 +734,7 @@ if ( ! Object.prototype.toJSONString) {
         };
     })(String.prototype);
 }
+*/
 
 Ajax.onRunning  = showLoader;
 Ajax.onComplete = hideLoader;
@@ -743,19 +744,17 @@ Ajax.onComplete = hideLoader;
  */
 function showLoader()
 {
-
   document.getElementsByTagName('body').item(0).style.cursor = "wait";
 
-  if (top.frames['header-frame'] && top.frames['header-frame'].document.getElementById("load-div"))
-  { 
+  if (top.frames['header-frame'])
+  {
     top.frames['header-frame'].document.getElementById("load-div").style.display = "block";
-
   }
   else
-  { 
+  {
     var obj = document.getElementById('loader');
 
-    if ( ! obj && typeof(process_request) != 'undefined')
+    if ( ! obj && process_request)
     {
       obj = document.createElement("DIV");
       obj.id = "loader";
@@ -772,7 +771,7 @@ function showLoader()
 function hideLoader()
 {
   document.getElementsByTagName('body').item(0).style.cursor = "auto";
-  if (top.frames['header-frame'] && top.frames['header-frame'].document.getElementById("load-div"))
+  if (top.frames['header-frame'])
   {
     setTimeout(function(){top.frames['header-frame'].document.getElementById("load-div").style.display = "none"}, 10);
   }
@@ -787,4 +786,12 @@ function hideLoader()
     catch (ex)
     {}
   }
+}
+
+function objToJSONString(obj, filter){
+	return JSON.stringify(obj, filter);
+}
+
+function parseObjectToJSON(object, filter){
+    return JSON.parse(object, filter);
 }
