@@ -242,15 +242,30 @@ elseif ($_REQUEST['step'] == 'login')
                 }
             }
 			/*将名字修改成邮箱*/
-			$email = $_POST['email'];
-			if(is_email($email))
-		    {
-				$sql ="select user_name from ".$ecs->table('users')." where email='".$email."'";
-				$username_e = $db->getOne($sql);
-				if($username_e) $username=$username_e;
-		    }
+// 			$email = $_POST['email'];
+// 			if(is_email($email))
+// 		    {
+// 				$sql ="select user_name from ".$ecs->table('users')." where email='".$email."'";
+// 				$username_e = $db->getOne($sql);
+// 				if($username_e) $username=$username_e;
+// 		    }
+
+            // Fix get username if username if empty, default email login.
+            $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+            if (empty($username)) {
+            	// Fix username with email conflict.
+            	$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+            	 
+            	$sql ="select user_name from ".$ecs->table('users')." where email='".$email."'";
+            	$username_e = $db->getOne($sql);
+            	if($username_e != ''){
+            		$username = $username_e;
+            	}else{
+            		$username='';
+            	}
+            }
 			
-            if ($user->login($username_e, $_POST['password'],isset($_POST['remember'])))
+            if ($user->login($username, $_POST['password'],isset($_POST['remember'])))
             {
                 update_user_info();  //更新用户信息
                 recalculate_price(); // 重新计算购物车中的商品价格
@@ -293,7 +308,8 @@ elseif ($_REQUEST['step'] == 'login')
             }
 			//register函数在lib_passport.php中，这个修改成register($email, $password, $other = array())
 			//只需要Email和password
-            if (register(trim($_POST['email']), trim($_POST['password'])))
+//             if (register(trim($_POST['email']), trim($_POST['password'])))
+            if (register(trim($_POST['username']), trim($_POST['email']), trim($_POST['password'])))
             {
                 /* 用户注册成功 */
                 ecs_header("Location: flow.php?step=consignee\n");
