@@ -508,6 +508,8 @@ $_LANG['passport_js']['passwd_balnk'] = '- 密碼中不能包含空格';
 
 /* 自定义 */
 $_LANG['register_user_name_description'] = '註冊新帳號時填寫，登錄不使用。';
+$_LANG['login_email_user_required'] = "請輸入用戶名或郵箱登錄。";
+$_LANG['login_password_required'] = "請輸入密碼登錄。";
 
 
 /* user_clips.dwt js 語言文件 */

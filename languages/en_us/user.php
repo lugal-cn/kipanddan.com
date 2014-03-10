@@ -403,7 +403,7 @@ $_LANG['msg_email_format'] = 'Email address is unvalid';
 
 $_LANG['login_success'] = 'Login successfully.';
 $_LANG['confirm_login'] = 'Enter';
-$_LANG['profile_lnk'] = 'View my profile.';
+$_LANG['profile_lnk'] = "Go to My Account";
 $_LANG['login_failure'] = 'Username or password is wrong.';
 $_LANG['relogin_lnk'] = 'Return';
 
@@ -508,6 +508,8 @@ $_LANG['passport_js']['passwd_balnk'] = '- The password entered can`t have blank
 
 /* 自定义 */
 $_LANG['register_user_name_description'] = "Edited. Please fill while to register a new account.";
+$_LANG['login_email_user_required'] = "Please to fix it on admin, Please enter your email or username to login!!!";
+$_LANG['login_password_required'] = "Please enter your password to login.";
 
 /* user_clips.dwt js 语言文件 */
 $_LANG['clips_js']['msg_title_empty'] = 'Title message is blank.';
