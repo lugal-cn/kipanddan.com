@@ -1,80 +1,41 @@
 .usBox{
-
 	background: none repeat scroll 0 0 #ffffff;
-
 	padding:0px;
-
 }
-
 .height91px{
-
 	height:91px;
-
 }
-
 .main{
-
 	height:450px;
-
 	background-color:#eeeeee;
-
 }
-
+.registerfrom,
 .loginfrom{
-
 	width:450px;
-
 	height: auto;
-
 	background-color:#ffffff;
-
 	float:right;
-
 	margin-right:30px;
-
 	margin-top:30px;
-
 	padding:25px;
-
 	FONT-FAMILY: helvetica,arial,sans-serif;
-
 	font-size:13px;
-
 	color:#7B7B7B;
-
 }
 
 #userform{
-
 	
-
 	margin-top:10px;
-
 	
-
 }
-
  #title{
-
 	width:430px;
-
 	height:30px;
-
 	font-family: helvetica,arial,sans-serif;
-
 	font-weight:normal;
-
 	font-size:18px;
-
 	color:#7B7B7B;
-
 }
-
-.loginfrom #username {
-	display: none;
-}
-
-.loginfrom #username,
 .loginfrom #usernam{
 	width:430px;
 	height:60px;
@@ -86,46 +47,25 @@
 .loginfrom #username .input,
 .loginfrom #usernam .input,
 .loginfrom #usernam #usernaminpu{
-
 	height:25px;
-
 	width:420px;
-
 	font-size:13px;
-
 	FONT-FAMILY: helvetica,arial,sans-serif;
-
 	color:#7B7B7B;
 
-
-
 }
-
 .loginfrom #passwor{
-
 	width:430px;
-
 	height:60px;
-
 	FONT-FAMILY: helvetica,arial,sans-serif;
-
 	font-size:13px;
-
 	color:#7B7B7B;
-
 }
-
 .loginfrom #passwor .textdiv{
-
 	float:left;
-
 }
-
 .loginfrom #passwor #forgot{
-
 	margin-left:5px; font-size:13px; color:#aaa;
-
-
 
 }
 .loginfrom #passwor #forgot a,a:hover{
@@ -133,132 +73,74 @@
 	text-decoration:none;
 }
 
-
 .loginfrom #passwor #passworinpu{
-
 	height:25px;
-
 	width:420px;
-
 	font-size:13px;
-
 	FONT-FAMILY: helvetica,arial,sans-serif;
-
 	color:#7B7B7B;
-
 }
-
 .notice-info,
 #subajaxinfo{
-
 	height:15px;
-
 	width:420px;
-
 	//background-color:#00FF33;
-
 	font-family: helvetica,arial,sans-serif;
-
 	color:red;
 
-
-
 }
-
 #submi{
-
 	width:430px;
-
 	height:50px;
-
 	//background-color:#CCCCCC;
-
 	margin-top:5px;
 
 
 
-
-
-
-
 }
-
 #submi #submicreate{
-
 	height:40px;
-
 	width:160px;
-
 	float:left;
-
 	margin-left:0px;
-
 	background-color:#000;
-
 	color:#fff;
-
 	font-family: helvetica,arial,sans-serif;
-
 	font-size:15px;
-
 	text-align:center;
-
 	line-height:40px;
-
 	border-radius: 8px 8px 8px 8px;
-
 	
 
-
-
 }
-
 #submi a{
-
 	text-decoration:none;
-
 	color:#fff;
 
-
-
 }
-
 #register_button:hover{
-
 	height:40px;
-
 	width:160px;
-
 	float:left;
-
 	background:url(../image/createaccount_r.gif) no-repeat;
 
-
-
 }
 
+.new_us_Submit_reg,
 #submi #submisign{
-
 	height:40px;
-
 	width:160px;
-
 	float:left;
-
-	margin-left:30px;
-
+	/* margin-left:30px; */
 	background-color:#000;
-
 	color:#fff;
-
 	font-family: helvetica,arial,sans-serif;
-
 	font-size:15px;
-
 	text-align:center;
-
 	line-height:40px;
-
 	border-radius: 8px 8px 8px 8px;
+}
 
+.new_us_Submit_reg {
+	border: 0px;
 }
