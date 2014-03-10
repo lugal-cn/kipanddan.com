@@ -384,3 +384,13 @@
 [28-Feb-2014 19:23:57 PRC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home4/kipandd1/public_html/an_website/admin/cloud.php on line 38
 [28-Feb-2014 19:42:01 PRC] PHP Strict Standards:  Non-static method cls_image::gd_version() should not be called statically in /home4/kipandd1/public_html/an_website/includes/lib_base.php on line 346
 [28-Feb-2014 19:42:02 PRC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home4/kipandd1/public_html/an_website/admin/cloud.php on line 38
+[05-Mar-2014 19:49:10 PRC] PHP Strict Standards:  Non-static method cls_image::gd_version() should not be called statically in /home4/kipandd1/public_html/an_website/includes/lib_base.php on line 346
+[05-Mar-2014 19:49:11 PRC] PHP Strict Standards:  Redefining already defined constructor for class captcha in /home4/kipandd1/public_html/an_website/includes/cls_captcha.php on line 237
+[05-Mar-2014 19:49:21 PRC] PHP Strict Standards:  Redefining already defined constructor for class captcha in /home4/kipandd1/public_html/an_website/includes/cls_captcha.php on line 237
+[05-Mar-2014 19:50:02 PRC] PHP Strict Standards:  Redefining already defined constructor for class captcha in /home4/kipandd1/public_html/an_website/includes/cls_captcha.php on line 237
+[05-Mar-2014 19:50:04 PRC] PHP Strict Standards:  Non-static method cls_image::gd_version() should not be called statically in /home4/kipandd1/public_html/an_website/includes/lib_base.php on line 346
+[05-Mar-2014 19:50:05 PRC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home4/kipandd1/public_html/an_website/admin/cloud.php on line 38
+[05-Mar-2014 19:50:05 PRC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home4/kipandd1/public_html/an_website/admin/cloud.php on line 38
+[08-Mar-2014 13:13:49 PRC] PHP Strict Standards:  Non-static method cls_image::gd_version() should not be called statically in /home4/kipandd1/public_html/an_website/includes/lib_base.php on line 346
+[08-Mar-2014 13:13:49 PRC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home4/kipandd1/public_html/an_website/admin/cloud.php on line 38
+[08-Mar-2014 13:13:51 PRC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home4/kipandd1/public_html/an_website/admin/cloud.php on line 38
