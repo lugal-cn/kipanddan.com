@@ -507,7 +507,7 @@ $_LANG['passport_js']['no_select_question'] = '- You have not finished the passw
 $_LANG['passport_js']['passwd_balnk'] = '- The password entered can`t have blank';
 
 /* 自定义 */
-$_LANG['register_user_name_description'] = 'Please fill while to register a new account.';
+$_LANG['register_user_name_description'] = "Edited. Please fill while to register a new account.";
 
 /* user_clips.dwt js 语言文件 */
 $_LANG['clips_js']['msg_title_empty'] = 'Title message is blank.';
