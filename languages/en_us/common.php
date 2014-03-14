@@ -31,7 +31,7 @@ $_LANG['please_waiting'] = 'Please waiting...';
 $_LANG['icp_number'] = 'ICP';
 $_LANG['plugins_not_found'] = "Plug-in %s not found";
 $_LANG['home']  = 'Home';
-$_LANG['back_up_page'] = "Continue";
+$_LANG['back_up_page'] = 'Previous';
 $_LANG['close_window'] = 'superman wear the underwear out of the trousers';
 $_LANG['back_home'] = 'Home';
 $_LANG['ur_here'] = 'Your Position:';
@@ -363,7 +363,7 @@ $_LANG['act_ok'] = 'Thanks for your notification, thanks for your trade, hope yo
 $_LANG['receive'] = 'Received';
 $_LANG['buyer'] = 'Buyer';
 $_LANG['next_article'] = 'Next';
-$_LANG['prev_article'] = "Previous";
+$_LANG['prev_article'] = 'Previous';
 
 /* 虚拟商品 */
 $_LANG['virtual_goods_ship_fail'] = 'Shipping is failed automatically, please contact the shop owner as soon as possible for shipping again.';
