@@ -1,299 +1,155 @@
 body{
-
 	margin:0;
-
 	padding:0;
-
 	background:#ffffff;
-
 }
-
 .content{
-
 	width:958px;
-
 	height:auto;
-
 	min-height:800px;
-
 	overflow:hidden;
-
 	
-
 }
-
 .goods_img_area{
-
 	width:390px;
-
 	height:auto;
-
 	
-
 	margin-top:91px;
-
 	float:right;
-
 	
-
 }
-
 .goods_img_area img{
-
 	margin-left:20px;
-
 	margin-bottom:20px;
-
 }
-
 .goods_detail_area{
-
 	width:350px;
-
 	height:800px;
-
 	float:right;
-
 	margin-top:91px;
-
 	
-
 }
-
 .goods_detail{
-
 	width:340px;
-
 	height:780px;
-
 	
-
 	position:fixed;
-
 }
-
 .goods_detail .title{
-
 	margin-top:10px;
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	font-weight:bold;
-
 	font-size:13px;
-
 	color:#222222;
-
 }
-
 .goods_detail .price{
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	font-size:12px;
-
 	color:#222222;
 
-
-
 }
-
 .goods_detail .color{
-
 	width:330px;
-
 	margin-top:20px;
-
 	margin-left:10px;
-
 	
-
 }
-
 .color .color_area{
-
 	width:100px;
-
 	
-
 	float:left;
-
 	border:1px solid #fff;
-
 	cursor:pointer;
-
         overflow: hidden;
 
-
 }
 
-
+.color .color_area .color_card {
+	height: auto;
+}
 
 .color .color_area .color_card img{
-
 	/*width:98px; */
-
 	height:170px;
-
         position:relative;
 
-
-
 }
-
 .color .color_area .color_sign{
-
 	width:90px;
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	color:#000000;
-
 	font-size:12px;
-
 	text-align:center;
-
 	margin-top:10px;
-
 	padding-bottom:10px;
 
-
-
 }
-
 .goods_detail .type{
-
 	margin-top:20px;
-
 	margin-bottom:30px;
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	text-align:center;
-
 	font-size:11px;
-
 	color:#222222;
-
 }
-
 .goods_detail .size_dec{
-
 	width:340px;
-
 	height:30px;
-
 	
 
-
-
 }
-
 .size_dec .size,.size_dec .dec{
-
 	width:120px;
-
 	height:28px;
-
 	margin-left:30px;
-
 	background-color:#dddddd;
-
 	display:block;
-
 	float:left;
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	font-size:13px;
-
 	color:#222222;
-
 	text-align:center;
-
 	line-height:25px;
-
 	cursor:pointer;
-
 	border: 1px solid #dddddd;
-
 	-moz-border-radius: 6px;      /* Gecko browsers */
-
     -webkit-border-radius: 6px;   /* Webkit browsers */
-
     border-radius:6px;            /* W3C syntax */
-
 }
-
 .size_dec .size:hover,.size_dec .dec:hover{
-
 	background-color:#999999;
-
 	border: 1px solid #999999;
-
 	-moz-border-radius: 6px;      /* Gecko browsers */
-
     -webkit-border-radius: 6px;   /* Webkit browsers */
-
     border-radius:6px;            /* W3C syntax */
 
-
-
 }
-
 .goods_detail .basket_wish{
-
 	width:340px;
-
 	height:30px;
-
-
 
 	margin-top:20px;
-
 }
-
 .basket_wish .basket,.basket_wish .wish{
-
 	/*
-
 	width:90px;
-
 	height:28px;
-
 	*/
-
 	
-
 	background-color:#555;
-
 	display:block;
-
 	float:left;
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	font-size:13px;
-
 	color:#eee;
-
 	text-align:center;
-
 	line-height:25px;
-
 	cursor:pointer;
-
 	padding:3px 8px 3px 8px;
-
 	border: 1px solid #555555;
-
 	-moz-border-radius: 6px;      /* Gecko browsers */
-
     -webkit-border-radius: 6px;   /* Webkit browsers */
-
     border-radius:6px;            /* W3C syntax */
-
-
 
 }
 .basket_wish .basket{
@@ -302,194 +158,98 @@ body{
 .basket_wish .wish{
 	margin-left:50px;
 }
-
 .basket_wish .basket:hover,.basket_wish .wish:hover{
-
 	background-color:#333;
-
 	border: 1px solid #333333;
-
 	-moz-border-radius: 6px;      /* Gecko browsers */
-
     -webkit-border-radius: 6px;   /* Webkit browsers */
-
     border-radius:6px;            /* W3C syntax */
-
 }
-
 /*�ߴ����б�*/
-
 .size_dec_boder{
-
 	background-color: #DDDDDD;
-
 	border-left:1px solid #000000;
-
 	border-right:1px solid #000000;
-
 	border-top:1px solid #000000;
-
 	
-
 }
-
 .size_list{
-
 	width:340px;
-
 	color:#000;
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	font-size:13px;
-
 	
-
 	border-left:1px solid #000000;
-
 	border-right:1px solid #000000;
-
 	border-bottom:1px solid #000000;
-
 }
-
 .size_list table{
-
 	width:340px;
-
 	height:28px;
-
 	
-
 }
-
 .size_list table tr{
-
 	width:340px;
-
 	height:24px;
-
 	
-
 	
-
 }
-
 .size_list table tr td{
-
 	width:40px;
-
 	height:24px;
-
 	text-align:center;
-
 	cursor: pointer;
-
 }
-
 .size_list table tr td:hover{
-
 	background-color:#999999;
-
 }
-
 .size_list table tr td a,a:hover,a:link,a:active{
-
 	
-
 	font-size:13px;
-
 	text-decoration:none;
-
 	color:#000000;
 
-
-
 }
-
-
 
 #opensize_box{
-
 	float:left;
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	font-size:14px;
-
 	color:#000000;
-
 	
-
 }
-
 #opensize_box ul li{
-
 	float:left;
-
 	margin-left:10px;
-
 }
-
-
 
 #opensize_box a{
-
 	text-decoration:none;
-
  	color: #000000;
-
 }
-
 #opensize_box a:hover{
-
 	color:#666666;
-
 }
-
 .goods_relate{
-
 	float: right;
-
 	margin-right:340px;
-
     height:300px;
-
     width: 390px;
 
-
-
 }
-
 .goods_relate .wear_it_with{
-
 	font-family:Arial, Helvetica, sans-serif;
-
 	font-size:13px;
-
 	color:#000000;
-
 	padding-bottom:20px;
-
 	font-weight:bold;
 
 
 
-
-
-
-
 }
-
 .goods_relate img{
-
 	height: 170px;
-
     width: 98px;
-
 	
-
 }
-
-
 
