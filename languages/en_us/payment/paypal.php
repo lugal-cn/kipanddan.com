@@ -28,7 +28,7 @@ $_LANG['paypal_currency_range']['GBP'] = 'Pound';
 $_LANG['paypal_currency_range']['JPY'] = 'Japanese yen';
 $_LANG['paypal_currency_range']['USD'] = 'U.S. dollar';
 $_LANG['paypal_currency_range']['HKD'] = 'Hong Kong dollar';
-$_LANG['paypal_button']                = 'Pay in Paypal immediately.';
+$_LANG['paypal_button']                = 'Proceed to payment';
 $_LANG['paypal_txn_id']                = 'Paypal ID';
 
 ?>

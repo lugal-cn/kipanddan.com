@@ -34,6 +34,9 @@ if (file_exists($payment_lang))
     global $_LANG;
 
     include_once($payment_lang);
+//     print('<pre>Include language file:' . $payment_lang . '</pre>');
+//     echo require_once($payment_lang);
+
 }
 
 /* 模块的基本信息 */
@@ -137,9 +140,18 @@ class paypal_ec
         if (isset($resArray["TOKEN"]))
         {
             $token = urldecode($resArray["TOKEN"]);
-        }            
+        }
+        
+        	// Include paypal language file.
+	        $payment_lang = ROOT_PATH . 'languages/' .$GLOBALS['_CFG']['lang']. '/payment/paypal_ec.php';
+	        if (file_exists($payment_lang))
+	        {
+	        	global $_LANG;
+	        	include_once($payment_lang);
+	        }
+	        
             $payPalURL = PAYPAL_URL.$token;
-            $button = '<div style="text-align:center"><input type="button" onclick="window.open(\''.$payPalURL. '\')" value="' .$GLOBALS['_LANG']['pay_button']. '"/></div>';
+            $button = '<div style="text-align:center"><input type="button" onclick="window.open(\''.$payPalURL. '\')" value="' . $_LANG['paypal_button'] . '"/></div>';
 
         return $button;
     }

@@ -79,10 +79,10 @@ class paypal
     {
     }
 
-    function __construct()
-    {
-        $this->paypal();
-    }
+//     function __construct()
+//     {
+//         $this->paypal();
+//     }
 
     /**
      * 生成支付代码
