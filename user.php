@@ -812,7 +812,8 @@ elseif ($action == 'send_pwd_email')
     else
     {
         //用户名与邮件地址不匹配
-        show_message($_LANG['username_no_email'], $_LANG['back_page_up'], '', 'info');
+//         show_message($_LANG['username_no_email'], $_LANG['back_page_up'], '', 'info');
+        show_message($_LANG['username_no_email'], $_LANG['back_page_up_register'], '', 'info');
     }
 }
 
