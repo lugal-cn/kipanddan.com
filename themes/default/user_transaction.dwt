@@ -674,42 +674,45 @@
 					<span>Address</span>
 				</h5>
 				<div class="blank2pxLine"></div>
-				<div class="infoArea2">
-					<div class="infoModel2">
-						<div class="info">
-							<span class="title">Shipping Address:</span>
-                            <!-- {foreach from=$consignee_list item=consignee key=sn} -->
-                                <div class="addressBox">
-                                    <span class="con">
-                                        {$consignee.firstname|escape} {$consignee.surname|escape}<br>
-                                        {$consignee.address|escape}<br>
-                                        {$consignee.city|escape}<br>
-                                        {$consignee.state|escape}<br>
-                                            <!-- {foreach from=$country_list item=country} -->
-                                                {if $consignee.country eq $country.region_id}
-                                                    {$country.region_name}<br>
-                                                {/if}
-                                            <!-- {/foreach} -->
-                                        Phone: {$consignee.tel|escape}<br>
-                                        Post code:{$consignee.zipcode|escape}
-                                    </span>
-                                    <span class="caozuo">
-                                    
-                                        <span><a href="javascript:edit_address('shipping',{$consignee.address_id});">edit</a></span>
-                                        <span><a href="user.php?act=drop_consignee&id={$consignee.address_id}">delete</a></span>
-                                        
-                                        {if $del_address eq $consignee.address_id}
-                                            <span>default</span>
-                                        {else}
-                                            <span><a href="javascript:make_defalut('shipping',{$consignee.address_id});">make default</a></span>
-                                        {/if}
-                                    </span>
-                                </div>
-							<!-- {/foreach} -->
+				<div class="infoArea2" style="width: 100%; float;">
+					<div class="infoModel2" style="width: 100%; float;">
+						<div id="shipping-address" style="width: 49%; float: left;">
+							<div class="info">
+								<span class="title">Shipping Address:</span>
+                            	<!-- {foreach from=$consignee_list item=consignee key=sn} -->
+                                	<div class="addressBox">
+	                                    <span class="con">
+	                                        {$consignee.firstname|escape} {$consignee.surname|escape}<br>
+	                                        {$consignee.address|escape}<br>
+	                                        {$consignee.city|escape}<br>
+	                                        {$consignee.state|escape}<br>
+	                                            <!-- {foreach from=$country_list item=country} -->
+	                                                {if $consignee.country eq $country.region_id}
+	                                                    {$country.region_name}<br>
+	                                                {/if}
+	                                            <!-- {/foreach} -->
+	                                        Phone: {$consignee.tel|escape}<br>
+	                                        Post code:{$consignee.zipcode|escape}
+	                                    </span>
+	                                    <span class="caozuo">
+	                                    
+	                                        <span><a href="javascript:edit_address('shipping',{$consignee.address_id});">EDIT</a></span>
+	                                        <span><a href="user.php?act=drop_consignee&id={$consignee.address_id}">DELETE</a></span>
+	                                        
+	                                        {if $del_address eq $consignee.address_id}
+	                                            <span>DEFAULT</span>
+	                                        {else}
+	                                            <span><a href="javascript:make_defalut('shipping',{$consignee.address_id});">MAKE DEFAULT</a></span>
+	                                        {/if}
+	                                    </span>
+	                                </div>
+	                                <div style="clear:both"></div>
+								<!-- {/foreach} -->
 						</div>
+
                         <div style="clear:both"></div>
                           <form name="theForm" method="post" action="user.php" id="theForm_shipping">
-                            <div class="addAddr_shipping">
+                            <div class="addAddr_shipping" style="padding-left: 0;">
                                 <table width="70%" border="0" cellpadding="5" cellspacing="1" bgcolor="#ffffff">
                                 <!-- {if $consignee_list_num lt 3} -->
                                         <tr>
@@ -777,7 +780,8 @@
                                 </table>
                             </div>
                         </form>
-                        <div class="blank2pxLine"></div>
+                      </div>
+                      <div id="billing-address" style="width: 49%; float: left;">
 						<div class="info">
 							<span class="title">Billing Address:</span>
 						
@@ -798,21 +802,22 @@
 									</span>
 									<span class="caozuo">
                                     	
-										<span><a href="javascript:edit_address('billing',{$consignee.address_id});">edit</a></span>
-										<span><a href="user.php?act=drop_consignee_billing&id={$consignee.address_id}">delete</a></span>
+										<span><a href="javascript:edit_address('billing',{$consignee.address_id});">EDIT</a></span>
+										<span><a href="user.php?act=drop_consignee_billing&id={$consignee.address_id}">DELETE</a></span>
                                         
                                         {if $del_address_billing eq $consignee.address_id}
-                                        	<span>default</span>
+                                        	<span>DEFAULT</span>
                                         {else}
-                                        	<span><a href="javascript:make_defalut('billing',{$consignee.address_id});">make default</a></span>
+                                        	<span><a href="javascript:make_defalut('billing',{$consignee.address_id});">MAKE DEFAULT</a></span>
                                         {/if}
 									</span>
 								</div>
+								<div style="clear:both"></div>
 							<!-- {/foreach} -->
 						</div>
                          <div style="clear:both"></div>
                          <form name="theForm" method="post" action="user.php"  id="theForm_billing">
-                            <div class="addAddr_billing">
+                            <div class="addAddr_billing" style="padding-left: 0;">
                                 <table width="70%" border="0" cellpadding="5" cellspacing="1" bgcolor="#ffffff">
                                 <!-- {if $consignee_list_billing_num lt 3} -->
                                 
@@ -871,7 +876,8 @@
                                     <!-- {/if} -->
                                 </table>
                             </div>
-                             </form>
+                          </form>
+                      </div>
 					</div>
 				</div><br>
                
