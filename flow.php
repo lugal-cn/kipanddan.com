@@ -3111,7 +3111,7 @@ function flow_update_cart($arr)
             if ($row['goods_number'] < $val)
             {
                 show_message(sprintf($GLOBALS['_LANG']['stock_insufficiency'], $row['goods_name'],
-                $row['goods_number'], $row['goods_number']));
+                $row['goods_number'], $row['goods_number']), $GLOBALS['_LANG']['back_to_cart']);
                 exit;
             }
             /* 是货品 */
@@ -3124,7 +3124,7 @@ function flow_update_cart($arr)
                 if ($product_number < $val)
                 {
                     show_message(sprintf($GLOBALS['_LANG']['stock_insufficiency'], $row['goods_name'],
-                    $product_number['product_number'], $product_number['product_number']));
+                    $product_number['product_number'], $product_number['product_number']), $row['goods_number']), $GLOBALS['_LANG']['back_to_cart']);
                     exit;
                 }
             }
@@ -3244,7 +3244,7 @@ function flow_cart_stock($arr)
             if ($row['goods_number'] < $val)
             {
                 show_message(sprintf($GLOBALS['_LANG']['stock_insufficiency'], $row['goods_name'],
-                $row['goods_number'], $row['goods_number']));
+                $row['goods_number'], $row['goods_number']), $row['goods_number']);
                 exit;
             }
 
@@ -3256,7 +3256,7 @@ function flow_cart_stock($arr)
                 $product_number = $GLOBALS['db']->getOne($sql);
                 if ($product_number < $val)
                 {
-                    show_message(sprintf($GLOBALS['_LANG']['stock_insufficiency'], $row['goods_name'],
+                    show_message(sprintf('3259 line ' . $GLOBALS['_LANG']['stock_insufficiency'], $row['goods_name'],
                     $row['goods_number'], $row['goods_number']));
                     exit;
                 }
@@ -3266,7 +3266,7 @@ function flow_cart_stock($arr)
         {
             if (judge_package_stock($goods['goods_id'], $val))
             {
-                show_message($GLOBALS['_LANG']['package_stock_insufficiency']);
+                show_message('3269 line ' . $GLOBALS['_LANG']['package_stock_insufficiency']);
                 exit;
             }
         }
