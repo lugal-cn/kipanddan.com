@@ -32,6 +32,9 @@ $_LANG['icp_number'] = 'ICP';
 $_LANG['plugins_not_found'] = "Plug-in %s not found";
 $_LANG['home']  = 'Home';
 $_LANG['back_up_page'] = 'Previous';
+
+$_LANG['back_up_home_page'] = 'Back to home page';
+
 $_LANG['close_window'] = 'superman wear the underwear out of the trousers';
 $_LANG['back_home'] = 'Home';
 $_LANG['ur_here'] = 'Your Position:';

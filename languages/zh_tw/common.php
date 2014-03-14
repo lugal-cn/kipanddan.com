@@ -32,6 +32,7 @@ $_LANG['icp_number'] = 'ICP備案證書號';
 $_LANG['plugins_not_found'] = "插件 %s 無法定位";
 $_LANG['home'] = '首頁';
 $_LANG['back_up_page'] = '返回上一頁';
+$_LANG['back_up_home_page'] = '返回首頁';
 $_LANG['close_window'] = '關閉窗口';
 $_LANG['back_home'] = '返回首頁';
 $_LANG['ur_here'] = '當前位置:';
