@@ -507,10 +507,10 @@ elseif ($action == 'signin')
 /* 退出会员中心 */
 elseif ($action == 'logout')
 {
-    if ((!isset($back_act)|| empty($back_act)) && isset($GLOBALS['_SERVER']['HTTP_REFERER']))
-    {
-        $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], 'user.php') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
-    }
+//     if ((!isset($back_act)|| empty($back_act)) && isset($GLOBALS['_SERVER']['HTTP_REFERER']))
+//     {
+//         $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], 'user.php') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
+//     }
 
     $user->logout();
     $ucdata = empty($user->ucdata)? "" : $user->ucdata;
