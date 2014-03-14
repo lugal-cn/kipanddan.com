@@ -218,16 +218,73 @@
                     <div class="price">${$goods.shop_price} AUD</div>
 					<!--超过6个出现滚动条-->
 					
+					<!-- Debug code -->
+					<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+					<script>
+						function returnPlatform() {
+							var OSName="Unknown OS";
+							if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+							if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+							if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+							if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+							return OSName;
+						}
+						function getImageSize() {
+							var imageSize = "\n\r";
+							var windowSize = $(window).width() + "px X " + $(window).height() + "px";
+							$("#color_title .color_area").each(function(index){
+								imageSize = imageSize + index + ". Div area size:" + $(this).width() + " X " + $(this).height() + "\n\r";
+								console.log(index + ". Div area size: " + $(this).width() + " X " + $(this).height());
+							});
+							$("#color_title .color_area .color_card").each(function(index){
+								imageSize = imageSize + index + ". Div card size:" + $(this).width() + " X " + $(this).height() + "\n\r";
+								console.log(index + ". Div card size:" + $(this).width() + " X " + $(this).height());
+							});
+
+							$("#color_title .color_area .color_card .goods-list-pic").each(function(index){
+								imageSize = imageSize + index + ". Image size:" + $(this).width() + " X " + $(this).height() + "\n\r";
+								console.log(index + ". Image size:" + $(this).width() + " X " + $(this).height());
+								var os;
+								os = returnPlatform();
+								if (os == "MacOS") {
+									if ($.browser.chrome) {
+										var ptWidth = $(this).width() * 0.75;
+										var ptHeight = $(this).height() * 0.75;
+										$(this).attr("style", "width: " + ptWidth + "pt; height: " + ptHeight + "pt");
+									}
+								}
+// 								$(this).attr("height", $(this).height() + "pt");
+							});
+
+							console.log($.browser);
+							console.log(returnPlatform());
+							console.log("Window size is " + windowSize + " \n\rList image size height is: " + imageSize);
+// 							alert("Window size is " + windowSize + "\n\r" + imageSize);
+						}
+						
+						$(document).ready(function(){
+							$( "#color_title" ).animate({
+								opacity: 1,
+							}, 1000, function() {
+								getImageSize();
+							});
+						});
+
+						$(document).ajaxComplete(function(){
+							getImageSize();
+						});
+					</script>
+					
 					<div class="suits" style="overflow-y: scroll; height:240px;width:400px">
 						<div class="color" id="color_title" title="{$frist_color_view}">
 							{foreach from = $specification key=k_id item =item}
 									{if $item.name eq "color"}
 										{foreach from = $item.values key=k item=color1}
 											{if $k eq 0}
-												 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;">
+												 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;max-height: 280px;">
 													  {foreach from =$pictures key=k item =color2}
 															{if $color1.label eq $color2.img_desc}
-																	<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" style="width: 100%; height: 100%;"></div>
+																	<div class="color_card" style="height: 240px;" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;"></div>
 															{/if}
 													   {/foreach}
 													   <div class="color_sign">{$color1.label}</div>
@@ -235,20 +292,20 @@
 											{else}
 											<!--当是多个颜色的时候，每三个让他换行-->
 												{if $k mod 3 == 2}
-													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;">
+													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
 														  {foreach from =$pictures key=k item =color2}
 																{if $color1.label eq $color2.img_desc}
-																		<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" style="width: 100%; height: 100%;"></div>
+																		<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;"></div>
 																{/if}
 														   {/foreach}
 														   <div class="color_sign">{$color1.label}</div>
 													 </div>
 													 <div style="clear:both"></div>
 												{else}
-													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;">
+													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
 														  {foreach from =$pictures key=k item =color2}
 																{if $color1.label eq $color2.img_desc}
-																		<div class="color_card" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" style="width: 100%; height: 100%;"></div>
+																		<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;"></div>
 																{/if}
 														   {/foreach}
 														   <div class="color_sign">{$color1.label}</div>
