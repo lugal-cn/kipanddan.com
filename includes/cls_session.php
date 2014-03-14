@@ -267,7 +267,8 @@ class cls_session
         /* ECSHOP 鑷?畾涔夋墽琛岄儴鍒 */
         if (!empty($GLOBALS['ecs']))
         {
-            $this->db->query('DELETE FROM ' . $GLOBALS['ecs']->table('cart') . " WHERE session_id = '$this->session_id'");
+//             $this->db->query('DELETE FROM ' . $GLOBALS['ecs']->table('cart') . " WHERE session_id = '$this->session_id'");
+            $this->db->query('DELETE FROM ' .$GLOBALS['ecs']->table('cart') . " WHERE session_id ='$this->session_id' AND user_id = 0");//只清空匿名用户的购物车 add 20120118 退出不清空购物车*/
         }
         /* ECSHOP 鑷?畾涔夋墽琛岄儴鍒 */
 

@@ -391,6 +391,15 @@ elseif ($action == 'act_login')
 	$username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
     $back_act = isset($_POST['back_act']) ? trim($_POST['back_act']) : '';
+    
+    $home_url = $back_act = strpos($GLOBALS['_SERVER']['HTTP_REFERER'], 'user.php') ? './index.php' : $GLOBALS['_SERVER']['HTTP_REFERER'];
+    if ($back_act == $home_url) {
+    	$lang_back = $_LANG['back_up_home_page'];
+    }
+    else {
+    	$lang_back = $_LANG['back_up_page'];
+    }
+    
     $captcha = intval($_CFG['captcha']);
     if (($captcha & CAPTCHA_LOGIN) && (!($captcha & CAPTCHA_LOGIN_FAIL) || (($captcha & CAPTCHA_LOGIN_FAIL) && $_SESSION['login_fail'] > 2)) && gd_version() > 0)
     {
@@ -434,7 +443,7 @@ elseif ($action == 'act_login')
         $ucdata = isset($user->ucdata)? $user->ucdata : '';
 		//跳转的页面
 		//header("Location:user.php");
-        show_message(sprintf($_LANG['register_success'], $username . $ucdata), array($_LANG['back_up_page'], $_LANG['profile_lnk']), array($back_act, 'user.php'), 'info');
+        show_message(sprintf($_LANG['register_success'], $username . $ucdata), array($lang_back, $_LANG['profile_lnk']), array($back_act, 'user.php'), 'info');
 //       	show_message($_LANG['login_success'] . $ucdata , array('Continue', 'Go to My Account'), array('index.php','user.php'), 'info',false);
     }
     else
@@ -515,7 +524,7 @@ elseif ($action == 'logout')
     $user->logout();
     $ucdata = empty($user->ucdata)? "" : $user->ucdata;
 	header("Location:index.php");
-    //show_message($_LANG['logout'] . $ucdata, array($_LANG['back_up_page'], $_LANG['back_home_lnk']), array($back_act, 'index.php'), 'info',false);
+//     show_message($_LANG['logout'] . $ucdata, array($_LANG['back_up_page'], $_LANG['back_home_lnk']), array($back_act, 'index.php'), 'info',false);
 }
 
 /* 个人资料页面 */
