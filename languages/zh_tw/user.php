@@ -73,6 +73,7 @@ $_LANG['process_false'] = '此次操作失敗，請返回重試！';
 $_LANG['confirm_remove_account'] = '您確定要刪除此條記錄嗎？';
 $_LANG['back_page_up'] = '返回上一頁';
 $_LANG['back_account_log'] = '返回帳戶明細列表';
+$_LANG['back_page_up_register'] = '返回註冊頁面';
 $_LANG['amount_gt_zero'] = '請在「金額」欄輸入大於0的數字';
 $_LANG['select_payment_pls'] = '請選擇支付方式';
 

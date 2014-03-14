@@ -73,6 +73,7 @@ $_LANG['process_false'] = '此次操作失败，请返回重试！';
 $_LANG['confirm_remove_account'] = '您确定要删除此条记录吗？';
 $_LANG['back_page_up'] = '返回上一页';
 $_LANG['back_account_log'] = '返回帐户明细列表';
+$_LANG['back_page_up_register'] = '返回注册页面';
 $_LANG['amount_gt_zero'] = '请在“金额”栏输入大于0的数字';
 $_LANG['select_payment_pls'] = '请选择支付方式';
 
@@ -408,7 +409,7 @@ $_LANG['login_success'] = 'Login successful!';
 $_LANG['confirm_login'] = 'Confirm login';
 $_LANG['profile_lnk'] = 'My Account';
 $_LANG['login_failure'] = 'Email or password incorrect';
-$_LANG['relogin_lnk'] = 'Re Login';
+$_LANG['relogin_lnk'] = '返回登陆页面';
 
 $_LANG['sex'] = '性　别';
 $_LANG['male'] = '男';
