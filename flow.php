@@ -55,6 +55,15 @@ if ($_REQUEST['step'] == 'add_to_cart')
 {
 
     include_once('includes/cls_json.php');
+    // @link http://www.ecshop.co/article-1555.html
+//     if ( empty($_SESSION['user_name']))
+//     {
+//     	$json = new JSON;
+//     	$result['error']  = "999";
+//     	$result['message'] = $_LANG['not_login'];
+//     	die($json->encode($result));
+//     }
+
     $_POST['goods']=strip_tags(urldecode($_POST['goods']));
     $_POST['goods'] = json_str_iconv($_POST['goods']);
 	
