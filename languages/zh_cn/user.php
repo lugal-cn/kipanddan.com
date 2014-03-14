@@ -386,6 +386,8 @@ $_LANG['label_password'] = '密码';
 $_LANG['label_confirm_password'] = '确认密码';
 $_LANG['label_password_intensity'] = '密码强度';
 $_LANG['want_login'] = '我已有账号，我要登录';
+/* 自定义 */
+$_LANG['want_register'] = '没有账号? 点击这里 ';
 $_LANG['other_msn'] = 'MSN';
 $_LANG['other_qq'] = 'QQ';
 $_LANG['other_office_phone'] = '办公电话';
@@ -506,11 +508,8 @@ $_LANG['passport_js']['msg_email_format'] = '* 邮件地址不合法';
 $_LANG['passport_js']['msg_blank'] = '不能为空';
 $_LANG['passport_js']['no_select_question'] = '- 您没有完成密码提示问题的操作';
 $_LANG['passport_js']['passwd_balnk'] = '- 密码中不能包含空格';
-
 /* 自定义 */
 $_LANG['register_user_name_description'] = '注册新账号填写用户名，登录不适用。';
-$_LANG['login_email_user_required'] = "请输入用户名或是邮箱登录。";
-$_LANG['login_password_required'] = "请输入登录密码。";
 
 /* user_clips.dwt js 语言文件 */
 $_LANG['clips_js']['msg_title_empty'] = '留言标题为空';

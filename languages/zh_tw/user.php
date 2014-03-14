@@ -385,6 +385,10 @@ $_LANG['label_password'] = '密碼';
 $_LANG['label_confirm_password'] = '確認密碼';
 $_LANG['label_password_intensity'] = '密碼強度';
 $_LANG['want_login'] = '我已有賬號，我要登錄';
+
+/* 自定義 */
+$_LANG['want_register'] = '沒有帳號? 點擊這裡 ';
+
 $_LANG['other_msn'] = 'MSN';
 $_LANG['other_qq'] = 'QQ';
 $_LANG['other_office_phone'] = '辦公電話';
@@ -508,8 +512,6 @@ $_LANG['passport_js']['passwd_balnk'] = '- 密碼中不能包含空格';
 
 /* 自定义 */
 $_LANG['register_user_name_description'] = '註冊新帳號時填寫，登錄不使用。';
-$_LANG['login_email_user_required'] = "請輸入用戶名或郵箱登錄。";
-$_LANG['login_password_required'] = "請輸入密碼登錄。";
 
 
 /* user_clips.dwt js 語言文件 */
