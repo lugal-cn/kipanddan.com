@@ -191,7 +191,6 @@ elseif ($_REQUEST['step'] == 'login')
     /*
      * 用户登录注册
      */
-	
     if ($_SERVER['REQUEST_METHOD'] == 'GET')
     {
 		
