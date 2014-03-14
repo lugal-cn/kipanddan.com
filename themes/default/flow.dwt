@@ -1180,7 +1180,7 @@
 											<div align="center">
 												<a class="button3 buttonCss" href="user.php?act=register&back_act=flow.php&amp;step=consignee">Create account</a>
 <!-- 												<input type="button" id="registerButton" name="Submit" class="button3 buttonCss" value="Create account" /> -->
-<!-- 												<input name="act" id="actInput" type="hidden" value="signin" /> -->
+ 												<input name="act" id="actInput" type="hidden" value="signin" />
 											</div>
 										</td>
 										
