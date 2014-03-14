@@ -28,7 +28,7 @@ $_LANG['label_address'] = 'Consignee Address';
 $_LANG['label_message'] = 'My Feedback';
 $_LANG['label_tag'] = 'My Tag';
 $_LANG['label_collection'] = 'My Favorite';
-$_LANG['label_bonus'] = 'My Bonus';
+$_LANG['label_bonus'] = "My Bonus";
 $_LANG['label_comment'] = 'My comment';
 $_LANG['label_affiliate'] = 'My recommendation';
 $_LANG['label_group_buy'] = 'My Associates';
@@ -114,19 +114,19 @@ $_LANG['member_discount'] = 'Member discount';
 $_LANG['rank_integral'] = 'Rank points';
 $_LANG['consume_integral'] = 'Consume points';
 $_LANG['account_balance'] = 'Account balance';
-$_LANG['user_bonus'] = 'User bonus';
-$_LANG['user_bonus_info'] = 'Total %d, value %s';
-$_LANG['not_bonus'] = 'No bonus';
-$_LANG['add_user_bonus'] = 'Add';
-$_LANG['bonus_number'] = 'Bonus NO.';
+$_LANG['user_bonus'] = "User bonus";
+$_LANG['user_bonus_info'] = "Total %d, value %s";
+$_LANG['not_bonus'] = "No bonus";
+$_LANG['add_user_bonus'] = "Add";
+$_LANG['bonus_number'] = "Bonus NO.";
 $_LANG['old_password'] = 'Primary password';
 $_LANG['new_password'] = 'New password';
 $_LANG['confirm_password'] = 'Re-enter password';
 
-$_LANG['bonus_sn_exist'] = 'The bonus NO. already exists.';
-$_LANG['bonus_sn_not_exist'] = 'The bonus NO. is nonexistent!';
-$_LANG['add_bonus_sucess'] = 'Successfully!';
-$_LANG['add_bonus_false'] = 'Failure!';
+$_LANG['bonus_sn_exist'] = "The bonus NO. already exists.";
+$_LANG['bonus_sn_not_exist'] = "The bonus NO. is nonexistent!";
+$_LANG['add_bonus_sucess'] = "Successfully!";
+$_LANG['add_bonus_false'] = "Failure!";
 
 $_LANG['not_login'] = 'Please login firstly';
 $_LANG['profile_lnk'] = 'View My Profile';
@@ -136,8 +136,8 @@ $_LANG['edit_profile_failed'] = 'Edit profile failed!';
 $_LANG['oldpassword_error'] = 'Wrong, please enter a valid primary password!';
 
 //JS语言项
-$_LANG['profile_js']['bonus_sn_empty'] = 'Please enter a bonus NO. that you want to add!';
-$_LANG['profile_js']['bonus_sn_error'] = 'Please enter a valid bonus NO.!';
+$_LANG['profile_js']['bonus_sn_empty'] = "Please enter a bonus NO. that you want to add!";
+$_LANG['profile_js']['bonus_sn_error'] = "Please enter a valid bonus NO.!";
 
 $_LANG['profile_js']['email_empty'] = 'Please enter your email address!';
 $_LANG['profile_js']['email_error'] = 'Please enter a valid email address!';
@@ -190,12 +190,12 @@ $_LANG['confirm_drop_address'] = 'Are you sure delete the place of receipt?';
 $_LANG['username_and_email'] = 'Please enter your username and email address.';
 $_LANG['enter_new_password'] = 'Please enter your new password:';
 $_LANG['username_no_email'] = 'Please username and email must match. Please type it again.';
-$_LANG['fail_send_password'] = 'Failure, please contact with administrator!';
-$_LANG['send_success'] = 'Changed password has sent to your emailbox:';
+$_LANG['fail_send_password'] = "Failure, please contact with administrator!";
+$_LANG['send_success'] = 'A temporary password has been sent to your nominated e-mail address.  Please retrieve your temporary password, then use it to login to Kipanddan.  Once logged in, please go to Kipanddan -- My Account and reset your password.';
 $_LANG['parm_error'] = 'Error, Please return!';
 $_LANG['edit_password_failure'] = 'The original password inaccuracy of your importation';
 $_LANG['edit_password_success'] = 'Change password successfully!';
-$_LANG['username_not_match_email'] = 'Username or password is wrong, please type it again!';
+$_LANG['username_not_match_email'] = "Sorry, the username or password you have entered is incorrect.  Please try again.";
 $_LANG['get_question_username'] = 'Please enter your registered user name to get your password question.';
 $_LANG['no_passwd_question'] = 'You do not set the password question, can not retrieve your password in this way.';
 $_LANG['input_answer'] = 'Please input the answer setted by the question you choosed in the registering time';
@@ -244,15 +244,15 @@ $_LANG['msg_success'] = 'Your message have submitted  successfully!';
 $_LANG['confirm_remove_msg'] = 'Are you sure delete those messages?';
 
 /* 会员红包 */
-$_LANG['bonus_is_used'] = 'The bonus has used.';
-$_LANG['bonus_is_used_by_other'] = 'The bonus has used by others.';
-$_LANG['bonus_add_success'] = 'Add a new bonus successfully.';
-$_LANG['bonus_not_exist'] = 'The bonus is nonexistent.';
-$_LANG['user_bonus_empty'] = 'You have no bonus now';
-$_LANG['add_bonus_sucess'] = 'Add new bonus operate successfully!';
-$_LANG['add_bonus_false'] = 'Add new bonus operate failure!';
-$_LANG['bonus_add_expire'] = 'Bonus expired!';
-$_LANG['bonus_use_expire'] = 'Bonus expired!';
+$_LANG['bonus_is_used'] = "The bonus has used.";
+$_LANG['bonus_is_used_by_other'] = "The bonus has used by others.";
+$_LANG['bonus_add_success'] = "Add a new bonus successfully.";
+$_LANG['bonus_not_exist'] = "The promotion code you have entered does not exist or has already been redeemed.";
+$_LANG['user_bonus_empty'] = "You have no bonus now";
+$_LANG['add_bonus_sucess'] = "Add new bonus operate successfully!";
+$_LANG['add_bonus_false'] = "Add new bonus operate failure!";
+$_LANG['bonus_add_expire'] = "Bonus expired!";
+$_LANG['bonus_use_expire'] = "Bonus expired!";
 
 /* 会员订单 */
 $_LANG['order_list_lnk'] = 'My order list';
@@ -270,7 +270,7 @@ $_LANG['pay_money'] = 'Payment';
 $_LANG['view_order'] = 'View order';
 $_LANG['received'] = 'Received';
 $_LANG['ss_received'] = 'Deal succeeds';
-$_LANG['confirm_cancel'] = 'Are you sure cancel this order? After canceled this order will be invalid.';
+$_LANG['confirm_cancel'] = "Are you sure you want to cancel this order?";
 $_LANG['merge_ok'] = 'Combine orders successfully!';
 $_LANG['merge_invalid_order'] = 'Sorry, the orders can\'t be combined.';
 $_LANG['select'] = 'Select...';
@@ -327,7 +327,7 @@ $_LANG['order_user_not_same'] = 'You can\'t combine those orders because they ar
 $_LANG['from_order_sn'] = 'First order NO.';
 $_LANG['to_order_sn'] = 'Secondary order NO.:';
 $_LANG['merge'] = 'Merge';
-$_LANG['notice_order_sn'] = 'The combined information of the order form(such as payment method, shipping method packaging,card,bonus etc) will be correct information, if there are some distinction between two order forms.';
+$_LANG['notice_order_sn'] = "The combined information of the order form(such as payment method, shipping method packaging,card,bonus etc) will be correct information, if there are some distinction between two order forms.";
 $_LANG['subtotal'] = 'Subtotal';
 $_LANG['goods_price'] = 'Price';
 $_LANG['goods_attr'] = 'Attribute';
@@ -385,6 +385,10 @@ $_LANG['label_password'] = 'Password';
 $_LANG['label_confirm_password'] = 'Re-enter password';
 $_LANG['label_password_intensity'] = 'Password intensity';
 $_LANG['want_login'] = 'I have a username, and I will login.';
+
+/* 自定义 */
+$_LANG['want_register'] = 'Don\'t have an account?  Please click here to ';
+
 $_LANG['other_msn'] = 'MSN';
 $_LANG['other_qq'] = 'QQ';
 $_LANG['other_office_phone'] = 'Office phone';
@@ -393,18 +397,18 @@ $_LANG['other_mobile_phone'] = 'Mobile phone';
 $_LANG['remember'] = 'Remember my login information.';
 
 $_LANG['msg_un_blank'] = 'Username is blank';
-$_LANG['msg_un_length'] = 'Username cannot exceed 7 Chinese charaters';
+$_LANG['msg_un_length'] = "* Sorry, usernames must not exceed 14 characters.";
 $_LANG['msg_un_format'] = 'Username has invalid charater';
-$_LANG['msg_un_registered'] = 'Username exists, please register again';
+$_LANG['msg_un_registered'] = "Username exists, please register again";
 $_LANG['msg_can_rg'] = 'Register';
-$_LANG['msg_email_blank'] = 'Email address is blank';
+$_LANG['msg_email_blank'] = "* Please enter your email address";
 $_LANG['msg_email_registered'] = 'Email exists, please enter again';
 $_LANG['msg_email_format'] = 'Email address is unvalid';
 
 $_LANG['login_success'] = 'Login successfully.';
 $_LANG['confirm_login'] = 'Enter';
-$_LANG['profile_lnk'] = "Go to My Account";
-$_LANG['login_failure'] = 'Username or password is wrong.';
+$_LANG['profile_lnk'] = "View my Account";
+$_LANG['login_failure'] = "Sorry, the username or password you have entered is incorrect.  Please try again.";
 $_LANG['relogin_lnk'] = 'Return';
 
 $_LANG['sex'] = 'Sex';
@@ -427,7 +431,7 @@ $_LANG['email_invalid'] = '%s is invalid email address.';
 $_LANG['email_exist'] = '%s already exists.';
 $_LANG['email_not_allow'] = 'Email %s not allow';
 $_LANG['register'] = 'Register.';
-$_LANG['register_success'] = '%s register successfully.';
+$_LANG['register_success'] = "Welcome %s, your registration was successful!";
 
 $_LANG['passwd_question'] = 'Password Question';
 $_LANG['sel_question'] = 'Please choose a password prompt problem';
@@ -441,7 +445,7 @@ $_LANG['your_account'] = 'Account';
 $_LANG['your_notice'] = 'Notice';
 $_LANG['your_surplus'] = 'Balance';
 $_LANG['credit_line'] = 'Credit line';
-$_LANG['your_bonus'] = 'Bonus';
+$_LANG['your_bonus'] = "Bonus";
 $_LANG['your_message'] = 'Message';
 $_LANG['your_order'] = 'Orders';
 $_LANG['your_integral'] = 'Points';
@@ -481,10 +485,10 @@ $_LANG['confirm_drop_tag'] = 'Are you sure delete the tag?';
 
 /* user_passport.dwt js语言文件 */
 $_LANG['passport_js']['username_empty'] = '- Please enter username.';
-$_LANG['passport_js']['username_shorter'] = '- Username length can\'t less than 3 characters.';
+$_LANG['passport_js']['username_shorter'] = "- Username must have at least three characters.";
 $_LANG['passport_js']['username_invalid'] = '- Username only can be composed of letters, figure and underline.';
 $_LANG['passport_js']['password_empty'] = '- Please enter password.';
-$_LANG['passport_js']['password_shorter'] = '- Password can\'t less than 6 characters.';
+$_LANG['passport_js']['password_shorter'] = "* Password must be at least six characters";
 $_LANG['passport_js']['confirm_password_invalid'] = '- The two passwords you entered did not match.';
 $_LANG['passport_js']['email_empty'] = '- Email can\'t be blank.';
 $_LANG['passport_js']['email_invalid'] = '- Email isn\'t a legal address.';
@@ -495,21 +499,19 @@ $_LANG['passport_js']['home_phone_invalid'] = '- Home phone No. is invalid';
 $_LANG['passport_js']['office_phone_invalid'] = '- Office phone No. is invalid';
 $_LANG['passport_js']['mobile_phone_invalid'] = '- Mobile No. is invalid';
 $_LANG['passport_js']['msg_un_blank'] = '* Username is blank';
-$_LANG['passport_js']['msg_un_length'] = '* Username should not exceed 7 Chinese characters';
-$_LANG['passport_js']['msg_un_format'] = '* Username contain invalid characters';
-$_LANG['passport_js']['msg_un_registered'] = '* Username exists, please enter again';
-$_LANG['passport_js']['msg_can_rg'] = '* You can register';
-$_LANG['passport_js']['msg_email_blank'] = '* Email address is blank';
-$_LANG['passport_js']['msg_email_registered'] = '* Mail-box exists, please enter again';
+$_LANG['passport_js']['msg_un_length'] = "* Sorry, usernames must not exceed 14 characters.";
+$_LANG['passport_js']['msg_un_format'] = "* Sorry, this username contains invalid characters and cannot be registered";
+$_LANG['passport_js']['msg_un_registered'] = "* Sorry, this username is unavailable. Please enter a different username.";
+$_LANG['passport_js']['msg_can_rg'] = "* This username is available!";
+$_LANG['passport_js']['msg_email_blank'] = "* Please enter your email address";
+$_LANG['passport_js']['msg_email_registered'] = "* Sorry, there is already a Kipanddan account associated with this email address";
 $_LANG['passport_js']['msg_email_format'] = '* Email address is invalid';
 $_LANG['passport_js']['msg_blank'] = 'is blank';
 $_LANG['passport_js']['no_select_question'] = '- You have not finished the password question operation';
 $_LANG['passport_js']['passwd_balnk'] = '- The password entered can`t have blank';
 
 /* 自定义 */
-$_LANG['register_user_name_description'] = "Edited. Please fill while to register a new account.";
-$_LANG['login_email_user_required'] = "Please to fix it on admin, Please enter your email or username to login!!!";
-$_LANG['login_password_required'] = "Please enter your password to login.";
+$_LANG['register_user_name_description'] = 'Please fill while to register a new account.';
 
 /* user_clips.dwt js 语言文件 */
 $_LANG['clips_js']['msg_title_empty'] = 'Title message is blank.';
@@ -532,12 +534,12 @@ $_LANG['address_empty'] = 'Place of receipt is blank.';
 $_LANG['require_unconfirmed'] = 'You can\'t rechange in the status.';
 
 /* 红包详情 */
-$_LANG['bonus_sn'] = 'NO. ';
-$_LANG['bonus_name'] = 'Name ';
-$_LANG['bonus_amount'] = 'Money ';
+$_LANG['bonus_sn'] = "NO. ";
+$_LANG['bonus_name'] = "Name ";
+$_LANG['bonus_amount'] = "Money ";
 $_LANG['min_goods_amount'] = 'Minimum goods amount';
-$_LANG['bonus_end_date'] = 'Deadline ';
-$_LANG['bonus_status'] = 'Status';
+$_LANG['bonus_end_date'] = "Deadline ";
+$_LANG['bonus_status'] = "Status";
 
 $_LANG['not_start'] = 'Not start';
 $_LANG['overdue'] = 'Overdue';
@@ -673,7 +675,7 @@ $_LANG['user_reg_info'][4] = 'Save your personal data';
 $_LANG['user_reg_info'][5] = 'You are concerned about the collection of goods';
 $_LANG['user_reg_info'][6] = 'Members enjoy the points system';
 $_LANG['user_reg_info'][7] = 'We subscribe to information goods';
-$_LANG['add_bonus'] = 'Add Bouns';
+$_LANG['add_bonus'] = "Add Bouns";
 
 /* 密码找回问题 */
 $_LANG['passwd_questions']['friend_birthday'] = 'My Best Friend\'s Birthday';
