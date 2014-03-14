@@ -72,7 +72,7 @@
 <!-- {if $action eq 'login'} -->
 <div class="usBox clearfix main">
 	<div class="loginfrom">
-    	<div id="title">LOGIN OR (<a href="user.php?act=register">REGISTER</a>)</div>
+    	<div id="title">LOGIN</div>
         <div id="userform">
         	<form id="loginForm" method="post" name="loginForm" action="user.php" method="post">
             		<div id="usernam">
@@ -87,18 +87,22 @@
                			<input type="hidden" name="back_act" value="{$back_act}" />
                        
                     </div>
-                    <div id="subajaxinfo">Please enter your email and password to register.</div>
+<!--                     <div id="subajaxinfo">Please enter your email and password to register.</div> -->
 
                     <div id="submi">
                         <div id="submisign">
                         	<!--<input type="button" id="subsign" name="subsign">-->
-                            <A  id="signin" href="javascript:submitForm('signin')"><div id="">  LOGIN  </div></A>    
+                            <A  id="signin" href="javascript:submitForm('signin')"><div id="">  LOGIN  </div></A>
                         </div>
+                    </div>
+                    <div>
+                    {$lang.want_register} <a href="user.php?act=register">REGISTER</a>
+<!--                     	<a href="user.php?act=login&back_act={$back_act}">{$lang.want_login}</a> -->
                     </div>
                     
             </form>
         </div>
-		<div id="logintext">We promise to keep your email address confidential.</div>
+<!-- 		<div id="logintext">We promise to keep your email address confidential.</div> -->
     </div>  
 </div>
 <!--{/if}-->
@@ -122,14 +126,14 @@
 		        <tr>
 		          <td width="13%" align="right">{$lang.label_username}</td>
 		          <td width="87%">
-		          	<input name="username" type="text" size="25" id="username" onblur="is_registered(this.value);" class="inputBg"/>
+		          	<input name="username" type="text" size="32" id="username" onblur="is_registered(this.value);" class="inputBg"/>
 		            <span id="username_notice" style="color:#FF0000"> *</span>
 		          </td>
 		        </tr>
 		        <tr>
 		          <td align="right">{$lang.label_email}</td>
 		          <td>
-		          	<input name="email" type="text" size="25" id="email" onblur="checkEmail(this.value);"  class="inputBg"/>
+		          	<input name="email" type="text" size="32" id="email" onblur="checkEmail(this.value);"  class="inputBg"/>
 		            <span id="email_notice" style="color:#FF0000"> *</span>
 		          </td>
 		        </tr>
@@ -209,13 +213,13 @@
 		        <tr>
 		          <td colspan="2">&nbsp;</td>
 		        </tr>
-		        <tr>
-		          <td>&nbsp;</td>
-		          <td class="actionSub">
-		          <a href="user.php?act=login&back_act={$back_act}">{$lang.want_login}</a><br />
-		          <a href="user.php?act=get_password">{$lang.forgot_password}</a>
-		          </td>
-		        </tr>
+<!-- 		        <tr> -->
+<!-- 		          <td>&nbsp;</td> -->
+<!-- 		          <td class="actionSub"> -->
+<!-- 		          <a href="user.php?act=login&back_act={$back_act}">{$lang.want_login}</a><br /> -->
+<!-- 		          <a href="user.php?act=get_password">{$lang.forgot_password}</a> -->
+<!-- 		          </td> -->
+<!-- 		        </tr> -->
 		      </table>
 		    </form>
   		</div>
