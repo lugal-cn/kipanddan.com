@@ -3124,7 +3124,7 @@ function flow_update_cart($arr)
                 if ($product_number < $val)
                 {
                     show_message(sprintf($GLOBALS['_LANG']['stock_insufficiency'], $row['goods_name'],
-                    $product_number['product_number'], $product_number['product_number']), $row['goods_number']), $GLOBALS['_LANG']['back_to_cart']);
+                    $product_number['product_number'], $product_number['product_number']), $row['goods_number']);
                     exit;
                 }
             }
