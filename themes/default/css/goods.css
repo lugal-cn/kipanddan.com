@@ -22,6 +22,12 @@ body{
 	margin-left:20px;
 	margin-bottom:20px;
 }
+
+.goods_img_area img {
+	min-width: 30em;
+	max-width: 30em;
+}
+
 .goods_detail_area{
 	width:350px;
 	height:800px;

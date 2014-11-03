@@ -9,8 +9,10 @@ body{
 	
 }
 .product_list_area{
-	width:740px;
-	height:auto;
+	min-width: 800px;
+	max-width: 800px;
+	width: auto;
+	height: auto;
 	float:right;
 	/*background-color:#cccccc;*/
 	margin-top:91px;
@@ -24,17 +26,19 @@ body{
 	border-top: 1px solid #000;
 }
 .goods_item{
-	/*width:240px;
-	height:440px;
-	*/
-	width:180px;
-	height:290px;
-	/*background-color:#339966;*/
-	margin:10px 20px 30px 20px;
-	float:left;
+	float: left;
+    height: auto;
+    margin: 0 0 30px;
+    padding: 5px 1em;
+    vertical-align: top;
+    width: auto;
 }
-.goods_item .img{
-	width:180px;
+.goods_item .img,
+.goods_item .img a img
+{
+	min-width: 20em;
+	height: auto;
+	/* width:180px; */
 	/* height:250px; */
 	/*background-color:#999999;*/
 }
