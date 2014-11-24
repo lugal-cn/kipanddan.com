@@ -42,7 +42,7 @@
         <!--{foreach from=$goods_list item=goods_list_array}-->
             <div class="goods_item">
                 <div class="img">
-                        <a href="{$goods_list_array.url}"><img width="132px" src="{$goods_list_array.goods_img}" /></a>
+                   <a href="{$goods_list_array.url}"><img width="132px" src="{$goods_list_array.goods_img}" /></a>
                 </div>
                 <div class="title">
                     {$goods_list_array.name}
