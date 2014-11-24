@@ -76,7 +76,7 @@ input {
 	cursor: pointer;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	border: medium none;
-	border-radius: 5px 5px 5px 5px;
+	/* border-radius: 5px 5px 5px 5px; */
 	text-decoration: none;
 }
 
@@ -89,7 +89,7 @@ input {
 	cursor: pointer;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	border: medium none;
-	border-radius: 5px 5px 5px 5px;
+	/* border-radius: 5px 5px 5px 5px; */
 }
 
 h5 {

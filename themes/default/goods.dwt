@@ -35,26 +35,19 @@
 		}
 		
 		function openoption(){
-			var sw =jQuery("#size_dec").attr('title');
+			var sw =jQuery("#size_options").attr('title');
 			
 			if(sw == 'close'){
-			
-				jQuery(".dec").hide();
-				jQuery("#size_dec").addClass("size_dec_boder");
-				jQuery(".basket_wish").hide();
-				jQuery(".size_list").show();
-				
-				jQuery("#size_dec").attr('title','open');
+				jQuery("#size_options .arrow").addClass("open");
+				//attr("src", "images/icon_arrow_down.png");
+				jQuery(".size_list").slideDown();
+				jQuery("#size_options").attr('title','open');
 			}else{
-			
-				jQuery(".dec").show();
-				jQuery("#size_dec").removeClass("size_dec_boder");
-				jQuery(".basket_wish").show();
-				jQuery(".size_list").hide();
-				
-				jQuery("#size_dec").attr('title','close');
+				jQuery("#size_options .arrow").removeClass("open");
+				jQuery(".size_list").slideUp();
+				jQuery("#size_options").attr('title','close');
 			}
-			
+
 			
 		/*
 			var string ='';
@@ -90,6 +83,48 @@
 					});
 				*/
 		}
+
+		// Open dropdown description;
+		function ajaxOpenDes() {
+
+			var sw =jQuery("#size_dec").attr('title');
+			
+			if(sw == 'close'){
+				jQuery("#size_dec .arrow").addClass("open");
+
+				var color = jQuery("#color_title").attr("title");
+				var color_id = jQuery("#color_option").attr('value');
+				if(color == ''){
+					alert('please select a color');
+				}else{
+					
+					jQuery.ajax({
+						type: "post",
+						url: "goods.php?act=ajax_product_info&id={$id}&color_id="+color_id,
+						data:{
+							color_id:color_id,
+							id:{$id},
+							nopic: 1,
+						},
+						success:function(data){
+	 						jQuery("#goods-color-desc").html(data);
+	 						jQuery("#goods-color-desc").slideDown();
+						}
+					});
+				}
+						
+				jQuery("#size_dec").attr('title','open');
+			}else{
+				jQuery("#size_dec .arrow").removeClass("open");
+				
+				jQuery("#goods-color-desc").html("open");
+				jQuery("#goods-color-desc").slideUp();
+				
+				jQuery("#size_dec").attr('title','close');
+			}
+
+		}
+		
 		function opendes(){
 			var color = jQuery("#color_title").attr("title");
 			var color_id = jQuery("#color_option").attr('value');
@@ -103,6 +138,21 @@
 						width:      600
 					});
 			}
+		}
+
+		// Update size attribute;
+		function selectSize(sel) {
+			var id = sel.options[sel.selectedIndex].value;
+			var text = sel.options[sel.selectedIndex].text; 
+			if (id == "0") {
+				popSizeChart();
+				return false;
+			}
+			if (id !== 0) {
+				jQuery("#size_option").attr('value', id);
+				jQuery(".size").text('Size:'+text);
+			}
+			return false;
 		}
 		//当点击尺寸的时候，将尺寸的样式修改
 		function click_size(id,size){
@@ -155,10 +205,18 @@
 					//将id为color_title的title属性改为colorid
 					jQuery("#color_title").attr("title",Color_Id);
 					jQuery("#color_r").text(jsonobj.color_name);
+
+					// Reset size option.
+					jQuery("#size_options").attr('title','open');
+					openoption();
+
+					// Reset color description.
+					jQuery("#size_dec").attr('title','open');
+					ajaxOpenDes();
 				})
 			});
                         
-                        jQuery(".color_card img").each(function(){
+            jQuery(".color_card img").each(function(){
 				jQuery(this).load(function(){
 					jQuery(this).css("left",-(jQuery(this).width()-98)/2+"px");
 				});
@@ -219,7 +277,7 @@
 					<!--超过6个出现滚动条-->
 					
 					<!-- Debug code -->
-					<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+					{insert_scripts files='jquery-migrate-1.2.1.js'}
 					<script>
 						function returnPlatform() {
 							var OSName="Unknown OS";
@@ -234,31 +292,31 @@
 							var windowSize = $(window).width() + "px X " + $(window).height() + "px";
 							$("#color_title .color_area").each(function(index){
 								imageSize = imageSize + index + ". Div area size:" + $(this).width() + " X " + $(this).height() + "\n\r";
-								console.log(index + ". Div area size: " + $(this).width() + " X " + $(this).height());
+// 								console.log(index + ". Div area size: " + $(this).width() + " X " + $(this).height());
 							});
-							$("#color_title .color_area .color_card").each(function(index){
-								imageSize = imageSize + index + ". Div card size:" + $(this).width() + " X " + $(this).height() + "\n\r";
-								console.log(index + ". Div card size:" + $(this).width() + " X " + $(this).height());
-							});
+// 							$("#color_title .color_area .color_card").each(function(index){
+// 								imageSize = imageSize + index + ". Div card size:" + $(this).width() + " X " + $(this).height() + "\n\r";
+// // 								console.log(index + ". Div card size:" + $(this).width() + " X " + $(this).height());
+// 							});
 
-							$("#color_title .color_area .color_card .goods-list-pic").each(function(index){
-								imageSize = imageSize + index + ". Image size:" + $(this).width() + " X " + $(this).height() + "\n\r";
-								console.log(index + ". Image size:" + $(this).width() + " X " + $(this).height());
-								var os;
-								os = returnPlatform();
-								if (os == "MacOS") {
-									if ($.browser.chrome) {
-										var ptWidth = $(this).width() * 0.75;
-										var ptHeight = $(this).height() * 0.75;
-										$(this).attr("style", "width: " + ptWidth + "pt; height: " + ptHeight + "pt");
-									}
-								}
-// 								$(this).attr("height", $(this).height() + "pt");
-							});
+// 							$("#color_title .color_area .color_card .goods-list-pic").each(function(index){
+// 								imageSize = imageSize + index + ". Image size:" + $(this).width() + " X " + $(this).height() + "\n\r";
+// // 								console.log(index + ". Image size:" + $(this).width() + " X " + $(this).height());
+// 								var os;
+// 								os = returnPlatform();
+// 								if (os == "MacOS") {
+// 									if ($.browser.chrome) {
+// 										var ptWidth = $(this).width() * 0.75;
+// 										var ptHeight = $(this).height() * 0.75;
+// 										$(this).attr("style", "width: " + ptWidth + "pt; height: " + ptHeight + "pt");
+// 									}
+// 								}
+// // 								$(this).attr("height", $(this).height() + "pt");
+// 							});
 
-							console.log($.browser);
-							console.log(returnPlatform());
-							console.log("Window size is " + windowSize + " \n\rList image size height is: " + imageSize);
+// 							console.log($.browser);
+// 							console.log(returnPlatform());
+// 							console.log("Window size is " + windowSize + " \n\rList image size height is: " + imageSize);
 // 							alert("Window size is " + windowSize + "\n\r" + imageSize);
 						}
 						
@@ -284,7 +342,9 @@
 												 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;max-height: 280px;">
 													  {foreach from =$pictures key=k item =color2}
 															{if $color1.label eq $color2.img_desc}
-																	<div class="color_card" style="height: 240px;" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;"></div>
+																<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">
+																	<img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;">
+																</div>
 															{/if}
 													   {/foreach}
 													   <div class="color_sign">{$color1.label}</div>
@@ -295,7 +355,9 @@
 													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
 														  {foreach from =$pictures key=k item =color2}
 																{if $color1.label eq $color2.img_desc}
-																		<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;"></div>
+																	<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">
+																		<img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;">
+																	</div>
 																{/if}
 														   {/foreach}
 														   <div class="color_sign">{$color1.label}</div>
@@ -305,7 +367,9 @@
 													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
 														  {foreach from =$pictures key=k item =color2}
 																{if $color1.label eq $color2.img_desc}
-																		<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})"><img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;"></div>
+																	<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">
+																		<img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;">
+																	</div>
 																{/if}
 														   {/foreach}
 														   <div class="color_sign">{$color1.label}</div>
@@ -359,39 +423,44 @@
 				
                     <div class="type">
 						{$goods.goods_sn}-<span id="color_r">OGH</span>
-						
 					</div>
+                    <div class="size_dec" id="size_options" title="close">
+                    	<span class="size title" onclick="openoption()">
+                    		Select Size
+                    	</span>
+                    	<font class="arrow"></font>
+                    	<span style="float: right;">
+							<a href="javascript:popSizeChart();">{$lang.size_guide}</a>
+						</span>
+                    </div>
+                    <div class="size_list" style="display:none;">
+						<select id="goods-size-list" class="" onchange="selectSize(this);">
+							{foreach from=$specification item=spec key=spec_key}
+								{if $spec.name eq size}
+									{foreach from=$spec.values item=value key=k}
+										<option value="{$value.id}">{$value.label}</option>
+									{/foreach}
+								{/if}
+							{/foreach}
+						</select>
+                    </div>
+
+                    <div style="clear:both;height: 1em;">&nbsp;</div>
+                    
                     <div class="size_dec" id="size_dec" title="close">
-                    	<span class="size" onclick="openoption()">Select Size</span>
-                        <span class="dec" id="dec" onclick="opendes()">Description</span>
+                    	<span class="dec title" id="dec" onclick="ajaxOpenDes()">
+                    		Description
+                    	</span>
+                    	<font class="arrow"></font>
+                    </div>
+                    
+                    <div id="goods-color-desc" style="display: none;">
+                    	Description Text here.
                     </div>
 					
                     <div class="basket_wish" id="basket_wish">
                         <span class="basket" onclick="addToCartGoods({$goods.goods_id})">Add to basket</span>
                         <span class="wish" onclick="collect({$goods.goods_id})">Add to wish list</span>
-                    </div>
-					<div class="size_list" style="display:none;">
-						<table>
-							<tbody>
-								<tr>
-								{foreach from=$specification item=spec key=spec_key}
-									{if $spec.name eq size}
-										{foreach from=$spec.values item=value key=k}
-												<td onclick="click_size({$value.id},{$value.label})">{$value.label}</td>
-										{/foreach}
-									{/if}
-								{/foreach}
-								</tr>
-								<tr>
-									<td colspan="3" bgcolor="#DDDDDD">
-										<a href="javascript:popSizeChart();">Size Guide</a>
-									</td>
-                                    <td colspan="3"  bgcolor="#DDDDDD">
-										
-									</td>
-								</tr>
-							</tbody>
-						</table>
                     </div>
 					
 					<input name="number" type="hidden" id="number" value="1" size="4" onblur="changePrice()" style="border:1px solid #ccc; "/>

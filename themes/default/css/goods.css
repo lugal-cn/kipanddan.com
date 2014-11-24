@@ -4,32 +4,29 @@ body{
 	background:#ffffff;
 }
 .content{
-	width:958px;
+	width:100em;
 	height:auto;
 	min-height:800px;
 	overflow:hidden;
 	
 }
 .goods_img_area{
-	width:390px;
+	width: 60em;
 	height:auto;
-	
-	margin-top:91px;
+	text-align: center;
+	margin-top:9em;
 	float:right;
 	
 }
 .goods_img_area img{
-	margin-left:20px;
-	margin-bottom:20px;
-}
-
-.goods_img_area img {
-	min-width: 30em;
-	max-width: 30em;
+	margin-left: 5em;
+	margin-bottom: 5em;
+	min-width: 20em;
+	max-width: 58em;
 }
 
 .goods_detail_area{
-	width:350px;
+	width:30em;
 	height:800px;
 	float:right;
 	margin-top:91px;
@@ -39,7 +36,7 @@ body{
 	width:340px;
 	height:780px;
 	
-	position:fixed;
+	/* position:fixed; */
 }
 .goods_detail .title{
 	margin-top:10px;
@@ -99,37 +96,69 @@ body{
 	color:#222222;
 }
 .goods_detail .size_dec{
-	width:340px;
-	height:30px;
-	
-
+	width: 100%;
+	border-bottom: 1px solid #dddddd;
 }
+.size_dec {
+	float: left;
+}
+select#goods-size-list {
+	width: 100%;
+	margin-top: 1em;
+}
+.size_dec span.title {
+	font-weight: bold;
+	margin-top: 0;
+	width: auto;
+}
+
 .size_dec .size,.size_dec .dec{
-	width:120px;
-	height:28px;
-	margin-left:30px;
-	background-color:#dddddd;
-	display:block;
+	width: 100%;
+	/* height:28px; */
+	/* margin-left:30px; */
+	/* background-color:#dddddd; */
+	display:inline-block;
 	float:left;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
 	color:#222222;
-	text-align:center;
-	line-height:25px;
+	/* text-align: left; */
+	/* line-height:25px; */
 	cursor:pointer;
-	border: 1px solid #dddddd;
-	-moz-border-radius: 6px;      /* Gecko browsers */
-    -webkit-border-radius: 6px;   /* Webkit browsers */
-    border-radius:6px;            /* W3C syntax */
+	/* border-bottom: 1px solid #dddddd; */
+	/* -moz-border-radius: 6px;      Gecko browsers
+    -webkit-border-radius: 6px;   Webkit browsers
+    border-radius:6px;            W3C syntax */
 }
+.size_dec .size {
+	width: auto;
+}
+
 .size_dec .size:hover,.size_dec .dec:hover{
-	background-color:#999999;
-	border: 1px solid #999999;
-	-moz-border-radius: 6px;      /* Gecko browsers */
-    -webkit-border-radius: 6px;   /* Webkit browsers */
-    border-radius:6px;            /* W3C syntax */
+	/* background-color:#999999;
+	border: 1px solid #999999; */
+	/* -moz-border-radius: 6px;      Gecko browsers
+    -webkit-border-radius: 6px;   Webkit browsers
+    border-radius:6px;            W3C syntax */
 
 }
+
+.size_dec .arrow {
+	vertical-align: middle;
+	width: 1.6em;
+	height: 1.6em;
+	display: inline-block;
+	background-repeat: no-repeat;
+}
+
+.size_dec .arrow {
+	background-image: url("../images/icon_arrow_right.png");
+}
+
+.size_dec .arrow.open {
+	background-image: url("../images/icon_arrow_down.png");
+}
+
 .goods_detail .basket_wish{
 	width:340px;
 	height:30px;
@@ -153,9 +182,9 @@ body{
 	cursor:pointer;
 	padding:3px 8px 3px 8px;
 	border: 1px solid #555555;
-	-moz-border-radius: 6px;      /* Gecko browsers */
-    -webkit-border-radius: 6px;   /* Webkit browsers */
-    border-radius:6px;            /* W3C syntax */
+	/* -moz-border-radius: 6px;      Gecko browsers
+    -webkit-border-radius: 6px;   Webkit browsers
+    border-radius:6px;            W3C syntax */
 
 }
 .basket_wish .basket{
@@ -167,11 +196,11 @@ body{
 .basket_wish .basket:hover,.basket_wish .wish:hover{
 	background-color:#333;
 	border: 1px solid #333333;
-	-moz-border-radius: 6px;      /* Gecko browsers */
-    -webkit-border-radius: 6px;   /* Webkit browsers */
-    border-radius:6px;            /* W3C syntax */
+	/* -moz-border-radius: 6px;      Gecko browsers
+    -webkit-border-radius: 6px;   Webkit browsers
+    border-radius:6px;            W3C syntax */
 }
-/*�ߴ����б�*/
+/* Fix Chinese charset */
 .size_dec_boder{
 	background-color: #DDDDDD;
 	border-left:1px solid #000000;
@@ -180,14 +209,14 @@ body{
 	
 }
 .size_list{
-	width:340px;
+	width: 100%;
 	color:#000;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
-	
-	border-left:1px solid #000000;
+
+	/* border-left:1px solid #000000;
 	border-right:1px solid #000000;
-	border-bottom:1px solid #000000;
+	border-bottom:1px solid #000000; */
 }
 .size_list table{
 	width:340px;

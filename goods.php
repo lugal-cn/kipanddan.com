@@ -111,7 +111,7 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 					$sql = 'SELECT goods_desc FROM'. $ecs->table('goods') .' WHERE goods_id = '. $id .'';
 			$desc= $db->getOne($sql);
 			//得到的是序列化的整个产品的
-							//根据产品的id和颜色的id来得到颜色的名字
+			//根据产品的id和颜色的id来得到颜色的名字
 			$sql2 = 'SELECT attr_value FROM'. $ecs->table('goods_attr') .' WHERE goods_attr_id = '. $color_id .'';
 			$color_name= $db->getOne($sql2);
 			//根据id和颜色的名字，得到所有这款衣服的图片和文字拼合
@@ -129,16 +129,20 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 					}
 				}
 			}
-			//产品图片
-			echo '<div style="clear:both"></div>';
-			foreach($color_img as $k=>$v){
-				$str_arr = explode('_',$v['img_desc']);
-					if($str_arr[0] == $color_name){
-						$img_arr[] = $color_img[$k]['img_url'];
-					}
-			}
-			foreach($img_arr as $k=>$v){
-				echo '<img src="'.$v.'">';
+			
+			$with_pics = (isset($_REQUEST['nopic']) ? 0 : 1);
+			if ($with_pics) {
+				//产品图片
+				echo '<div style="clear:both"></div>';
+				foreach($color_img as $k=>$v){
+					$str_arr = explode('_',$v['img_desc']);
+						if($str_arr[0] == $color_name){
+							$img_arr[] = $color_img[$k]['img_url'];
+						}
+				}
+				foreach($img_arr as $k=>$v){
+					echo '<img src="'.$v.'">';
+				}
 			}
 			return;
 		}
@@ -297,22 +301,23 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 		
         $smarty->assign('bought_goods',        get_also_bought($goods_id));                      // 购买了该商品的用户还购买了哪些商品
         $smarty->assign('goods_rank',          get_goods_rank($goods_id));                       // 商品的销售排名
-$smarty->assign('class_articles_2', index_get_class_articles(2,6)); // 分类调用文章
-					//显示的图片
-			$view_all = get_goods_gallery($goods_id);
-					//得到第一种的所有图片链接起来
-			$view_frist = '';
-			//第一个地颜色
-			$color = $view_all[0]['img_desc'];
-			foreach($view_all as $key => $value)
-				{
-									$tmp_arr = explode("_",$value['img_desc']);
-					if($tmp_arr[1] == '' && $tmp_arr[0] == $color){
-						$view_frist .= '<br/><img src="'.$value["img_url"].'">';
-					}
-					if($tmp_arr[1] != '' && $tmp_arr[0] == $color){
-						$view_frist .= '<br/><img src="'.$value["img_url"].'">';					}
-				}
+		$smarty->assign('class_articles_2', index_get_class_articles(2,6)); // 分类调用文章
+		//显示的图片
+		$view_all = get_goods_gallery($goods_id);
+		//得到第一种的所有图片链接起来
+		$view_frist = '';
+		//第一个地颜色
+		$color = $view_all[0]['img_desc'];
+		foreach($view_all as $key => $value)
+		{
+			$tmp_arr = explode("_",$value['img_desc']);
+			if($tmp_arr[1] == '' && $tmp_arr[0] == $color){
+				$view_frist .= '<br/><img src="'.$value["img_url"].'">';
+			}
+			if($tmp_arr[1] != '' && $tmp_arr[0] == $color){
+				$view_frist .= '<br/><img src="'.$value["img_url"].'">';					
+			}
+		}
 		$smarty->assign('frist_color_view',          $color);                            // 第一个显示的颜色
 		$smarty->assign('frist_goods_view',          $view_frist);                       // 显示的图片
 		

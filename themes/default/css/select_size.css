@@ -23,7 +23,7 @@
 .button_1{
 	background-color: #555555;
     border: 1px solid #555555;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     color: #EEEEEE;
     cursor: pointer;
     display: block;

@@ -6,7 +6,9 @@ body{
 .content{
 	width:958px;
 	height:auto;
-	
+}
+.goods-color-list {
+	max-width: 20em;
 }
 .product_list_area{
 	min-width: 800px;
@@ -32,6 +34,16 @@ body{
     padding: 5px 1em;
     vertical-align: top;
     width: auto;
+    /* max-width: 30%; */
+}
+.goods_item .proprites .button {
+    color: #EEEEEE;
+    display: block;
+    width: 70%;
+    padding: 1em 2em;
+    background-color: #666;
+    text-align: center;
+    margin: 1em;
 }
 .goods_item .img,
 .goods_item .img a img
