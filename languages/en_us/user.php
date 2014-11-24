@@ -24,7 +24,13 @@ $_LANG['shot_message'] = "Short message";
 $_LANG['label_welcome'] = 'Welcome';
 $_LANG['label_profile'] = 'My Information';
 $_LANG['label_order'] = 'My Order';
-$_LANG['label_address'] = 'Consignee Address';
+$_LANG['label_address'] = "Consignee Address";
+$_LANG['user_address'] = "Address";
+$_LANG['user_town_city'] = "Town/City";
+$_LANG['user_state'] = "State";
+$_LANG['user_postalcode'] = "Post code";
+$_LANG['label_addresses'] = "Addresses";
+$_LANG['edit_addresses_notice'] = "View or edit address details";
 $_LANG['label_message'] = 'My Feedback';
 $_LANG['label_tag'] = 'My Tag';
 $_LANG['label_collection'] = 'My Favorite';
@@ -155,6 +161,7 @@ $_LANG['pay_desc'] = 'Description';
 $_LANG['pay_fee'] = 'Poundage';
 
 /* 收货地址 */
+$_LANG['label_billing_address'] = 'Billing Address:';
 $_LANG['consignee_name'] = 'Name';
 $_LANG['country_province'] = 'Country/Province';
 $_LANG['please_select'] = 'Please select...';
@@ -175,6 +182,7 @@ $_LANG['country'] = 'Country';
 $_LANG['province'] = 'Province';
 $_LANG['city'] = 'City';
 $_LANG['area'] = 'Area';
+$_LANG['also_bill_address'] = 'This is also my billing address';
 
 $_LANG['search_ship'] = 'Search shipping methods';
 
@@ -277,7 +285,7 @@ $_LANG['merge_invalid_order'] = 'Sorry, the orders can\'t be combined.';
 $_LANG['select'] = 'Select...';
 $_LANG['order_not_pay'] = "Your order status is %s, so you don\'t payment.";
 $_LANG['order_sn_empty'] = 'Please enter NO. of combined main order';
-$_LANG['merge_order_notice'] = 'Combine orders refers to consolidating the orders in the same condition into a new order.<br />Address and shipping method depend on the main order.';
+$_LANG['merge_order_notice'] = "Combine orders refers to consolidating the orders in the same condition into a new order.<br />Address and shipping method depend on the main order.";
 $_LANG['order_exist'] = 'The order is nonexistent!';
 $_LANG['order_is_group_buy'] = '[Associates]';
 $_LANG['gb_deposit'] = '(Bail)';
@@ -381,6 +389,8 @@ $_LANG['back_retry_answer'] = 'back and retry';
 
 /* 登录 注册 */
 $_LANG['label_username'] = 'Username';
+$_LANG['label_first_name'] = 'First Name';
+$_LANG['label_sur_name'] = 'Surname';
 $_LANG['label_email'] = 'email';
 $_LANG['label_password'] = 'Password';
 $_LANG['label_confirm_password'] = 'Re-enter password';
@@ -449,6 +459,10 @@ $_LANG['credit_line'] = 'Credit line';
 $_LANG['your_bonus'] = "Bonus";
 $_LANG['your_message'] = 'Message';
 $_LANG['your_order'] = 'Orders';
+$_LANG['my_order'] = 'My Orders';
+$_LANG['my_order_notice'] = 'Click here to view your current orders';
+$_LANG['wish_list'] = 'Wish List';
+$_LANG['wish_list_notice'] = 'Click here to view your wish list';
 $_LANG['your_integral'] = 'Points';
 $_LANG['your_level'] = 'Your rank: %s ';
 $_LANG['next_level'] = ',you need %s points to reach next level %s ';

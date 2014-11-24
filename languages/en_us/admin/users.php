@@ -100,6 +100,7 @@ $_LANG['email_not_allow'] = 'E-mail does not allow';
 $_LANG['address_list'] = 'Receiving Address';
 $_LANG['consignee'] = 'Consignee';
 $_LANG['address'] = 'Address';
+$_LANG['addresses'] = 'Addresses';
 $_LANG['link'] = 'Contact';
 $_LANG['other'] = 'Other';
 $_LANG['tel'] = 'Phone';

@@ -174,4 +174,6 @@ $_LANG['bonus_is_ok'] = 'Bonus No. is avaible, can be used as %s';
 $_LANG['shopping_myship'] = 'My shipping';
 $_LANG['shopping_activity'] = 'Activity list';
 $_LANG['shopping_package'] = 'Package list';
+$_LANG['label_shipping_address'] = 'Shipping Address';
+
 ?>
