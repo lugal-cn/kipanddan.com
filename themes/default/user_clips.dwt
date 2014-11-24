@@ -83,27 +83,27 @@
 								<div class="infoModel">
 							
 									<div class="info">
-										<span class="title" style="font-weight:bold;">Email</span>
+										<span class="title" style="font-weight:bold;">{$lang.email_address}</span>
 										<span class="con">
 											{$info.email}
 										</span>
 										
 									</div>
 									<div class="info">
-										<span class="title" style="font-weight:bold;">Addresses</span>
+										<span class="title" style="font-weight:bold;">{$lang.label_addresses}</span>
 										
 									</div>
-									<div class="subButton"><a href="user.php?act=address_list">View or edit address details</a></div>
+									<div class="subButton"><a href="user.php?act=address_list">{$lang.edit_addresses_notice}</a></div>
 								</div>
 								<div style="clear:both"></div>
 								<div class="infoModel">
-									<div class="title">My Orders</div>
-									<div class="subButton"><a href="user.php?act=order_list">Click here to view your current orders</a></div>
+									<div class="title">{$lang.my_order}</div>
+									<div class="subButton"><a href="user.php?act=order_list">{$lang.my_order_notice}</a></div>
 								</div>
 								<div style="clear:both"></div>
 								<div class="infoModel">
-									<div class="title">Wish List</div>
-									<div class="subButton"><a href="user.php?act=collection_list">Click here to view your wish list</a></div>
+									<div class="title">{$lang.wish_list}</div>
+									<div class="subButton"><a href="user.php?act=collection_list">{$lang.wish_list_notice}</a></div>
 								</div>
 							</div>
 							<!--

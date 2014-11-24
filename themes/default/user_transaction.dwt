@@ -191,7 +191,7 @@
 				<!--#订单列表界面 start-->
 				<!-- {if $action eq 'order_list'} -->
 				
-				<h5><span>My Orders</span></h5>
+				<h5><span>{$lang.my_order}</span></h5>
 				<div class="blank"></div>
 				<table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
 					<tr align="center">
@@ -678,7 +678,7 @@
 					<div class="infoModel2" style="width: 100%; float;">
 						<div id="shipping-address" style="width: 49%; float: left;">
 							<div class="info">
-								<span class="title">Shipping Address:</span>
+								<span class="title">{$lang.label_shipping_address}</span>
                             	<!-- {foreach from=$consignee_list item=consignee key=sn} -->
                                 	<div class="addressBox">
 	                                    <span class="con">
@@ -716,31 +716,31 @@
                                 <table width="70%" border="0" cellpadding="5" cellspacing="1" bgcolor="#ffffff">
                                 <!-- {if $consignee_list_num lt 3} -->
                                         <tr>
-                                            <td>First name</td>
+                                            <td>{$lang.label_first_name}</td>
                                             <td><input type="text" id="consignee_1" name="firstname"></td>
                                         </tr>
                                         <tr>
-                                            <td>Surname</td>
+                                            <td>{$lang.label_sur_name}</td>
                                             <td><input type="text" id="consignee_2" name="surname"></td>
                                         </tr>
                                         <tr>
-                                            <td>Address</td>
+                                            <td>{$lang.user_address}</td>
                                             <td><input type="text" id="address" name="address" ></td>
                                         </tr>
                                         <tr>
-                                            <td>Town/City</td>
+                                            <td>{$lang.user_town_city}</td>
                                             <td><input type="text" id="city" name="city"></td>
                                         </tr>
                                         <tr>
-                                            <td>State</td>
+                                            <td>{$lang.user_state}</td>
                                             <td><input type="text" id="state" name="state"></td>
                                         </tr>
                                         <tr>
-                                            <td>Post code</td>
+                                            <td>{$lang.user_postalcode}</td>
                                             <td><input type="text" id="zipcode" name="zipcode"></td>
                                         </tr>
                                         <tr>
-                                            <td>Country</td>
+                                            <td>{$lang.country}</td>
                                             <td>
                                                 <select id="selCountries" name="country">
                                                     <option value="0" selected>Select Country</option>
@@ -751,11 +751,11 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Email</td>
+                                            <td>{$lang.email_address}</td>
                                             <td><input type="text" id="email" name="email"></td>
                                         </tr>
                                         <tr>
-                                            <td>Phone</td>
+                                            <td>{$lang.phone}</td>
                                             <td><input type="text" id="tel" name="tel"></td>
                                         </tr>
                                         
@@ -764,7 +764,7 @@
                                             	<input type="checkbox" style="width:40px" name="same_above">
                                             </td>
                                             <td>
-                                                This is also my billing address
+                                                {$lang.also_bill_address}
                                             </td>
                                             
                                         </tr>
@@ -773,7 +773,8 @@
                                         <input name="address_classes" type="hidden" value="shipping_address" />
                                         
                                         <tr>
-                                            <td colspan="2"><input type="button" value="submit" onclick="check_shipping()"></td>
+                                        	<td>&nbsp;</td>
+                                            <td><input type="button" value="submit" onclick="check_shipping()"></td>
                                         </tr>
                                    
                                     <!-- {/if} -->
@@ -783,7 +784,7 @@
                       </div>
                       <div id="billing-address" style="width: 49%; float: left;">
 						<div class="info">
-							<span class="title">Billing Address:</span>
+							<span class="title">{$lang.label_billing_address}</span>
 						
 							<!-- {foreach from=$consignee_list_billing item=consignee key=sn} -->
 								<div class="addressBox">
@@ -822,31 +823,31 @@
                                 <!-- {if $consignee_list_billing_num lt 3} -->
                                 
                                         <tr>
-                                            <td>First name</td>
+                                            <td>{$lang.label_first_name}</td>
                                             <td><input type="text" id="b_consignee_1" name="b_firstname"></td>
                                         </tr>
                                         <tr>
-                                            <td>Surname</td>
+                                            <td>{$lang.label_sur_name}</td>
                                             <td><input type="text" id="b_consignee_2" name="b_surname"></td>
                                         </tr>
                                         <tr>
-                                            <td>Address</td>
+                                            <td>{$lang.user_address}</td>
                                             <td><input type="text" id="b_address" name="b_address" ></td>
                                         </tr>
                                         <tr>
-                                            <td>Town/City</td>
+                                            <td>{$lang.user_town_city}</td>
                                             <td><input type="text" id="b_city" name="b_city"></td>
                                         </tr>
                                         <tr>
-                                            <td>State</td>
+                                            <td>{$lang.user_state}</td>
                                             <td><input type="text" id="b_state" name="b_state"></td>
                                         </tr>
                                         <tr>
-                                            <td>Post code</td>
+                                            <td>{$lang.user_postalcode}</td>
                                             <td><input type="text" id="b_zipcode" name="b_zipcode"></td>
                                         </tr>
                                         <tr>
-                                            <td>Country</td>
+                                            <td>{$lang.country}</td>
                                             <td>
                                                 <select id="b_selCountries" name="b_country">
                                                     <option value="0" selected>Select Country</option>
@@ -857,12 +858,16 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Email</td>
+                                            <td>{$lang.email_address}</td>
                                             <td><input type="text" id="b_email" name="b_email"></td>
                                         </tr>
                                         <tr>
-                                            <td>Phone</td>
+                                            <td>{$lang.phone}</td>
                                             <td><input type="text" id="b_tel" name="b_tel"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td style="height: 29px">&nbsp;</td>
                                         </tr>
                                         
                                        	<input type="hidden" name="act" value="act_edit_address" />
@@ -870,7 +875,8 @@
                                         <input name="address_classes" type="hidden" value="billing_address" />
                                         
                                         <tr>
-                                            <td colspan="2"><input type="button" value="submit" onclick="check_billing()"></td>
+                                        	<td>&nbsp;</td>
+                                            <td><input type="button" value="submit" onclick="check_billing()"></td>
                                         </tr>
                                    
                                     <!-- {/if} -->
