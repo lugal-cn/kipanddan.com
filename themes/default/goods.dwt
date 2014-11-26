@@ -348,6 +348,7 @@
                     </div>
                     <div class="size_list" style="display:none;">
 						<select id="goods-size-list" class="" onchange="selectSize(this);">
+							<option value="0">{$lang.label_select_size}</option>
 							{foreach from=$specification item=spec key=spec_key}
 								{if $spec.name eq size}
 									{foreach from=$spec.values item=value key=k}

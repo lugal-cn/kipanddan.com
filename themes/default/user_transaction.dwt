@@ -697,7 +697,11 @@
 	                                    <span class="caozuo">
 	                                    
 	                                        <span><a href="javascript:edit_address('shipping',{$consignee.address_id});">EDIT</a></span>
-	                                        <span><a href="user.php?act=drop_consignee&id={$consignee.address_id}">DELETE</a></span>
+	                                        <span>
+	                                        	<a href="user.php?act=drop_consignee&id={$consignee.address_id}" onclick="if (confirm('{$lang.drop_consignee_confirm}?')) {return true}else{return false}; ">
+	                                        		DELETE
+                                        		</a>
+                                        	</span>
 	                                        
 	                                        {if $del_address eq $consignee.address_id}
 	                                            <span>DEFAULT</span>
@@ -804,7 +808,11 @@
 									<span class="caozuo">
                                     	
 										<span><a href="javascript:edit_address('billing',{$consignee.address_id});">EDIT</a></span>
-										<span><a href="user.php?act=drop_consignee_billing&id={$consignee.address_id}">DELETE</a></span>
+										<span>
+											<a href="user.php?act=drop_consignee_billing&id={$consignee.address_id}" onclick="if (confirm('{$lang.drop_consignee_confirm}?')) {return true}else{return false};" >
+												DELETE
+											</a>
+										</span>
                                         
                                         {if $del_address_billing eq $consignee.address_id}
                                         	<span>DEFAULT</span>

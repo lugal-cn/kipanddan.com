@@ -194,7 +194,8 @@
                                             </tr>
                                         
                                         <tr>
-                                            <td colspan="2">
+                                        	<td>&nbsp;</td>
+                                            <td>
                                                 <input type="button" value="submit" onclick="check_shipping()">
                                             </td>
                                         </tr>
@@ -342,7 +343,8 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2">
+                                        	<td>&nbsp;</td>
+                                            <td>
                                                 <input type="button" value="submit"  onclick="check_billing()">
                                             </td>
                                         </tr>
