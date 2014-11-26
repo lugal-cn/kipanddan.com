@@ -149,40 +149,30 @@
 		
 		jQuery(document).ready(function(){
 			// 点击布料的时候，该布料就会改变样式
-					
+			
 			jQuery(".color_area").click(function(e) {
 				jQuery(this).css("border-color", "#fff");
 				jQuery(this).siblings().css("border-color", "#ffffff");
 				jQuery(this).css({opacity:1});
 				
 				jQuery(this).siblings().css({opacity:0.5});
-				
-			
-				//ajax 
+
 				var Color_Id = jQuery(this).attr('id');
-				var id = {$id};
+				changeColorAjax(Color_Id);
 				
-				var data={
-					goods_id       :id,
-					color_id :Color_Id
-				}
-				jQuery.post("goods.php?act=return_change_color",data,function(msg){
-				 	var jsonobj=eval('('+msg+')');					
-					jQuery(".goods_img_area").html(jsonobj.result);
-					
-					//将id为color_title的title属性改为colorid
-					jQuery("#color_title").attr("title",Color_Id);
-					jQuery("#color_r").text(jsonobj.color_name);
-
-					// Reset size option.
-					jQuery("#size_options").attr('title','open');
-					openoption();
-
-					// Reset color description.
-					jQuery("#size_dec").attr('title','open');
-					ajaxOpenDes();
-				})
 			});
+
+			if ({$select_color_view}) {
+				var divId = "{$select_color_id}";
+				console.log(jQuery(".color_area_" + {$select_color_id}).attr("id"));
+
+				changeColorAjax("{$frist_color_view}");
+
+				jQuery(".color_area_" + {$select_color_id}).css("border-color", "#fff");
+				jQuery(".color_area_" + {$select_color_id}).siblings().css("border-color", "#ffffff");
+				jQuery(".color_area_" + {$select_color_id}).css({opacity:1});
+				jQuery(".color_area_" + {$select_color_id}).siblings().css({opacity:0.5});
+			}
                         
             jQuery(".color_card img").each(function(){
 				jQuery(this).load(function(){
@@ -190,6 +180,33 @@
 				});
 			});
 		});
+
+		function changeColorAjax(Color_Id) {
+
+			//ajax
+			var id = {$id};
+
+			var data={
+				goods_id       :id,
+				color_id :Color_Id
+			}
+			jQuery.post("goods.php?act=return_change_color",data,function(msg){
+			 	var jsonobj=eval('('+msg+')');					
+				jQuery(".goods_img_area").html(jsonobj.result);
+				
+				//将id为color_title的title属性改为colorid
+				jQuery("#color_title").attr("title",Color_Id);
+				jQuery("#color_r").text(jsonobj.color_name);
+
+				// Reset size option.
+				jQuery("#size_options").attr('title','open');
+				openoption();
+
+				// Reset color description.
+				jQuery("#size_dec").attr('title','open');
+				ajaxOpenDes();
+			})
+		}
 		
 		/**
 		 * 点选可选属性或改变数量时修改商品价格的函数
@@ -252,7 +269,7 @@
 									{if $item.name eq "color"}
 										{foreach from = $item.values key=k item=color1}
 											{if $k eq 0}
-												 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;max-height: 280px;">
+												 <div class="color_area color_area_{$color1.id}" id="{$color1.label}" style="border:1px solid #fff;max-height: 280px;">
 													  {foreach from =$pictures key=k item =color2}
 															{if $color1.label eq $color2.img_desc}
 																<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">
@@ -265,7 +282,7 @@
 											{else}
 											<!--当是多个颜色的时候，每三个让他换行-->
 												{if $k mod 3 == 2}
-													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
+													 <div class="color_area color_area_{$color1.id}" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
 														  {foreach from =$pictures key=k item =color2}
 																{if $color1.label eq $color2.img_desc}
 																	<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">
@@ -277,7 +294,7 @@
 													 </div>
 													 <div style="clear:both"></div>
 												{else}
-													 <div class="color_area" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
+													 <div class="color_area color_area_{$color1.id}" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
 														  {foreach from =$pictures key=k item =color2}
 																{if $color1.label eq $color2.img_desc}
 																	<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">

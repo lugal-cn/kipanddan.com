@@ -515,6 +515,7 @@ function category_get_goods($children, $brand, $min, $max, $ext, $size, $page, $
         
         // Add get properties.
         $properties = get_goods_properties($row['goods_id']);  // 获得商品的规格和属性
+//         print('Properties: <pre>' . print_r($properties['spe'], TRUE) . '</pre>');
         $arr[$row['goods_id']]['specification']	   = $properties['spe'];
         $arr[$row['goods_id']]['pictures']         = get_goods_gallery($row['goods_id']);
         

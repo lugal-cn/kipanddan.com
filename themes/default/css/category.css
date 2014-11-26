@@ -9,6 +9,8 @@ body{
 }
 .goods-color-list {
 	max-width: 20em;
+	margin-left: 1.5em;
+	text-align: center;
 }
 .product_list_area{
 	/* min-width: 800px; */
@@ -72,7 +74,8 @@ body{
 	background-size: auto;
 	display: inline-block;
 	background-position: center center;
-	width: 4.5em; 
-	height: 5em;
+	width: 1.5em; 
+	height: 1.5em;
 	background-repeat: no-repeat;
+	margin-bottom: 0.5em;
 }

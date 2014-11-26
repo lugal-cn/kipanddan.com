@@ -314,7 +314,17 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 		$view_frist = '';
 		//第一个地颜色
 // 		$color = $view_all[0]['img_desc'];
-		$color = $properties['spe'][1]['values'][0]['label'];
+
+		$select_color_view = 0;
+		if ($_GET['color_id']) {
+			$color = $_GET['color'];
+			$color_select_id = $_GET['color_id'];
+			$select_color_view = 1;
+		}
+		else {
+			$color = $properties['spe'][1]['values'][0]['label'];
+			$color_select_id = $properties['spe'][1]['values'][0]['id'];
+		}
 		foreach($view_all as $key => $value)
 		{
 			$tmp_arr = explode("_",$value['img_desc']);
@@ -325,6 +335,9 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 				$view_frist .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';					
 			}
 		}
+		$smarty->assign('select_color_view',         $select_color_view);                            // 第一个显示的颜色
+		$smarty->assign('select_color_id',           $color_select_id);                       // 显示的图片
+		
 		$smarty->assign('frist_color_view',          $color);                            // 第一个显示的颜色
 		$smarty->assign('frist_goods_view',          $view_frist);                       // 显示的图片
 		
