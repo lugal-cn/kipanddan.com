@@ -168,9 +168,8 @@ $_LANG['img_url_too_big'] ='Product gallery in the %s picture file is too big(th
 $_LANG['integral_market_price']='Take integral';
 $_LANG['upload_images'] ='Upload a picture';
 $_LANG['spec_price'] = 'Attribute price';
-$_LANG['drop_img_confirm'] = 'Are you sure delete the picture?';
-
 $_LANG['spec_weight'] = 'Order';
+$_LANG['drop_img_confirm'] = 'Are you sure delete the picture?';
 
 $_LANG['select_font'] = 'Font Style';
 $_LANG['font_styles'] = array('strong' => 'Bold', 'em' => 'Italic', 'u' => 'Underline', 'strike' => 'Strike Through');

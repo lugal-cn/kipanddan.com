@@ -246,63 +246,6 @@
                     <div class="price">${$goods.shop_price} AUD</div>
 					<!--超过6个出现滚动条-->
 					
-					<!-- Debug code -->
-					{insert_scripts files='jquery-migrate-1.2.1.js'}
-					<script>
-						function returnPlatform() {
-							var OSName="Unknown OS";
-							if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
-							if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
-							if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
-							if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
-							return OSName;
-						}
-						function getImageSize() {
-							var imageSize = "\n\r";
-							var windowSize = $(window).width() + "px X " + $(window).height() + "px";
-							$("#color_title .color_area").each(function(index){
-								imageSize = imageSize + index + ". Div area size:" + $(this).width() + " X " + $(this).height() + "\n\r";
-// 								console.log(index + ". Div area size: " + $(this).width() + " X " + $(this).height());
-							});
-// 							$("#color_title .color_area .color_card").each(function(index){
-// 								imageSize = imageSize + index + ". Div card size:" + $(this).width() + " X " + $(this).height() + "\n\r";
-// // 								console.log(index + ". Div card size:" + $(this).width() + " X " + $(this).height());
-// 							});
-
-// 							$("#color_title .color_area .color_card .goods-list-pic").each(function(index){
-// 								imageSize = imageSize + index + ". Image size:" + $(this).width() + " X " + $(this).height() + "\n\r";
-// // 								console.log(index + ". Image size:" + $(this).width() + " X " + $(this).height());
-// 								var os;
-// 								os = returnPlatform();
-// 								if (os == "MacOS") {
-// 									if ($.browser.chrome) {
-// 										var ptWidth = $(this).width() * 0.75;
-// 										var ptHeight = $(this).height() * 0.75;
-// 										$(this).attr("style", "width: " + ptWidth + "pt; height: " + ptHeight + "pt");
-// 									}
-// 								}
-// // 								$(this).attr("height", $(this).height() + "pt");
-// 							});
-
-// 							console.log($.browser);
-// 							console.log(returnPlatform());
-// 							console.log("Window size is " + windowSize + " \n\rList image size height is: " + imageSize);
-// 							alert("Window size is " + windowSize + "\n\r" + imageSize);
-						}
-						
-						$(document).ready(function(){
-							$( "#color_title" ).animate({
-								opacity: 1,
-							}, 1000, function() {
-								getImageSize();
-							});
-						});
-
-						$(document).ajaxComplete(function(){
-							getImageSize();
-						});
-					</script>
-					
 					<div class="suits" style="overflow-y: scroll; height:240px;width:400px">
 						<div class="color" id="color_title" title="{$frist_color_view}">
 							{foreach from = $specification key=k_id item =item}
@@ -396,7 +339,7 @@
 					</div>
                     <div class="size_dec" id="size_options" title="close">
                     	<span class="size title" onclick="openoption()">
-                    		Select Size
+                    		{$lang.label_select_size}
                     	</span>
                     	<font class="arrow"></font>
                     	<span style="float: right;">
@@ -419,7 +362,7 @@
                     
                     <div class="size_dec" id="size_dec" title="close">
                     	<span class="dec title" id="dec" onclick="ajaxOpenDes()">
-                    		Description
+                    		{$lang.label_good_description}
                     	</span>
                     	<font class="arrow"></font>
                     </div>
@@ -427,8 +370,8 @@
                     <div style="clear:both;height: 1em;">&nbsp;</div>
 					
                     <div class="basket_wish" id="basket_wish">
-                        <span class="basket" onclick="addToCartGoods({$goods.goods_id})">Add to basket</span>
-                        <span class="wish" onclick="collect({$goods.goods_id})">Add to wish list</span>
+                        <span class="basket" onclick="addToCartGoods({$goods.goods_id})">{$lang.label_shipping_add_to_basket}</span>
+                        <span class="wish" onclick="collect({$goods.goods_id})">{$lang.label_shipping_add_to_wish_list}</span>
                     </div>
 					
 					<input name="number" type="hidden" id="number" value="1" size="4" onblur="changePrice()" style="border:1px solid #ccc; "/>

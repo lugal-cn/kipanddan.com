@@ -731,6 +731,9 @@ $_LANG['article_list'] = 'article list';
 $_LANG['Preferences_price'] = 'Preferences price';
 $_LANG['divided_into'] = 'Into rules';
 $_LANG['more_options'] = 'More Options';
-$_LANG['size_guide'] = 'Size Guide in translate.';
-
+$_LANG['size_guide'] = 'Size Guide';
+$_LANG['label_select_size'] = 'Select Size';
+$_LANG['label_good_description'] = 'Description';
+$_LANG['label_shipping_add_to_basket'] = 'Add to basket';
+$_LANG['label_shipping_add_to_wish_list'] = 'Add to wish list';
 ?>
