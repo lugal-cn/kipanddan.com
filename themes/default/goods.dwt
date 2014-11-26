@@ -47,41 +47,6 @@
 				jQuery(".size_list").slideUp();
 				jQuery("#size_options").attr('title','close');
 			}
-
-			
-		/*
-			var string ='';
-			var selected_size = jQuery("#size_option").attr('value');
-			
-				    
-					string +='<div id="opensize_box">';
-						string +='<ul>';
-							string +='<li id="size_26">Select your size: </li>';
-							string +='{foreach from=$specification item=spec key=spec_key}';
-								string +='{if $spec.name eq size}';
-									string +='{foreach from=$spec.values item=value key=k}';
-								
-									if(selected_size == {$value.id}){
-										string +='<li id="size_{$value.id}"><a href="#" onclick="click_size({$value.id})" style="background-color:#aaaaaa">{$value.label}</a></li>';
-									}else{
-										string +='<li id="size_{$value.id}"><a href="#" onclick="click_size({$value.id})">{$value.label}</a></li>';
-									}
-									string +='{/foreach}';
-								string +='{/if}';
-								string +='{/foreach}';
-						string +='</ul><br>';
-						string +='<ul>';
-						string +='<li><img src="/an_website/data/afficheimg/website size chart.jpg" width="410px"></li>';
-						string +='</ul>';
-					string +='</div>';
-					
-					Shadowbox.open({
-						content:    string,
-						player:     "html",
-						height:     500,
-						width:      502
-					});
-				*/
 		}
 
 		// Open dropdown description;
@@ -154,6 +119,7 @@
 			}
 			return false;
 		}
+
 		//当点击尺寸的时候，将尺寸的样式修改
 		function click_size(id,size){
 			var attr_id =id; 
@@ -170,6 +136,7 @@
 				jQuery(".size_list").hide();
 			}
 		}
+
 		function click_color(id){
 			var attr_id =id; 
 			
@@ -179,6 +146,7 @@
 				jQuery("#color_option").attr('value',id);
 			}
 		}
+		
 		jQuery(document).ready(function(){
 			// 点击布料的时候，该布料就会改变样式
 					
@@ -222,6 +190,7 @@
 				});
 			});
 		});
+		
 		/**
 		 * 点选可选属性或改变数量时修改商品价格的函数
 		 */
@@ -250,15 +219,16 @@
 			  document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
 		  }
 		}
+		
 		<!-- {/literal} -->
 			
-								function popSizeChart(m){
-											
-								var a = window.open('goods.php?act=open_chart','newwindow','height=900,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no');
-										 a.focus();
-														  
-												  
-								}
+		function popSizeChart(m){
+					
+			var a = window.open('goods.php?act=open_chart','newwindow','height=900,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no');
+				 a.focus();
+								  
+						  
+		}
 
 	</script>
 </head>
@@ -453,10 +423,8 @@
                     	</span>
                     	<font class="arrow"></font>
                     </div>
-                    
-                    <div id="goods-color-desc" style="display: none;">
-                    	Description Text here.
-                    </div>
+                    <div id="goods-color-desc" style="display: none;">&nbsp;</div>
+                    <div style="clear:both;height: 1em;">&nbsp;</div>
 					
                     <div class="basket_wish" id="basket_wish">
                         <span class="basket" onclick="addToCartGoods({$goods.goods_id})">Add to basket</span>

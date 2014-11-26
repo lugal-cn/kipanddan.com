@@ -170,6 +170,8 @@ $_LANG['upload_images'] ='Upload a picture';
 $_LANG['spec_price'] = 'Attribute price';
 $_LANG['drop_img_confirm'] = 'Are you sure delete the picture?';
 
+$_LANG['spec_weight'] = 'Order';
+
 $_LANG['select_font'] = 'Font Style';
 $_LANG['font_styles'] = array('strong' => 'Bold', 'em' => 'Italic', 'u' => 'Underline', 'strike' => 'Strike Through');
 

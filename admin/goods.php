@@ -1038,7 +1038,11 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
 
         while ($row = $db->fetchRow($res))
         {
-            $goods_attr_list[$row['attr_id']][$row['attr_value']] = array('sign' => 'delete', 'goods_attr_id' => $row['goods_attr_id']);
+            $goods_attr_list[$row['attr_id']][$row['attr_value']] = array(
+            	'sign' => 'delete', 
+            	'goods_attr_id' => $row['goods_attr_id'],
+            	'attr_weight' => $row['attr_weight'],
+            );
         }
         // 循环现有的，根据原有的做相应处理
         if(isset($_POST['attr_id_list']))
@@ -1047,6 +1051,7 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
             {
                 $attr_value = $_POST['attr_value_list'][$key];
                 $attr_price = $_POST['attr_price_list'][$key];
+                $attr_weight = $_POST['attr_weight_list'][$key];
                 if (!empty($attr_value))
                 {
                     if (isset($goods_attr_list[$attr_id][$attr_value]))
@@ -1054,12 +1059,14 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
                         // 如果原来有，标记为更新
                         $goods_attr_list[$attr_id][$attr_value]['sign'] = 'update';
                         $goods_attr_list[$attr_id][$attr_value]['attr_price'] = $attr_price;
+                        $goods_attr_list[$attr_id][$attr_value]['attr_weight'] = $attr_weight;
                     }
                     else
                     {
                         // 如果原来没有，标记为新增
                         $goods_attr_list[$attr_id][$attr_value]['sign'] = 'insert';
                         $goods_attr_list[$attr_id][$attr_value]['attr_price'] = $attr_price;
+                        $goods_attr_list[$attr_id][$attr_value]['attr_weight'] = $attr_weight;
                     }
                     $val_arr = explode(' ', $attr_value);
                     foreach ($val_arr AS $k => $v)
@@ -1085,12 +1092,20 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
             {
                 if ($info['sign'] == 'insert')
                 {
-                    $sql = "INSERT INTO " .$ecs->table('goods_attr'). " (attr_id, goods_id, attr_value, attr_price)".
-                            "VALUES ('$attr_id', '$goods_id', '$attr_value', '$info[attr_price]')";
+//                 	$sql = "INSERT INTO " .$ecs->table('goods_attr'). " (attr_id, goods_id, attr_value, attr_price)".
+//                 			"VALUES ('$attr_id', '$goods_id', '$attr_value', '$info[attr_price]')";
+					// Add weight field.
+                    $sql = "INSERT INTO " .$ecs->table('goods_attr'). " (attr_id, goods_id, attr_value, attr_price, weight)".
+                            "VALUES ('$attr_id', '$goods_id', '$attr_value', '$info[attr_price]', $info[attr_weight])";
                 }
                 elseif ($info['sign'] == 'update')
                 {
-                    $sql = "UPDATE " .$ecs->table('goods_attr'). " SET attr_price = '$info[attr_price]' WHERE goods_attr_id = '$info[goods_attr_id]' LIMIT 1";
+                	// Add weight field.
+                    $sql = "UPDATE " .$ecs->table('goods_attr'). " SET 
+                    	attr_price = '$info[attr_price]',
+                    	weight = $info[attr_weight]  
+                    WHERE 
+                    	goods_attr_id = '$info[goods_attr_id]' LIMIT 1";
                 }
                 else
                 {

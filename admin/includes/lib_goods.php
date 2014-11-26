@@ -330,6 +330,7 @@ function handle_gallery_image($goods_id, $image_files, $image_descs, $image_urls
                 'tmp_name' => $image_files['tmp_name'][$key],
                 'size' => $image_files['size'][$key],
             );
+
             if (isset($image_files['error']))
             {
                 $upload['error'] = $image_files['error'][$key];
@@ -339,7 +340,19 @@ function handle_gallery_image($goods_id, $image_files, $image_descs, $image_urls
             {
                 sys_msg($GLOBALS['image']->error_msg(), 1, array(), false);
             }
+            
+            // Split product image with original image.
             $img_url = $img_original;
+            // 如果设置大小不为0，缩放图片;
+            // 默认按照宽度拉伸图片, height = 0;
+            if ($GLOBALS['_CFG']['image_width'] != 0 || $GLOBALS['_CFG']['image_height'] != 0)
+            {
+            	$img_url = $GLOBALS['image']->make_thumb('../'. $img_url , $GLOBALS['_CFG']['image_width'],  0);
+            	if ($img_url === false)
+            	{
+            		sys_msg($image->error_msg(), 1, array(), false);
+            	}
+            }
 
             if (!$proc_thumb)
             {
@@ -348,9 +361,9 @@ function handle_gallery_image($goods_id, $image_files, $image_descs, $image_urls
             // 如果服务器支持GD 则添加水印
             if ($proc_thumb && gd_version() > 0)
             {
-                $pos        = strpos(basename($img_original), '.');
-                $newname    = dirname($img_original) . '/' . $GLOBALS['image']->random_filename() . substr(basename($img_original), $pos);
-                copy('../' . $img_original, '../' . $newname);
+                $pos        = strpos(basename($img_url), '.');
+                $newname    = dirname($img_url) . '/' . $GLOBALS['image']->random_filename() . substr(basename($img_url), $pos);
+                copy('../' . $img_url, '../' . $newname);
                 $img_url    = $newname;
 
                 $GLOBALS['image']->add_watermark('../'.$img_url,'',$GLOBALS['_CFG']['watermark'], $GLOBALS['_CFG']['watermark_place'], $GLOBALS['_CFG']['watermark_alpha']);
@@ -359,6 +372,7 @@ function handle_gallery_image($goods_id, $image_files, $image_descs, $image_urls
             /* 重新格式化图片名称 */
             $img_original = reformat_image_name('gallery', $goods_id, $img_original, 'source');
             $img_url = reformat_image_name('gallery', $goods_id, $img_url, 'goods');
+            
             $thumb_url = reformat_image_name('gallery_thumb', $goods_id, $thumb_url, 'thumb');
             $sql = "INSERT INTO " . $GLOBALS['ecs']->table('goods_gallery') . " (goods_id, img_url, img_desc, thumb_url, img_original) " .
                     "VALUES ('$goods_id', '$img_url', '$img_desc', '$thumb_url', '$img_original')";
@@ -620,12 +634,14 @@ function get_attr_list($cat_id, $goods_id = 0)
     }
 
     // 查询属性值及商品的属性值
-    $sql = "SELECT a.attr_id, a.attr_name, a.attr_input_type, a.attr_type, a.attr_values, v.attr_value, v.attr_price ".
+//     $sql = "SELECT a.attr_id, a.attr_name, a.attr_input_type, a.attr_type, a.attr_values, v.attr_value, v.attr_price ".
+	// Add weight field.
+    $sql = "SELECT a.attr_id, a.attr_name, a.attr_input_type, a.attr_type, a.attr_values, v.attr_value, v.attr_price, v.weight ".
             "FROM " .$GLOBALS['ecs']->table('attribute'). " AS a ".
             "LEFT JOIN " .$GLOBALS['ecs']->table('goods_attr'). " AS v ".
             "ON v.attr_id = a.attr_id AND v.goods_id = '$goods_id' ".
             "WHERE a.cat_id = " . intval($cat_id) ." OR a.cat_id = 0 ".
-            "ORDER BY a.sort_order, a.attr_type, a.attr_id, v.attr_price, v.goods_attr_id";
+            "ORDER BY a.sort_order, a.attr_type, a.attr_id, v.weight, v.goods_attr_id, v.attr_price";
 
     $row = $GLOBALS['db']->GetAll($sql);
 
@@ -713,6 +729,9 @@ function build_attr_html($cat_id, $goods_id = 0)
         $html .= ($val['attr_type'] == 1 || $val['attr_type'] == 2) ?
             $GLOBALS['_LANG']['spec_price'].' <input type="text" name="attr_price_list[]" value="' . $val['attr_price'] . '" size="5" maxlength="10" />' :
             ' <input type="hidden" name="attr_price_list[]" value="0" />';
+        
+        // Add sort by weight;
+        $html .= '&nbsp;&nbsp;' . $GLOBALS['_LANG']['spec_weight'] . '&nbsp;<input type="text" name="attr_weight_list[]" value="' . $val['weight'] . '" size="2" />';
 		
         $html .= '</td></tr>';
     }

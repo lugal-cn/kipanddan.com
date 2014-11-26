@@ -623,12 +623,13 @@ function get_goods_properties($goods_id)
     }
 
     /* 获得商品的规格 */
+    // Add weight sort by.
     $sql = "SELECT a.attr_id, a.attr_name, a.attr_group, a.is_linked, a.attr_type, ".
                 "g.goods_attr_id, g.attr_value, g.attr_price " .
             'FROM ' . $GLOBALS['ecs']->table('goods_attr') . ' AS g ' .
             'LEFT JOIN ' . $GLOBALS['ecs']->table('attribute') . ' AS a ON a.attr_id = g.attr_id ' .
             "WHERE g.goods_id = '$goods_id' " .
-            'ORDER BY a.sort_order, g.attr_price, g.goods_attr_id';
+            'ORDER BY a.sort_order, g.weight, g.goods_attr_id, g.attr_price';
     $res = $GLOBALS['db']->getAll($sql);
 
     $arr['pro'] = array();     // 属性

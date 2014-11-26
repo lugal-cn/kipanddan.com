@@ -89,10 +89,11 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 			{
 				$tmp_arr = explode("_",$value['img_desc']);
 				if($tmp_arr[1] == '' && $tmp_arr[0] == $color_id){
-					$res['result'] .= '<br/><img src="'.$value["img_original"].'">';
+					$res['result'] .= '<br/><img src="'.$value["img_url"].'">';
 				}
 				if($tmp_arr[1] != '' && $tmp_arr[0] == $color_id){
-					$res['result'] .= '<br/><img src="'.$value["img_original"].'">';				}
+					$res['result'] .= '<br/><img src="'.$value["img_url"].'">';				
+				}
 			}
 			$sql2 = 'SELECT attr_price FROM'. $ecs->table('goods_attr') .' WHERE goods_id ='. $goods_id .' AND attr_value="'. $color_id .'"';
 			$size_name = $db->getOne($sql2);
@@ -287,9 +288,13 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 		
         $smarty->assign('properties',          $properties['pro']);                              // 商品属性
         $smarty->assign('specification',       $properties['spe']);
-				// 商品规格
+        
+        print('<div style="display: none;" id="goods-debug"><pre>' . print_r($properties['spe'], TRUE) . '</pre></div>');
+
+		// 商品规格
 		//第一个尺寸
 		$smarty->assign('frist_select_color',       $properties['spe'][1]['values'][0]['id']);
+// 		print('Properties: <pre>' . print_r($properties, TRUE) . '</pre>');
 		//第一个颜色
 		
         $smarty->assign('attribute_linked',    get_same_attribute_goods($properties));           // 相同属性的关联商品
@@ -304,10 +309,12 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 		$smarty->assign('class_articles_2', index_get_class_articles(2,6)); // 分类调用文章
 		//显示的图片
 		$view_all = get_goods_gallery($goods_id);
+// 		print('Galleries: <pre>' . print_r($view_all, TRUE) . '</pre>');
 		//得到第一种的所有图片链接起来
 		$view_frist = '';
 		//第一个地颜色
-		$color = $view_all[0]['img_desc'];
+// 		$color = $view_all[0]['img_desc'];
+		$color = $properties['spe'][1]['values'][0]['label'];
 		foreach($view_all as $key => $value)
 		{
 			$tmp_arr = explode("_",$value['img_desc']);

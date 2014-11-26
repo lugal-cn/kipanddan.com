@@ -488,7 +488,7 @@ visibility:hidden;
    /*#footer{background:url(images/logo1.gif) no-repeat 5% 50%; padding-left:200px; width:760px; margin:10px auto;}
    #footer .text{background:url(images/footerLine.gif) no-repeat left center; padding-left:50px; *padding-bottom:20px;}*/
    
-   #footer{width:960px; height:60px;font-family:Verdana, Arial, Helvetica, sans-serif}
+   #footer{width:100em; min-height:6em;font-family:Verdana, Arial, Helvetica, sans-serif}
    #footer .text{padding-left:20px; *padding-bottom:20px;}
    #footer .text a{color:#404040; text-decoration:none;}
 
