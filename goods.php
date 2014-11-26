@@ -89,10 +89,10 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 			{
 				$tmp_arr = explode("_",$value['img_desc']);
 				if($tmp_arr[1] == '' && $tmp_arr[0] == $color_id){
-					$res['result'] .= '<br/><img src="'.$value["img_url"].'">';
+					$res['result'] .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';
 				}
 				if($tmp_arr[1] != '' && $tmp_arr[0] == $color_id){
-					$res['result'] .= '<br/><img src="'.$value["img_url"].'">';				
+					$res['result'] .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';				
 				}
 			}
 			$sql2 = 'SELECT attr_price FROM'. $ecs->table('goods_attr') .' WHERE goods_id ='. $goods_id .' AND attr_value="'. $color_id .'"';
@@ -309,7 +309,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 		$smarty->assign('class_articles_2', index_get_class_articles(2,6)); // 分类调用文章
 		//显示的图片
 		$view_all = get_goods_gallery($goods_id);
-// 		print('Galleries: <pre>' . print_r($view_all, TRUE) . '</pre>');
+
 		//得到第一种的所有图片链接起来
 		$view_frist = '';
 		//第一个地颜色
@@ -319,10 +319,10 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 		{
 			$tmp_arr = explode("_",$value['img_desc']);
 			if($tmp_arr[1] == '' && $tmp_arr[0] == $color){
-				$view_frist .= '<br/><img src="'.$value["img_url"].'">';
+				$view_frist .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';
 			}
 			if($tmp_arr[1] != '' && $tmp_arr[0] == $color){
-				$view_frist .= '<br/><img src="'.$value["img_url"].'">';					
+				$view_frist .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';					
 			}
 		}
 		$smarty->assign('frist_color_view',          $color);                            // 第一个显示的颜色

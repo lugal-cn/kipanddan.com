@@ -736,4 +736,5 @@ $_LANG['label_select_size'] = 'Select Size';
 $_LANG['label_good_description'] = 'Description';
 $_LANG['label_shipping_add_to_basket'] = 'Add to basket';
 $_LANG['label_shipping_add_to_wish_list'] = 'Add to wish list';
+
 ?>
