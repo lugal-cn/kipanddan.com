@@ -730,6 +730,7 @@ $_LANG['label_collection'] = 'my collection';
 $_LANG['article_list'] = 'article list';
 $_LANG['Preferences_price'] = 'Preferences price';
 $_LANG['divided_into'] = 'Into rules';
+$_LANG['more'] = 'More';
 $_LANG['more_options'] = 'More Options';
 $_LANG['size_guide'] = 'Size Guide';
 $_LANG['label_select_size'] = 'Select Size';

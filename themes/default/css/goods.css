@@ -16,7 +16,7 @@ body{
 	text-align: center;
 	margin-top:9em;
 	float:right;
-	
+	overflow: hidden;
 }
 .goods_img_area img{
 	margin-left: 5em;

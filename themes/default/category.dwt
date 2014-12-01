@@ -56,18 +56,27 @@
 						<a href="{$goods_list_array.url}"><span class="button">{$lang.more_options}</span></a>
 						<ul class="goods-color-list">
 							{foreach from = $item.values key=k item=color1}
-							<li style="display: inline;width: auto;">
-							  	{foreach from =$goods_list_array.pictures key=k item =color2}
-									{if $color1.label eq $color2.img_desc}
-										<a href="{$goods_list_array.url}&color={$color1.label}&color_id={$color1.id}">
-											<div class="color-thumb" style="background-image: url({$color2.thumb_url});">
-												&nbsp;
-											</div>
-										</a>
-									{/if}
-							  	{/foreach}
-						   </li>
+							{if $k lt 4}
+								<li>
+								  	{foreach from =$goods_list_array.pictures key=kk item =color2}
+											{if $color1.label eq $color2.img_desc}
+												<a href="{$goods_list_array.url}&color={$color1.label}&color_id={$color1.id}">
+													<div class="color-thumb-warr">
+														<div class="color-thumb" style="background-image: url({$color2.thumb_url});">
+															&nbsp;
+														</div>
+													</div>
+												</a>
+											{/if}
+								  	{/foreach}
+							   </li>
+						   {/if}
 							{/foreach}
+							{if $k gt 3}
+							<li>
+								<a href="{$goods_list_array.url}">...</a>
+							</li>
+							{/if}
 						</ul>
 						
 						{/if}

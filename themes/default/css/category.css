@@ -10,8 +10,17 @@ body{
 .goods-color-list {
 	max-width: 20em;
 	margin-left: 1.5em;
-	text-align: center;
+	/* text-align: center; */
 }
+.goods-color-list li {
+	display: inline;
+	width: auto;
+}
+/* .goods-color-list li a {
+	padding: 1em;
+	border: 1px solid #bcc1c8;
+	width: 3em;
+} */
 .product_list_area{
 	/* min-width: 800px; */
 	max-width: 80em;
@@ -70,12 +79,22 @@ body{
 	color:#333333;
 }
 
+.color-thumb-warr {
+	padding: 0.25em;
+	border: 1px solid gray;
+	display: inline-block;
+	margin-bottom: 0.1em;
+}
+
+.color-thumb-warr:hover {
+	border-color: orange;
+}
+
 .color-thumb {
 	background-size: auto;
 	display: inline-block;
 	background-position: center center;
-	width: 1.5em; 
-	height: 1.5em;
+	width: 3em; 
+	height: 3em;
 	background-repeat: no-repeat;
-	margin-bottom: 0.5em;
 }
