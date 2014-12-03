@@ -730,12 +730,14 @@ $_LANG['label_collection'] = 'my collection';
 $_LANG['article_list'] = 'article list';
 $_LANG['Preferences_price'] = 'Preferences price';
 $_LANG['divided_into'] = 'Into rules';
-$_LANG['more'] = 'More';
 $_LANG['more_options'] = 'More Options';
 $_LANG['size_guide'] = 'Size Guide';
 $_LANG['label_select_size'] = 'Select Size';
 $_LANG['label_good_description'] = 'Description';
 $_LANG['label_shipping_add_to_basket'] = 'Add to basket';
 $_LANG['label_shipping_add_to_wish_list'] = 'Add to wish list';
+$_LANG['wear_it_with'] = 'WEAR IT WITH';
+$_LANG['enable_image_zoom'] = 'Enable Image Zoom';
+$_LANG['disable_image_zoom'] = 'Disable Image Zoom';
 
 ?>

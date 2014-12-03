@@ -10,33 +10,34 @@ body{
 	overflow:hidden;
 	
 }
-.goods_img_area{
-	width: 60em;
+
+.goods_img_area {
+	width: 56em;
 	height:auto;
 	text-align: center;
 	margin-top:9em;
 	float:right;
 	overflow: hidden;
 }
-.goods_img_area img{
+/* .goods_img_area img{
 	margin-left: 5em;
 	margin-bottom: 5em;
 	min-width: 20em;
-	max-width: 55em;
-}
+	max-width: 50em;
+} */
 
 .goods_detail_area{
 	width:30em;
 	height:800px;
 	float:right;
 	margin-top:91px;
-	
+	padding-left: 1em;
 }
 .goods_detail{
-	width:340px;
+	width: 30em;
 	height:780px;
-	
-	/* position:fixed; */
+	z-index: 99;
+	position:fixed;
 }
 .goods_detail .title{
 	margin-top:10px;
@@ -65,6 +66,36 @@ body{
 	cursor:pointer;
         overflow: hidden;
 
+}
+
+.zoom-toggle {
+	cursor:pointer;
+	color: gray;
+}
+
+.zoom-toggle a:hover {
+	color: orange;
+}
+
+.zoom-toggle a {
+	/* background-image: url("../images/icon-zoom.png"); */
+	background-image: url("../images/icon_zoom.png");
+	display: block;
+	width: 60px;
+	height: 26px;
+	overflow: hidden;
+}
+
+.zoom-toggle a.zoom {
+	background-position: top center;
+}
+
+.zoom-toggle a.disable-zoom {
+	background-position: bottom center;
+}
+
+.zoom-toggle a span {
+	opacity: 0;
 }
 
 .color .color_area .color_card {
@@ -265,13 +296,18 @@ select#goods-size-list {
 #opensize_box a:hover{
 	color:#666666;
 }
+.goods_image_zoom,
 .goods_relate{
 	float: right;
 	margin-right:340px;
     height:300px;
-    width: 390px;
+    width: 55em;
 
 }
+.goods_image_zoom {
+	height: auto;
+}
+
 .goods_relate .wear_it_with{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
@@ -288,3 +324,12 @@ select#goods-size-list {
 	
 }
 
+/* .nav-postion {
+	position: fixed;
+	top: 7.5em;
+	width: 100em;
+	margin: 0 auto;
+	text-align: left;
+	background-color: white;
+	z-index: 99;
+} */

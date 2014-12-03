@@ -137,7 +137,7 @@ visibility:hidden;
 		height:400px;
 		position:fixed;
 		z-index:2000;
-		margin-top:150px;
+		margin-top:7.5em;
    }
    .nav_left .top_r{
    		padding-left:20px;
@@ -165,6 +165,7 @@ visibility:hidden;
   .top_r .new{
 		font-weight:bold;
 		padding-bottom:40px;
+		margin-top: 2em;
   }
  
   #topNav{background:url(images/topNavBg.gif) no-repeat left top; height:31px;

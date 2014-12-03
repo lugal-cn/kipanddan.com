@@ -56,7 +56,7 @@
 						<a href="{$goods_list_array.url}"><span class="button">{$lang.more_options}</span></a>
 						<ul class="goods-color-list">
 							{foreach from = $item.values key=k item=color1}
-							{if $k lt 4}
+							{if $k lt 5}
 								<li>
 								  	{foreach from =$goods_list_array.pictures key=kk item =color2}
 											{if $color1.label eq $color2.img_desc}
@@ -72,7 +72,7 @@
 							   </li>
 						   {/if}
 							{/foreach}
-							{if $k gt 3}
+							{if $k gt 4}
 							<li>
 								<a href="{$goods_list_array.url}">...</a>
 							</li>

@@ -89,10 +89,20 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 			{
 				$tmp_arr = explode("_",$value['img_desc']);
 				if($tmp_arr[1] == '' && $tmp_arr[0] == $color_id){
-					$res['result'] .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';
+					$res['result'] .= '<br/>
+						<a id="zoom'.$key.'" class="toDoMagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+								<img src="'.$value["img_url"].'">
+						</a>
+						<p>'.$value['img_desc'].'</p>
+						';
 				}
 				if($tmp_arr[1] != '' && $tmp_arr[0] == $color_id){
-					$res['result'] .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';				
+					$res['result'] .= '<br/>
+						<a id="zoom'.$key.'" class="toDoMagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+								<img src="'.$value["img_url"].'">
+						</a>
+						<p>'.$value['img_desc'].'</p>
+						';				
 				}
 			}
 			$sql2 = 'SELECT attr_price FROM'. $ecs->table('goods_attr') .' WHERE goods_id ='. $goods_id .' AND attr_value="'. $color_id .'"';
@@ -281,15 +291,23 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
             $smarty->assign('next_good', $next_good);//下一个商品
         }
         $position = assign_ur_here($goods['cat_id'], $goods['goods_name']);
+
+        // Remove home link from curmbs;
+        $home_poses = strpos($position['ur_here'], '<code>&gt;</code>');
+        $home_postion = substr($position['ur_here'], $home_poses+18);
+        // Remove title from crumbs;
+        $title_poses = strrpos($home_postion, '<code>&gt;</code>');
+        $new_postion = substr($home_postion, 0, $title_poses);
+
         /* current position */
         $smarty->assign('page_title',          $position['title']);                    // 页面标题
-        $smarty->assign('ur_here',             $position['ur_here']);                  // 当前位置
+        $smarty->assign('ur_here',             $new_postion);                  // 当前位置
         $properties = get_goods_properties($goods_id);  // 获得商品的规格和属性
 		
         $smarty->assign('properties',          $properties['pro']);                              // 商品属性
         $smarty->assign('specification',       $properties['spe']);
         
-        print('<div style="display: none;" id="goods-debug"><pre>' . print_r($properties['spe'], TRUE) . '</pre></div>');
+//         print('<div style="display: none;" id="goods-debug"><pre>' . print_r($properties['spe'], TRUE) . '</pre></div>');
 
 		// 商品规格
 		//第一个尺寸
@@ -325,14 +343,26 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 			$color = $properties['spe'][1]['values'][0]['label'];
 			$color_select_id = $properties['spe'][1]['values'][0]['id'];
 		}
+// 		print('Pictures: <pre>' . print_r($goods, TRUE) . '</pre>');
 		foreach($view_all as $key => $value)
 		{
 			$tmp_arr = explode("_",$value['img_desc']);
 			if($tmp_arr[1] == '' && $tmp_arr[0] == $color){
-				$view_frist .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';
+				$view_frist .= '<br/>
+						<a id="zoom'.$key.'" class="toDoMagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+								<img src="'.$value["img_url"].'">
+						</a>
+						<p>'.$value['img_desc'].'</p>
+						';
 			}
 			if($tmp_arr[1] != '' && $tmp_arr[0] == $color){
-				$view_frist .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';					
+				$view_frist .= '<br/>
+						<a id="zoom'.$key.'" class="toDoMagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+								<img src="'.$value["img_url"].'">
+						</a>
+						<p>'.$value['img_desc'].'</p>
+						';
+// 				$view_frist .= '<br/><a href="' . $value["img_original"] . '" target="_blank"><img src="'.$value["img_url"].'"></a>';					
 			}
 		}
 		$smarty->assign('select_color_view',         $select_color_view);                            // 第一个显示的颜色
@@ -345,6 +375,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         $tag_array = get_tags($goods_id);
 		
         $smarty->assign('tags',                $tag_array);                                       // 商品的标记
+
         //获取关联礼包
         $package_goods_list = get_package_goods_list($goods['goods_id']);
         $smarty->assign('package_goods_list',$package_goods_list);    // 获取关联礼包

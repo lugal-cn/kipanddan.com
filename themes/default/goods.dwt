@@ -19,6 +19,11 @@
 {insert_scripts files='shadowbox.js'}
 {insert_scripts files='goods_page.js'}
 {insert_scripts files='transportGoods.js'}
+<!-- #Include zoom js -->
+{insert_scripts files='magiczoomplus.js'}
+<link href="css/magiczoomplus.css" rel="stylesheet" type="text/css" />
+
+
 	<script language="javascript">
 		Shadowbox.init({
 				overlayColor: "#000",
@@ -146,6 +151,10 @@
 				jQuery("#color_option").attr('value',id);
 			}
 		}
+
+		function refreshZoom() {
+			MagicZoomPlus.refresh();
+		}
 		
 		jQuery(document).ready(function(){
 			// 点击布料的时候，该布料就会改变样式
@@ -159,6 +168,10 @@
 
 				var Color_Id = jQuery(this).attr('id');
 				changeColorAjax(Color_Id);
+
+				// Refresh image zoom.
+				refreshZoom();
+// 				MagicZoom.start();
 				
 			});
 
@@ -205,6 +218,12 @@
 				// Reset color description.
 				jQuery("#size_dec").attr('title','open');
 				ajaxOpenDes();
+
+				// Reset zoom icon.
+				jQuery(".zoom-toggle").attr("title", "disable");
+				jQuery(".zoom-toggle").find(".zoom").show();
+				jQuery(".zoom-toggle").find(".disable-zoom").hide();
+
 			})
 		}
 		
@@ -250,19 +269,28 @@
 	</script>
 </head>
 <body>
+
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
 	<div class="content">
-   		
-            <div class="goods_detail_area">
-            	<div class="goods_detail">
-					<form action="javascript:addToCartGoods({$goods.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+	
+		<!-- #Goods color list  -->
+		
+        <div class="goods_detail_area">
+			<div class="goods_detail">
+				<form action="javascript:addToCartGoods({$goods.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
 					
 					<input type="hidden" name="goods_id" value="{$goods.goods_id}"  />
 					
-                	<div class="title">{$goods.goods_name}</div>
+					<div class="nav-postion">
+						<!-- #BeginLibraryItem "/library/ur_here.lbi" -->
+						<div style="padding:3px 15px 0px 15px;">{$lang.ur_here} {$ur_here}</div>
+						<!-- #EndLibraryItem -->
+					</div>
+					<div class="title">{$goods.goods_name}</div>
                     <div class="price">${$goods.shop_price} AUD</div>
-					<!--超过6个出现滚动条-->
-					
+                    
+					<!--超过6个出现滚动条-->					
 					<div class="suits" style="overflow-y: scroll; height:240px;width:400px">
 						<div class="color" id="color_title" title="{$frist_color_view}">
 							{foreach from = $specification key=k_id item =item}
@@ -354,6 +382,7 @@
                     <div class="type">
 						{$goods.goods_sn}-<span id="color_r">OGH</span>
 					</div>
+					
                     <div class="size_dec" id="size_options" title="close">
                     	<span class="size title" onclick="openoption()">
                     		{$lang.label_select_size}
@@ -363,6 +392,7 @@
 							<a href="javascript:popSizeChart();">{$lang.size_guide}</a>
 						</span>
                     </div>
+                    
                     <div class="size_list" style="display:none;">
 						<select id="goods-size-list" class="" onchange="selectSize(this);">
 							<option value="0">{$lang.label_select_size}</option>
@@ -384,6 +414,7 @@
                     	</span>
                     	<font class="arrow"></font>
                     </div>
+                    
                     <div id="goods-color-desc" style="display: none;">&nbsp;</div>
                     <div style="clear:both;height: 1em;">&nbsp;</div>
 					
@@ -397,17 +428,53 @@
 					<input name="color" type="hidden" id="color_option" value="{$frist_select_color}">
 					</form>
                 </div>
+            </div>
+
+            <!-- #Good image area -->
+            <div class="goods_img_area">
+				{$frist_goods_view}
+            </div>
             
+            <div class="goods_image_zoom">
+				<div class="zoom-toggle" title="enable">
+                    <a href="#" class="zoom"><span>{$lang.enable_image_zoom}</span></a>
+                    <a href="#" class="disable-zoom" style="display: none;"><span>{$lang.disable_image_zoom}</span></a>
+				</div>
+
+				<script>
+					jQuery(".zoom-toggle").click(function(){
+						if (jQuery(this).attr("title") == "enable") {
+							jQuery(".toDoMagicZoomPlus").removeClass("MagicZoomPlus");
+							MagicZoomPlus.stop();
+							jQuery(this).attr("title", "disable");
+							jQuery(this).find(".zoom").show();
+							jQuery(this).find(".disable-zoom").hide();
+						}
+						else {
+							jQuery(".toDoMagicZoomPlus").addClass("MagicZoomPlus");
+							refreshZoom();
+							jQuery(this).attr("title", "enable");
+							jQuery(this).find(".zoom").hide();
+							jQuery(this).find(".disable-zoom").show();
+						}
+					});
+
+					
+					jQuery(".toDoMagicZoomPlus").removeClass("MagicZoomPlus");
+					MagicZoomPlus.stop();
+					jQuery(".zoom-toggle").attr("title", "disable");
+					jQuery(".zoom-toggle").find(".zoom").show();
+					jQuery(".zoom-toggle").find(".disable-zoom").hide();
+					
+                    </script>
             </div>
-            <div class="goods_img_area"> 
-                   {$frist_goods_view}
-            </div>
+            
+            <!-- #Relation goods list -->
             <div class="goods_relate">
-				<div class="wear_it_with"> WEAR IT WITH</div>
+				<div class="wear_it_with">{$lang.wear_it_with}</div>
             	{foreach from=$related_goods item=item}
                 	<a href="{$item.url}"  target="_blank"><img src="{$item.goods_img}"></a>
                 {/foreach}
-               
             </div>
        
 	</div>
