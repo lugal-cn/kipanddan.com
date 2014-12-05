@@ -90,7 +90,7 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 				$tmp_arr = explode("_",$value['img_desc']);
 				if($tmp_arr[1] == '' && $tmp_arr[0] == $color_id){
 					$res['result'] .= '<br/>
-						<a rel="keep-thumbnail:false;click-to-activate:true;zoom-fade:true; zoom-fade-in-speed:1200; zoom-fade-out-speed:800; smoothing-speed:16; zoom-width:400px; zoom-height:320px; caption-source:#slow; expand-speed:1000; background-color:#666666; background-opacity:95; background-speed:1000; hint-text:; opacity-reverse:true; group:slow;" id="zoom'.$key.'" class="MagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+						<a id="zoom'.$key.'" class="MagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
 								<img src="'.$value["img_url"].'">
 						</a>
 						<p>'.$value['img_desc'].'</p>
@@ -98,7 +98,7 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 				}
 				if($tmp_arr[1] != '' && $tmp_arr[0] == $color_id){
 					$res['result'] .= '<br/>
-						<a rel="keep-thumbnail:false;click-to-activate:true;zoom-fade:true; zoom-fade-in-speed:1200; zoom-fade-out-speed:800; smoothing-speed:16; zoom-width:400px; zoom-height:320px; caption-source:#slow; expand-speed:1000; background-color:#666666; background-opacity:95; background-speed:1000; hint-text:; opacity-reverse:true; group:slow;" id="zoom'.$key.'" class="MagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+						<a id="zoom'.$key.'" class="MagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
 								<img src="'.$value["img_url"].'">
 						</a>
 						<p>'.$value['img_desc'].'</p>
@@ -349,7 +349,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 			$tmp_arr = explode("_",$value['img_desc']);
 			if($tmp_arr[1] == '' && $tmp_arr[0] == $color){
 				$view_frist .= '<br/>
-						<a rel="keep-thumbnail:false;click-to-activate:true;zoom-fade:true; zoom-fade-in-speed:1200; zoom-fade-out-speed:800; smoothing-speed:16; zoom-width:400px; zoom-height:320px; caption-source:#slow; expand-speed:1000; background-color:#666666; background-opacity:95; background-speed:1000; hint-text:; opacity-reverse:true; group:slow;" id="zoom'.$key.'" class="MagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+						<a id="zoom'.$key.'" class="MagicZoomPlus" href="' . $value["img_original"] . '" target="_blank">
 								<img src="'.$value["img_url"].'">
 						</a>
 						<p>'.$value['img_desc'].'</p>
@@ -357,7 +357,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
 			}
 			if($tmp_arr[1] != '' && $tmp_arr[0] == $color){
 				$view_frist .= '<br/>
-						<a rel="keep-thumbnail:false;click-to-activate:true;zoom-fade:true; zoom-fade-in-speed:1200; zoom-fade-out-speed:800; smoothing-speed:16; zoom-width:400px; zoom-height:320px; caption-source:#slow; expand-speed:1000; background-color:#666666; background-opacity:95; background-speed:1000; hint-text:; opacity-reverse:true; group:slow;" id="zoom'.$key.'" class="MagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+						<a id="zoom'.$key.'" class="MagicZoomPlus" href="' . $value["img_original"] . '" target="_blank">
 								<img src="'.$value["img_url"].'">
 						</a>
 						<p>'.$value['img_desc'].'</p>

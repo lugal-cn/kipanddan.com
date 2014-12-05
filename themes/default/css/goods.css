@@ -21,7 +21,7 @@ body{
 }
 
 .goods_img_area .MagicZoomPlus img {
-	max-width: 480px;
+	max-width: 600px;
 }
 
 .goods_detail_area{
@@ -321,7 +321,6 @@ select#goods-size-list {
 .goods_relate img{
 	height: 170px;
     width: 98px;
-	
 }
 
 /* .nav-postion {
@@ -332,4 +331,8 @@ select#goods-size-list {
 	text-align: left;
 	background-color: white;
 	z-index: 99;
+} */
+
+/* .MagicThumb-expanded {
+	min-width: 60em !important;
 } */

@@ -427,8 +427,8 @@ function process_image($page = 1, $page_size = 100, $type = 0, $thumb= true, $wa
                     $dir = dirname(ROOT_PATH . $row['img_url']) . '/';
                 }
 
-                $file_name  = cls_image::unique_name($dir);
-                $file_name .= cls_image::get_filetype(empty($row['img_url']) ? $row['img_original']: $row['img_url']);
+                $file_name  = @cls_image::unique_name($dir);
+                $file_name .= @cls_image::get_filetype(empty($row['img_url']) ? $row['img_original']: $row['img_url']);
 
                 copy(ROOT_PATH . $row['img_original'], $dir . $file_name);
                 $image = $GLOBALS['image']->add_watermark($dir . $file_name ,'',$GLOBALS['_CFG']['watermark'], $GLOBALS['_CFG']['watermark_place'], $GLOBALS['_CFG']['watermark_alpha']);

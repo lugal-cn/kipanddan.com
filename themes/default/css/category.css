@@ -40,7 +40,7 @@ body{
 }
 .goods_item{
 	float: left;
-    height: 50em;
+    max-height: 50em;
     margin: 0 0 30px;
     padding: 5px 0.5em;
     vertical-align: top;

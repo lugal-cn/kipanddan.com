@@ -227,6 +227,9 @@
 				jQuery(".color_area_" + {$select_color_id}).siblings().css("border-color", "#ffffff");
 				jQuery(".color_area_" + {$select_color_id}).css({opacity:1});
 				jQuery(".color_area_" + {$select_color_id}).siblings().css({opacity:0.5});
+// 				jQuery(".color_area_" + {$select_color_id}).focus();
+
+				refreshZoom();
 			}
                         
             jQuery(".color_card img").each(function(){
@@ -308,6 +311,24 @@
 						  
 		}
 
+	</script>
+	
+	<!-- Define Magic Zoom Plus options -->
+	<script type="text/javascript"> 
+		MagicZoomPlus.options = {
+			'opacity-reverse' : 'true',
+			'background-color' : '#666666',
+			'background-opacity' : 95,
+			'caption-source': '#goods-color-desc',
+			'keep-thumbnail' : 'false',
+			'click-to-activate' : 'true',
+			'move-on-click' : 'false',
+			'zoom-fade' : 'true',
+			'zoom-width' : 500,
+			'zoom-height' : 400,
+			'disable-zoom' : 'false',
+			'zoom-position' : 'inner'
+		}
 	</script>
 </head>
 <body>
