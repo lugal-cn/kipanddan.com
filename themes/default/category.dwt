@@ -39,7 +39,12 @@
 <!--当前位置 end-->
 <div class="content">
     <div class="product_list_area">
-        <!--{foreach from=$goods_list item=goods_list_array}-->
+        <!--{foreach from=$goods_list item=goods_list_array name=goods_list_ar}-->
+        <!--{if $smarty.foreach.goods_list_ar.index gt 1}-->
+	        <!--{if $smarty.foreach.goods_list_ar.index % 3 == 0}-->
+	        	<div class="clearfix">&nbsp;</div>
+	        <!--{/if}-->
+        <!--{/if}-->
             <div class="goods_item">
                 <div class="img">
                    <a href="{$goods_list_array.url}"><img width="132px" src="{$goods_list_array.goods_img}" /></a>
@@ -53,10 +58,9 @@
                 <div class="proprites">
                 	{foreach from = $goods_list_array.specification key=k_id item =item}
 						{if $item.name eq "color"}
-						<a href="{$goods_list_array.url}"><span class="button">{$lang.more_options}</span></a>
 						<ul class="goods-color-list">
 							{foreach from = $item.values key=k item=color1}
-							{if $k lt 5}
+							{if $k lt 10}
 								<li>
 								  	{foreach from =$goods_list_array.pictures key=kk item =color2}
 											{if $color1.label eq $color2.img_desc}
@@ -72,7 +76,7 @@
 							   </li>
 						   {/if}
 							{/foreach}
-							{if $k gt 4}
+							{if $k gt 9}
 							<li>
 								<a href="{$goods_list_array.url}">...</a>
 							</li>

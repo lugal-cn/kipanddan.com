@@ -154,11 +154,53 @@
 
 		function refreshZoom() {
 			MagicZoomPlus.refresh();
+// 			removeZoomPlusVersion();
+		}
+
+		// http://stackoverflow.com/questions/926580/find-text-string-using-jquery
+		function removeZoomPlusVersion() {
+			
+			var verText = "Please upgrade to full version of Magic Zoom Plus";
+
+			$( ".toDoMagicZoomPlus" ).animate({
+				opacity: 0.2
+			}, 1000, function() {
+				jQuery( "div.MagicZoomBigImageCont div" ).each(function() {
+					jQuery(this).addClass("found");
+					jQuery( "div.found:contains('Please upgrade to full version of Magic Zoom Plus')" ).attr("style", "opacity:0;");					
+				});
+				//Animation complete.
+			});
+			
+// 			jQuery('*', 'body')
+// 	        .andSelf()
+// 	        .contents()
+// 	        .filter(function(){
+// 		        console.log("filter working.");
+// 	            return this.nodeType === 3;
+// 	        })
+// 	        .filter(function(){
+// 	        	console.log("filter 2 working.");
+// 	            // Only match when contains 'simple string' anywhere in the text
+// 	            return this.nodeValue.indexOf(verText) != -1;
+// 	        })
+// 	        .each(function(){
+// 	        	console.log("each DOM working.");
+// 		        jQuery(this).addClass("I'm found.");
+// 	            // Do something with this.nodeValue
+// 	        });
 		}
 		
 		jQuery(document).ready(function(){
+
+			jQuery(".toDoMagicZoomPlus").each(function(){
+				jQuery(this).unbind("click");
+				jQuery(this).bind("click", function(){
+					removeZoomPlusVersion();
+				});
+			});
+
 			// 点击布料的时候，该布料就会改变样式
-			
 			jQuery(".color_area").click(function(e) {
 				jQuery(this).css("border-color", "#fff");
 				jQuery(this).siblings().css("border-color", "#ffffff");
@@ -220,9 +262,9 @@
 				ajaxOpenDes();
 
 				// Reset zoom icon.
-				jQuery(".zoom-toggle").attr("title", "disable");
-				jQuery(".zoom-toggle").find(".zoom").show();
-				jQuery(".zoom-toggle").find(".disable-zoom").hide();
+// 				jQuery(".zoom-toggle").attr("title", "disable");
+// 				jQuery(".zoom-toggle").find(".zoom").show();
+// 				jQuery(".zoom-toggle").find(".disable-zoom").hide();
 
 			})
 		}
@@ -300,7 +342,7 @@
 												 <div class="color_area color_area_{$color1.id}" id="{$color1.label}" style="border:1px solid #fff;max-height: 280px;">
 													  {foreach from =$pictures key=k item =color2}
 															{if $color1.label eq $color2.img_desc}
-																<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">
+																<div class="color_card" onclick="click_color({$color1.id})">
 																	<img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;">
 																</div>
 															{/if}
@@ -313,7 +355,7 @@
 													 <div class="color_area color_area_{$color1.id}" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
 														  {foreach from =$pictures key=k item =color2}
 																{if $color1.label eq $color2.img_desc}
-																	<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">
+																	<div class="color_card" onclick="click_color({$color1.id})">
 																		<img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;">
 																	</div>
 																{/if}
@@ -325,7 +367,7 @@
 													 <div class="color_area color_area_{$color1.id}" id="{$color1.label}" style="border:1px solid #fff;alpha(opacity=50); opacity: 0.5;max-height: 280px;">
 														  {foreach from =$pictures key=k item =color2}
 																{if $color1.label eq $color2.img_desc}
-																	<div class="color_card" style="max-height: 240px;" onclick="click_color({$color1.id})">
+																	<div class="color_card" onclick="click_color({$color1.id})">
 																		<img src="{$color2.img_url}" class="goods-list-pic" style="width: 100%; height: auto;">
 																	</div>
 																{/if}
@@ -433,40 +475,6 @@
             <!-- #Good image area -->
             <div class="goods_img_area">
 				{$frist_goods_view}
-            </div>
-            
-            <div class="goods_image_zoom">
-				<div class="zoom-toggle" title="enable">
-                    <a href="#" class="zoom"><span>{$lang.enable_image_zoom}</span></a>
-                    <a href="#" class="disable-zoom" style="display: none;"><span>{$lang.disable_image_zoom}</span></a>
-				</div>
-
-				<script>
-					jQuery(".zoom-toggle").click(function(){
-						if (jQuery(this).attr("title") == "enable") {
-							jQuery(".toDoMagicZoomPlus").removeClass("MagicZoomPlus");
-							MagicZoomPlus.stop();
-							jQuery(this).attr("title", "disable");
-							jQuery(this).find(".zoom").show();
-							jQuery(this).find(".disable-zoom").hide();
-						}
-						else {
-							jQuery(".toDoMagicZoomPlus").addClass("MagicZoomPlus");
-							refreshZoom();
-							jQuery(this).attr("title", "enable");
-							jQuery(this).find(".zoom").hide();
-							jQuery(this).find(".disable-zoom").show();
-						}
-					});
-
-					
-					jQuery(".toDoMagicZoomPlus").removeClass("MagicZoomPlus");
-					MagicZoomPlus.stop();
-					jQuery(".zoom-toggle").attr("title", "disable");
-					jQuery(".zoom-toggle").find(".zoom").show();
-					jQuery(".zoom-toggle").find(".disable-zoom").hide();
-					
-                    </script>
             </div>
             
             <!-- #Relation goods list -->

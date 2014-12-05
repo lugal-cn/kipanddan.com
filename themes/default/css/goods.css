@@ -19,12 +19,10 @@ body{
 	float:right;
 	overflow: hidden;
 }
-/* .goods_img_area img{
-	margin-left: 5em;
-	margin-bottom: 5em;
-	min-width: 20em;
-	max-width: 50em;
-} */
+
+.goods_img_area .MagicZoomPlus img {
+	max-width: 480px;
+}
 
 .goods_detail_area{
 	width:30em;
@@ -100,6 +98,8 @@ body{
 
 .color .color_area .color_card {
 	height: auto;
+	max-height: 166px;
+	overflow: hidden;
 }
 
 .color .color_area .color_card img{
