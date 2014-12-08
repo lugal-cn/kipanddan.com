@@ -47,7 +47,7 @@
         <!--{/if}-->
             <div class="goods_item">
                 <div class="img">
-                   <a href="{$goods_list_array.url}"><img width="132px" src="{$goods_list_array.goods_img}" /></a>
+                   <a href="{$goods_list_array.url}"><img src="{$goods_list_array.goods_img}" /></a>
                 </div>
                 <div class="title">
                     {$goods_list_array.name}
@@ -60,21 +60,23 @@
 						{if $item.name eq "color"}
 						<ul class="goods-color-list">
 							{foreach from = $item.values key=k item=color1}
-							{if $k lt 10}
-								<li>
-								  	{foreach from =$goods_list_array.pictures key=kk item =color2}
-											{if $color1.label eq $color2.img_desc}
-												<a href="{$goods_list_array.url}&color={$color1.label}&color_id={$color1.id}">
-													<div class="color-thumb-warr">
-														<div class="color-thumb" style="background-image: url({$color2.thumb_url});">
-															&nbsp;
+								{if $k gt 0}
+									{if $k lt 10}
+									<li>
+									  	{foreach from =$goods_list_array.pictures key=kk item =color2}
+												{if $color1.label eq $color2.img_desc}
+													<a href="{$goods_list_array.url}&color={$color1.label}&color_id={$color1.id}">
+														<div class="color-thumb-warr">
+															<div class="color-thumb" style="background-image: url({$color2.thumb_url});">
+																&nbsp;
+															</div>
 														</div>
-													</div>
-												</a>
-											{/if}
-								  	{/foreach}
-							   </li>
-						   {/if}
+													</a>
+												{/if}
+									  	{/foreach}
+								   </li>
+							   		{/if}
+							   	{/if}
 							{/foreach}
 							{if $k gt 9}
 							<li>

@@ -87,7 +87,7 @@
 			}else{
 				jQuery("#size_dec .arrow").removeClass("open");
 				
-				jQuery("#goods-color-desc").html("open");
+				jQuery("#goods-color-desc").html("");
 				jQuery("#goods-color-desc").slideUp();
 				
 				jQuery("#size_dec").attr('title','close');
@@ -153,7 +153,13 @@
 		}
 
 		function refreshZoom() {
-			MagicZoomPlus.refresh();
+			jQuery("body").animate({
+				opacity: 1
+				},1000, function(){
+					MagicZoomPlus.refresh();
+				}
+			);
+// 			MagicZoomPlus.start();
 // 			removeZoomPlusVersion();
 		}
 
@@ -219,7 +225,6 @@
 
 			if ({$select_color_view}) {
 				var divId = "{$select_color_id}";
-				console.log(jQuery(".color_area_" + {$select_color_id}).attr("id"));
 
 				changeColorAjax("{$frist_color_view}");
 
@@ -227,9 +232,21 @@
 				jQuery(".color_area_" + {$select_color_id}).siblings().css("border-color", "#ffffff");
 				jQuery(".color_area_" + {$select_color_id}).css({opacity:1});
 				jQuery(".color_area_" + {$select_color_id}).siblings().css({opacity:0.5});
-// 				jQuery(".color_area_" + {$select_color_id}).focus();
 
-				refreshZoom();
+
+				jQuery( "#color_area_" + {$select_color_id} ).animate({
+					opacity: 1
+				}, 100, function() {
+					jQuery( "#color_area_" + {$select_color_id} ).focus();
+					jQuery( "#color_area_" + {$select_color_id} ).hide();
+					jQuery( ".color_area_hidden").hide();
+					refreshZoom();
+					//Animation complete.
+				});
+				
+			}
+			else {
+				jQuery( ".color_area_hidden").hide();
 			}
                         
             jQuery(".color_card img").each(function(){
@@ -263,6 +280,8 @@
 				// Reset color description.
 				jQuery("#size_dec").attr('title','open');
 				ajaxOpenDes();
+
+				refreshZoom();
 
 				// Reset zoom icon.
 // 				jQuery(".zoom-toggle").attr("title", "disable");
@@ -368,6 +387,7 @@
 																</div>
 															{/if}
 													   {/foreach}
+													   <input id="color_area_{$color1.id}" class="color_area_hidden" />
 													   <div class="color_sign">{$color1.label}</div>
 												  </div>
 											{else}
@@ -381,6 +401,7 @@
 																	</div>
 																{/if}
 														   {/foreach}
+														   <input id="color_area_{$color1.id}" class="color_area_hidden" />
 														   <div class="color_sign">{$color1.label}</div>
 													 </div>
 													 <div style="clear:both"></div>
@@ -393,6 +414,7 @@
 																	</div>
 																{/if}
 														   {/foreach}
+														   <input id="color_area_{$color1.id}" class="color_area_hidden" />
 														   <div class="color_sign">{$color1.label}</div>
 													 </div>
 												{/if}

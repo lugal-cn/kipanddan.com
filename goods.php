@@ -90,7 +90,7 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 				$tmp_arr = explode("_",$value['img_desc']);
 				if($tmp_arr[1] == '' && $tmp_arr[0] == $color_id){
 					$res['result'] .= '<br/>
-						<a id="zoom'.$key.'" class="MagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+						<a id="zoom'.$key.'" class="MagicZoomPlus" href="' . $value["img_original"] . '" target="_blank">
 								<img src="'.$value["img_url"].'">
 						</a>
 						<p>'.$value['img_desc'].'</p>
@@ -98,7 +98,7 @@ if(!empty($_REQUEST) && $_REQUEST['act'] == 'return_change_color')
 				}
 				if($tmp_arr[1] != '' && $tmp_arr[0] == $color_id){
 					$res['result'] .= '<br/>
-						<a id="zoom'.$key.'" class="MagicZoomPlus" title="'.$goods['goods_style_name'].'" href="' . $value["img_original"] . '" target="_blank">
+						<a id="zoom'.$key.'" class="MagicZoomPlus" href="' . $value["img_original"] . '" target="_blank">
 								<img src="'.$value["img_url"].'">
 						</a>
 						<p>'.$value['img_desc'].'</p>

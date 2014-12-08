@@ -336,3 +336,7 @@ select#goods-size-list {
 /* .MagicThumb-expanded {
 	min-width: 60em !important;
 } */
+
+.color_area_hidden {
+	/* display: none; */
+}

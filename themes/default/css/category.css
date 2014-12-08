@@ -22,7 +22,7 @@ body{
 	width: 3em;
 } */
 .product_list_area{
-	/* min-width: 800px; */
+	min-width: 80em;
 	max-width: 80em;
 	width: auto;
 	height: auto;
@@ -30,6 +30,7 @@ body{
 	/*background-color:#cccccc;*/
 	margin-top:91px;
 	min-height:400px;
+	margin-left: 20em;
 }
 .page_area{
 	width:740px;
@@ -69,6 +70,7 @@ body{
 {
 	min-width: 24em;
 	height: auto;
+	width: 100%;
 	/* width:180px; */
 	/* height:250px; */
 	/*background-color:#999999;*/
